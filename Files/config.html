@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Bangers|Open+Sans:400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="js/handlebars-v4.0.5.js"></script>
+    <script src="js/main.js"></script>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<title>Le Bus Magique</title>
+	</head>
+
+	<body>
+		<div id="content" style="top:50px;padding: 0 1em;">
+
+			<header>
+				<button id="close" onclick="closeWindow();"><i class="fa fa-times" aria-hidden="true"></i></button>
+				<button id="drag" onmousedown="dragMove();"><i class="fa fa-arrows" aria-hidden="true"></i></button>
+			</header>
+
+      <h2>Configuration</h2>
+
+      <form id="config" autocomplete="off">
+        <fieldset>
+          <legend>API</legend>
+          <p>
+            <label>Clé API</label>
+            <input type="text" id="api_key" />
+            <input type="hidden" id="permissions" />
+            <span class="error" style="display:none;">Erreur</span>
+          </p>
+          <ul id="permissions" class="fa-ul">
+            <li class="account"><i class="fa-li fa fa-square"></i> account</li>
+            <li class="inventories"><i class="fa-li fa fa-square"></i> inventories</li>
+            <li class="characters"><i class="fa-li fa fa-square"></i> characters</li>
+            <li class="tradingpost"><i class="fa-li fa fa-square"></i> tradingpost</li>
+            <li class="wallet"><i class="fa-li fa fa-square"></i> wallet</li>
+            <li class="unlocks"><i class="fa-li fa fa-square"></i> unlocks</li>
+            <li class="pvp"><i class="fa-li fa fa-square"></i> pvp</li>
+            <li class="builds"><i class="fa-li fa fa-square"></i> builds</li>
+            <li class="progression"><i class="fa-li fa fa-square"></i> progression</li>
+            <li class="guilds"><i class="fa-li fa fa-square"></i> guilds</li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Compte</legend>
+          <p>
+            <label>Nom de compte</label>
+            <input type="text" id="account_name" disabled="disabel" />
+          </p>
+          <p>
+            <label>ID</label>
+            <input type="text" id="account_id" disabled="disabel" />
+          </p>
+          <p>
+            <label>Accès</label>
+            <input type="text" id="account_access" disabled="disabel" />
+          </p>
+					<p>
+            <label>Plus haut niveau</label>
+            <input type="text" id="high_level" disabled="disabel" />
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Guilde</legend>
+          <p>
+            <label>Guilde représentée</label>
+            <select id="favorite_guild">
+              <option value="">Aucun guilde connue</option>
+            </select>
+          </p>
+        </fieldset>
+        <p>
+          <button type="submit">Enregistrer les modifications</button>
+        </p>
+      </form>
+
+      <script>
+
+      var config_favorite_guild = getConfig('favorite_guild');
+
+        if(getConfig('api_key')) {
+          var api_key = getConfig('api_key');
+          $('input#api_key').val(api_key);
+
+          $.getJSON('https://api.guildwars2.com/v2/tokeninfo?access_token='+api_key, function(data) {
+            $('input#permissions').val(JSON.stringify(data.permissions));
+            $.each(data.permissions, function(i, j) {
+              $("#permissions li."+j+" i.fa-li").removeClass('fa-square').addClass('fa-check-square');
+    			  });
+          });
+
+          $.getJSON('https://api.guildwars2.com/v2/account?access_token='+api_key, function(data) {
+            $('input#account_access').val(data.access);
+            $('input#account_name').val(data.name);
+            $('input#account_id').val(data.id);
+
+						$('select#favorite_guild').html('<option value="">-- Choisissez une guilde --</option>');
+
+						$.each(data.guilds, function(i, j) {
+
+              $.getJSON('https://api.guildwars2.com/v2/guild/'+ j, function(data) {
+
+								var selected = '';
+                if(config_favorite_guild && config_favorite_guild == data.tag) {
+                  selected = ' selected="selected"'
+                }
+                $('select#favorite_guild').append('<option value="'+data.tag+'"'+selected+'>['+data.tag+'] '+data.name+'</option>');
+
+              });
+
+    			  });
+
+          });
+
+          $.getJSON('https://api.guildwars2.com/v2/characters?access_token='+api_key, function(data) {
+						var high_level = 0;
+
+            $.each(data, function(i, j) {
+
+              $.getJSON('https://api.guildwars2.com/v2/characters/'+ j.replace(' ', '%20') +'?lang=fr&access_token='+api_key, function(data) {
+
+								if(high_level < data.level) {
+									high_level = data.level;
+									$('input#high_level').val(high_level);
+								}
+
+              });
+
+    			  });
+
+          });
+
+        }
+
+        $('form#config').submit(function(e){
+          var $api_key = $('input#api_key'),
+              $high_level = $('input#high_level'),
+              $permissions = $('input#permissions'),
+              $account_name = $('input#account_name'),
+              $account_id = $('input#account_id'),
+              $account_access = $('input#account_access'),
+              $favorite_guild = $('select#favorite_guild');
+
+          if($api_key.val() == '') {
+            $api_key.next('.error').show();
+          } else {
+            $api_key.next('.error').hide();
+            setConfig('api_key', $api_key.val());
+          }
+
+          if($permissions.val() !== '') {
+            setConfig('permissions', $permissions.val());
+          }
+
+          if($account_name.val() !== '') {
+            setConfig('account_name', $account_name.val());
+          }
+
+          if($account_id.val() !== '') {
+            setConfig('account_id', $account_id.val());
+          }
+
+          if($high_level.val() !== '') {
+            setConfig('high_level', $high_level.val());
+          }
+
+					if($account_access.val() !== '') {
+            setConfig('account_access', $account_access.val());
+          }
+
+					if($favorite_guild.val() !== '') {
+            setConfig('favorite_guild', $favorite_guild.val());
+          } else {
+						deleteConfig('favorite_guild');
+					}
+
+          return false;
+        });
+      </script>
+
+		</div>
+	</body>
+</html>

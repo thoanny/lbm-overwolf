@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="js/handlebars-v4.0.5.js"></script>
+		<script src="js/handlebars-intl.min.js"></script>
+		<script src="js/locale-data/fr.js"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/tips.js"></script>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<title>Le Bus Magique</title>
+		<script> HandlebarsIntl.registerWith(Handlebars); var intlData = { locales: 'fr-FR' } </script>
+		<script>
+		    (function($){
+	        $(window).on("load",function(){
+            $("#wrap").mCustomScrollbar({
+							theme: 'inset',
+							callbacks:{
+						    onUpdate:function(){
+									$('#wrap').mCustomScrollbar('scrollTo', 'top');
+						    }
+							}
+						});
+	        });
+		    })(jQuery);
+		</script>
+	</head>
+
+	<body unselectable="on" onselectstart="return false;" onmousedown="return false;">
+		<div class="resizeGrip" id="resizeGripBottom" onmousedown="dragResize('Bottom');"></div>
+		<div id="content">
+
+			<header>
+				<a id="close" onclick="closeWindow();"><i class="fa fa-times" aria-hidden="true"></i></a>
+				<div id="drag" onmousedown="dragMove();"></div>
+				<!-- <a id="drag" onclick="resetSize();"><i class="fa fa-arrows" aria-hidden="true"></i></a> -->
+				<a id="config" onclick="openConfigWindow();"><i class="fa fa-cog" aria-hidden="true"></i></a>
+			</header>
+
+			<div id="tabs">
+			  <ul>
+
+			    <li><a href="#lbm"><img src="img/icons/Community.png" /></a></li>
+					<li><a href="#stash"><img src="img/icons/Auric_Basin.png" /></a></li>
+					<li><a href="#events"><img src="img/icons/Activities.png" /></a></li>
+			    <li><a href="#achievements"><img src="img/icons/Daily_Achievement.png" /></a></li>
+			    <li><a href="#achievements-category-142"><img src="img/icons/Out_of_the_Shadows.png" /></a></li>
+			    <li><a href="#achievements-category-145"><img src="img/icons/Rising_Flames.png" /></a></li>
+			    <li><a href="#achievements-category-88"><img src="img/icons/Daily_Fractals.png" /></a></li>
+			  </ul>
+				<div id="wrap">
+					<div id="lbm">
+						<div id="motd">Chargement du message du jour en cours...</div>
+						<div id="news">Chargement des dernières news en cours...</div>
+						<div id="pages">Chargement des dernières pages en cours...</div>
+					</div>
+					<div id="stash" style="display:none;">Chargement en cours...</div>
+					<div id="events" style="display:none;">Chargement en cours...</div>
+					<div id="achievements" style="display:none;"></div>
+					<div id="achievements-categories"></div>
+				</div>
+			</div>
+
+			<script>
+			  $( function() {
+			    $( "#tabs" ).tabs();
+			  } );
+		  </script>
+
+			<script id="stash-tpl" type="text/x-handlebars-template">
+				<h2>Nous aurions besoin...</h2>
+				<p>@todo</p>
+				<h2>Dans le coffre de guilde</h2>
+
+				<p><strong>Emplacements libres du coffre :</strong> {{empty}}/{{size}}.</p>
+				<p><strong>Solde bancaire :</strong> {{{coins_for_humans}}}.</p>
+
+				<table class="items" celppading="0" cellspacing="3" width="100%">
+					{{#each stash}}
+					<tr>
+						<td width="1">{{#if icon}}<img src="{{icon}}" />{{/if}}</td>
+						<td><span class="quality {{rarity}}">{{name}}</span></td>
+						<td width="1" align="right">&times;&nbsp;{{count}}</td>
+					</tr>
+					{{/each}}
+				</table>
+
+			</script>
+
+			<script id="events-tpl" type="text/x-handlebars-template">
+				<h2>&Eacute;vénements à venir</h2>
+				{{#each events}}
+					<dl>
+						<dt>{{formatDate Event.time_start day="numeric" month="long" year="numeric" hour="numeric" minute="numeric"}}</dt>
+						<dd>
+							<strong><a href="http://event.lebusmagique.fr/raidplanner/events/view/{{Event.id}}" target="_blank">[{{Dungeon.title}}] {{Event.title}}</a></strong>
+							{{#if Event.time_invitation}}<br />Début des invitations à {{formatDate Event.time_invitation hour="numeric" minute="numeric"}}{{/if}}
+						</dd>
+					</dl>
+				{{/each}}
+			</script>
+
+			<script id="motd-tpl" type="text/x-handlebars-template">
+				<h2>Message de guilde</h2>
+				<p style="margin-top:1em;">{{{motd}}}</p>
+			</script>
+
+			<script id="news-tpl" type="text/x-handlebars-template">
+				<h2>{{news.title}}</h2>
+				{{#if news.items}}
+				<ul>
+					{{#each news.items}}
+						<li><a href="{{link}}" target="_blank">{{title}}</a><br /><small>Publiée {{formatRelative pubDate}}</small></li>
+					{{/each}}
+				</ul>
+				{{else}}
+					<p>Aucune news à afficher...</p>
+				{{/if}}
+			</script>
+
+			<script id="pages-tpl" type="text/x-handlebars-template">
+				<h2>{{pages.title}}</h2>
+				{{#if pages.items}}
+				<ul>
+					{{#each pages.items}}
+						<li><a href="{{link}}" target="_blank">{{title}}</a><br /><small>Créée {{formatRelative pubDate}}</small></li>
+					{{/each}}
+				</ul>
+				{{else}}
+					<p>Aucune pages à afficher...</p>
+				{{/if}}
+			</script>
+
+			<script id="achievements-daily" type="text/template">
+				<div id="achievements-pve">
+					<h2>Succès JcE quotidien</h2>
+					{{#each pve}}
+						<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
+							<dt>
+								{{#if icon}}<img src="{{icon}}" class="icon" />{{else}}<img src="img/icons/Daily_Achievement.png" class="icon" />{{/if}}
+								<strong>{{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
+							</dt>
+							<dd>
+								<small>Niv. min : {{level.min}}, max : {{level.max}}</small><br />
+								{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
+							</dd>
+						</dl>
+					{{/each}}
+				</div>
+				<div id="achievements-pvp">
+					<h2>Succès JcJ quotidien</h2>
+					{{#each pvp}}
+						<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
+							<dt>
+								{{#if icon}}<img src="{{icon}}" class="icon" />{{else}}<img src="img/icons/Daily_Achievement.png" class="icon" />{{/if}}
+								<strong>{{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
+							</dt>
+							<dd>
+								<small>Niv. min : {{level.min}}, max : {{level.max}}</small><br />
+								{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
+							</dd>
+						</dl>
+					{{/each}}
+				</div>
+				<div id="achievements-wvw">
+					<h2>Succès McM quotidien</h2>
+					{{#each wvw}}
+						<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
+							<dt>
+								{{#if icon}}<img src="{{icon}}" class="icon" />{{else}}<img src="img/icons/Daily_Achievement.png" class="icon" />{{/if}}
+								<strong>{{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
+							</dt>
+							<dd>
+								<small>Niv. min : {{level.min}}, max : {{level.max}}</small><br />
+								{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
+							</dd>
+						</dl>
+					{{/each}}
+				</div>
+				<div id="achievements-special">
+					<h2>Succès spéciaux quotidien</h2>
+					{{#if special}}
+					{{#each special}}
+						<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
+							<dt>
+								{{#if icon}}<img src="{{icon}}" class="icon" />{{else}}<img src="img/icons/Daily_Achievement.png" class="icon" />{{/if}}
+								<strong>{{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
+							</dt>
+							<dd>
+								<small>Niv. min : {{level.min}}, max : {{level.max}}</small><br />
+								{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
+							</dd>
+						</dl>
+					{{/each}}
+					{{else}}
+						<p>Aucun succès spécial pour le moment...</p>
+					{{/if}}
+				</div>
+			</script>
+
+			<script id="achievements-category" type="text/x-handlebars-template">
+				<div id="achievements-category-{{id}}" style="display: none;">
+					<h2>{{title}}</h2>
+					{{#each category}}
+						<dl class="achievement achievement-{{id}}">
+							<dt>
+								{{#if icon}}<img src="{{icon}}" class="icon" />{{else}}<img src="img/icons/Daily_Achievement.png" class="icon" />{{/if}}
+								<strong>{{name}}</strong>
+							</dt>
+							<dd>
+								{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
+							</dd>
+						</dl>
+					{{/each}}
+				</div>
+			</script>
+
+			<script> loadIndex(); </script>
+
+		</div>
+	</body>
+</html>

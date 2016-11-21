@@ -1,0 +1,324 @@
+﻿html {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	background: none;
+  font-family: Arial, sans-serif;
+  color: #fff;
+	margin:0;
+	padding:0;
+}
+
+input, select {
+	font-family: Arial, sans-serif;
+}
+
+body {
+  background: url('img/bg.png') no-repeat center top fixed transparent;
+  /*background: transparent;*/
+  height: 100%;
+  width: 100%;
+  font-size: 80%;
+  line-height: 1.4;
+	margin:0;
+	padding:0;
+	text-shadow: 0 0 3px #000;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Bangers', cursive;
+	color: #F7B06D;
+	font-weight: normal;
+	letter-spacing: .05em;
+	margin-top: .25em;
+	margin-bottom: 0;
+}
+
+h1 {
+	font-size: 2.4em;
+}
+
+h2 {
+	font-size: 1.8em;
+	overflow: hidden;
+  height: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+h3 {
+	font-size: 1.8em;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+a {
+	color: #F7B06D;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+header {
+	/*background: rgba(0, 0, 0, .33);*/
+	position:fixed;
+	top: 0;
+	width: 100%;
+	text-align: center;
+}
+
+header h1 {
+	margin: 0;
+	padding: 20px 20px 10px;
+}
+
+header h1 img {
+	display: inline-block;
+	display: none;
+}
+
+header #close, header #config, header #teamspeak {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	border: 0;
+	outline: 0;
+	background: #e1e1e1;
+	color: buttontext;
+	line-height: 25px;
+	text-align: center;
+	padding: 0;
+	box-sizing:border-box;
+	display:block;
+	cursor: pointer;
+	text-shadow: none;
+	box-shadow: 0 0 3px #000;
+	z-index: 99;
+}
+
+header #drag {
+	cursor: move;
+	height: 47px;
+	background: rgba(0, 0, 0, 0.01);
+}
+header #teamspeak {
+	right: 45px;
+	left: auto;
+}
+
+header #config {
+	right: 10px;
+	left: auto;
+}
+
+header a:hover {
+	background: #fff !important;
+}
+
+header a:active {
+	box-shadow: inset 1px 1px 3px #000 !important;
+}
+
+.resizeGrip {
+	/*border: 1px solid blue;*/
+	position: absolute;
+}
+
+#content {
+	position: absolute;
+	top:145px;
+	/*top:95px;*/
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	padding: 0;
+	margin: 0;
+	/*overflow: auto;*/
+}
+
+#resizeGripBottom {
+	height: 12px;
+	bottom: 0;
+	left: 0px;
+	right: 0px;
+	cursor: ns-resize;
+	background:url('img/grip.png') no-repeat center center transparent;
+}
+
+#resizeGripBottom:before,
+#resizeGripBottom:after {
+	content: "";
+  display: block;
+  width: 14%;
+  height: 1px;
+  background: #444;
+  position: absolute;
+  left: 43%;
+  top: 6px;
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, .1);
+}
+
+#resizeGripBottom:after {
+	top: 9px;
+}
+
+img.icon {
+	height: 30px;
+	float: left;
+	margin-right: .25em;
+	margin-top: -6px;
+}
+
+button {
+	font-size: .85em;
+  font-weight: bold;
+  border: 0;
+  padding: .3em .5em;
+  border-radius: 3px;
+	outline: 0;
+}
+
+button:hover {
+  cursor: pointer;
+	background: #fff;
+}
+
+button:active {
+	box-shadow: inset 1px 1px 3px #000;
+}
+
+li.ui-tab a {
+  outline: none;
+}
+
+li.ui-tab img {
+  height: 40px;
+  height: 46px;
+	display: block;
+}
+
+#guild {
+	padding: 1em;
+	/*font-size: 1.1em;*/
+}
+
+#stash table.items img {
+	width: 20px;
+	height: auto;
+}
+
+.quality.junk {
+	color: #AAA;
+}
+
+.quality.basic {
+	color: #FFF;
+}
+
+.quality.fine {
+	color: #62A4DA;
+}
+
+.quality.masterwork {
+	color: #1a9306;
+}
+
+.quality.rare {
+	color: #fcd00b;
+}
+
+.quality.exotic {
+	color: #ffa405;
+}
+
+.quality.ascended {
+	color: #fb3e8d;
+}
+
+.quality.legendary {
+	color: #4C139D;
+}
+
+.coins-gold {
+	padding-right: 18px;
+	background:url('img/icons/Gold_coin.png') no-repeat center right;
+}
+
+.coins-silver {
+	padding-right: 18px;
+	background:url('img/icons/Silver_coin.png') no-repeat center right;
+}
+
+.coins-copper {
+	padding-right: 18px;
+	background:url('img/icons/Copper_coin.png') no-repeat center right;
+}
+
+/* TABS */
+
+#wrap {
+	overflow: auto;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+#wrap ul {
+	padding-left: 2em;
+}
+
+.achievement.level-hide, .achievement.access-hide {
+	display: none;
+}
+
+#tabs #achievements, #tabs #achievements-categories, #tabs #lbm, #tabs #stash, #tabs #events {
+	padding: 0 1em;
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#tabs .ui-tabs-nav {
+	float:left;
+	width: 100%;
+	list-style: none;
+	padding:0 0 0 .5em;
+	padding:0 0 0 .5em;
+	margin: .5em 0;
+	margin-top: -45px;
+	/*border-bottom: 5px solid rgba(255, 255, 255, .5);*/
+	box-sizing: border-box;
+}
+
+#tabs .ui-tabs-nav .ui-tabs-tab {
+	float:left;
+	margin-right: 3px;
+}
+
+#tabs .ui-tabs-nav .ui-tabs-tab .ui-tabs-anchor {
+	display: block;
+	padding: .2em .4em;
+	padding: 0;
+	/*background: rgba(255, 255, 255, .25);*/
+	background: none;
+	opacity: .66;
+	box-shadow: none;
+}
+
+#tabs .ui-tabs-nav .ui-tabs-tab.ui-state-active .ui-tabs-anchor {
+	/*background: rgba(255, 255, 255, .5);*/
+	background: none;
+	opacity: 1;
+}
