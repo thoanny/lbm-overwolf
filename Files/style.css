@@ -209,8 +209,9 @@ li.ui-tab a {
 }
 
 li.ui-tab img {
-  height: 40px;
-  height: 46px;
+  /*height: 40px;*/
+  /*height: 46px;*/
+	height: 39px;
 	display: block;
 }
 
