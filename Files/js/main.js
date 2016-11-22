@@ -202,7 +202,7 @@ function loadAchievementsDaily() {
 };
 
 function loadAchievementsCategories() {
-  $.each([142, 145, 88], function(b, c) {
+  $.each([142, 145, 149, 88], function(b, c) {
     $.getJSON(gw2_api_url+'/achievements/categories/'+c+'?lang=fr', function(data) {
 
       var list = data.achievements;
