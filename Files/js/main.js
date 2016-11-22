@@ -1,5 +1,5 @@
 var gw2_api_url = 'https://api.guildwars2.com/v2',
-    lbm_api_url = 'http://tests.dev/overwolf',
+    lbm_api_url = 'http://waldolf.fr/overlay',
     lbm_ts_url = 'ts.lebusmagique.fr';
 
 function setConfig(key, value){
