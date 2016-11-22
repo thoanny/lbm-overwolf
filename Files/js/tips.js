@@ -53,6 +53,16 @@ var tips = {
     "link_title": "Province de Metrica",
     "link_url": "%wiki%/Province_de_Metrica#.C3.89v.C3.A8nements"
   },
+  1953: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Contreforts du Voyageur",
+    "link_url": "%wiki%/Contreforts_du_Voyageur#.C3.89v.C3.A8nements"
+  },
+  1957: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Passage de Lornar",
+    "link_url": "%wiki%/Passage_de_Lornar#.C3.89v.C3.A8nements"
+  },
   1959: {
     "mask": "Consultez notre guide des %link%.",
     "link_url": "%lbm%/mises-a-jour-passees/les-contrees-sauvages-d-argent/les-contrees-sauvages-d-argent-guide.html",
@@ -83,6 +93,12 @@ var tips = {
     "link_title": "guide de l'instance personnelle",
     "link_url": "%lbm%/les-guides-du-passager/farm/l-instance-personnelle.html"
   },
+  1973: {
+    "mask": "Récoltez des pommes de terre au nord ouest du Point de passage des Contrées sauvages d'Akk %btn% ou dans votre instance personnelle à la Terrasse du Rêveur (Sylvari) ou au Labo de développement appliqué (Asura).<br />Consultez notre %link%.",
+    "link_title": "guide de l'instance personnelle",
+    "link_url": "%lbm%/les-guides-du-passager/farm/l-instance-personnelle.html",
+    "btn": "[&BEIAAAA=]"
+  },
   1975: {
     "mask": "Récoltez dans votre %link% au District de Salma (Humain) ou rendez-vous au sud du Point de passage de Beetletun %btn%.",
     "link_title": "instance personnelle",
@@ -99,6 +115,11 @@ var tips = {
     "mask": "Consulez notre guide du %link%.",
     "link_url": "%lbm%/expeditions/world-boss/gouffre-gele.html",
     "link_title": "Gouffre gelé"
+  },
+  2166: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/le-complexe-souterrain.html",
+    "link_title": "Complexe souterrain"
   },
   2244: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 31.</small>",
@@ -135,6 +156,11 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/non-classee.html",
     "link_title": "Non classée"
   },
+  2492: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-volcanique.html",
+    "link_title": "Volcanique"
+  },
   2560: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/boss-de-la-fusion.html",
@@ -145,6 +171,11 @@ var tips = {
   },
   2890: {
     "mask": "<small>RA : Niv. 52 = 65 ; 72 = 100.</small>"
+  },
+  2893: {
+    "mask": "Découvrez nos guides détaillés des chemins des %link%.",
+    "link_title": "Catacombes d'Ascalon",
+    "link_url": "%lbm%/expeditions/donjons/catacombes-d-ascalon/"
   },
   2895: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 55 = 70 ; Niv. 64 = 86.</small>",
@@ -171,6 +202,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 3 et 18 = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-ruines-aquatiques.html",
     "link_title": "ruines aquatiques"
+  },
+  2901: {
+    "mask": "Découvrez nos guides détaillés des chemins de la %link%.",
+    "link_title": "Citadelle de la Flamme",
+    "link_url": "%lbm%/expeditions/donjons/citadelle-de-la-flamme/"
   },
   2902: {
     "mask": "<small>RA : Niv. 36 = 36 ; 44 = 50.</small>"
@@ -200,9 +236,10 @@ var tips = {
     "link_title": "Aveugleneige"
   },
   2918: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 51 = 63 ; Niv. 74 = 104.</small>",
-    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-aveugleneige.html",
-    "link_title": "Aveugleneige"
+    "mask": "<small>RA : Niv. 51 = 63 ; Niv. 74 = 104.</small>"
+  },
+  2923: {
+    "mask": "<small>RA : Niv. 80 = 114.</small>"
   },
   2925: {
     "mask": "<small>RA : Niv. 62 = 83.</small>"
@@ -255,17 +292,18 @@ var tips = {
     "mask": "<small>RA : Niv. 96 = 143.</small>"
   },
   2949: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 27 = 20 ; Niv. 37 = 38.</small>",
-    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-aveugleneige.html",
-    "link_title": "Aveugleneige"
+    "mask": "<small>RA : Niv. 27 = 20 ; Niv. 37 = 38.</small>"
   },
   2950: {
     "mask": "<small>RA : Niv. 53 = 66 ; 68 = 94.</small>"
   },
   2952: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 86 = 125 ; Niv. 93 = 138.</small>",
-    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-aveugleneige.html",
-    "link_title": "Aveugleneige"
+    "mask": "<small>RA : Niv. 86 = 125 ; Niv. 93 = 138.</small>"
+  },
+  2954: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 20 = 8.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/ocean-solide.html",
+    "link_title": "Océan solide"
   },
   2956: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 76 = 107.</small>",
@@ -274,6 +312,11 @@ var tips = {
   },
   2958: {
     "mask": "<small>RA : Niv. 33 = 31 ; 47 = 56.</small>"
+  },
+  2959: {
+    "mask": "Découvrez nos guides détaillés des chemins de la %link%.",
+    "link_title": "Tonnelle du crépuscule",
+    "link_url": "%lbm%/expeditions/donjons/tonnelle-du-crepuscule/"
   },
   2962: {
     "mask": "<small>RA : Niv. 75 = 106.</small>"
@@ -287,6 +330,9 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 84 = 122 ; Niv. 97 = 145.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
     "link_title": "Réacteur de Thaumanova"
+  },
+  2971: {
+    "mask": "<small>RA : Niv. 35 = 34 ; 45 = 52.</small>"
   },
   2977: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 7 = 0 ; 22 = 11.</small>",
@@ -302,6 +348,9 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 15 = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
     "link_title": "Réacteur de Thaumanova"
+  },
+  2986: {
+    "mask": "<small>RA : Niv. 60 = 79.</small>"
   },
   2989: {
     "mask": "<small>RA : Niv. 87 = 127 ; 92 = 136.</small>"
@@ -355,7 +404,25 @@ var tips = {
     "mask": "Rien de difficile. Remplissez les conditions d'apparition des boss et vainquez-en un pour terminer cette quotidienne. Consultez notre guide de la %link%.",
     "link_url": "%lbm%/gw2-hearth-of-thorns/baie-des-braises/baie-des-braises-guide.html",
     "link_title": "Baie des Braises"
-  }
-
+  },
+  3175: {
+    "mask": "<small>RA : Niv. 75 = 106.</small>"
+  },
+  3177: {
+    "mask": "<small>RA : Niv. 100 = 150.</small>"
+  },
+  3184: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 90.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-du-champ-de-bataille-urbain.html",
+    "link_title": "Champ de bataille urbain"
+  },
+  3196: {
+    "mask": "<small>RA : Niv. 50 = 61.</small>"
+  },
+  3229: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 25 = 17.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-cauchemars.html",
+    "link_title": "Cauchemars"
+  },
 
 };
