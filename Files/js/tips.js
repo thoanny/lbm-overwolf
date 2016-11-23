@@ -10,18 +10,18 @@ var tips = {
   },
   1875: {
     "mask": "Voir la vidéo de la SaDo Expedition : %link%.",
-    "link_url": "https://www.youtube.com/watch?v=DnOCbLY-FIo",
+    "link_url": "%yt%/DnOCbLY-FIo",
     "link_title": "Larmes d'Itlaocol"
   },
   1878: {
     "mask": "Voir la vidéo de la SaDo Expedition : %link%.",
-    "link_url": "https://www.youtube.com/watch?v=_9I1di7on9c",
+    "link_url": "%yt%/_9I1di7on9c",
     "link_title": "Souvenirs de Magellan"
   },
   1885: {
     "mask": "Rendez-vous au nord du Point de Passage de Terra Carorunda %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
     "btn": "[&BAECAAA=]",
-    "link_url": "https://youtu.be/86KpGTIS9_Q",
+    "link_url": "%yt%/86KpGTIS9_Q",
     "link_title": "Folie de Delirius"
   },
   1888: {
@@ -30,23 +30,38 @@ var tips = {
     "link_url": "%yt%/aRENFxZPY_8",
     "link_title": "Laboratoire de Goemm"
   },
+  1895: {
+    "mask": "Rendez-vous au sud du Point de Passage des Sources Chaudes de Zelechor %btn%.<br />Voir la vidéo de la Sado Expedition : %link%.",
+    "btn": "[&BHcBAAA=]",
+    "link_url": "%yt%/aRENFxZPY_8",
+    "link_title": "Perchoir des chamanes"
+  },
   1902: {
     "mask": "Rendez-vous à l'est du Point de Passage de Fablegriffe %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
     "btn": "[&BMcDAAA=]",
-    "link_url": "https://www.youtube.com/watch?v=_PlVQiQTnOk",
+    "link_url": "%yt%/tZdOK8Kg3Rs",
     "link_title": "Étendue de Fablegriffe"
   },
   1910: {
     "mask": "Rendez-vous à l'est du Point de passage d'Arca %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
     "btn": "[&BLIAAAA=]",
-    "link_url": "https://www.youtube.com/watch?v=ZVw5vJiSp94",
+    "link_url": "%yt%/ZVw5vJiSp94",
     "link_title": "Butin/Vengeance de Fawcett"
   },
   1926: {
     "mask": "Rendez-vous au sud est du Point de passage du Marais d'Anathema %btn%.<br />Voir la vidéo de la Sado Expedition : %link%.",
     "btn": "[&BPwAAAA=]",
-    "link_url": "https://www.youtube.com/watch?v=aHldqSDkt_A",
+    "link_url": "%yt%/aHldqSDkt_A",
     "link_title": "Fosses de l'engeance"
+  },
+  1938: {
+    "mask": "Un peu au sud est du Point de passage des landes ravagées %btn%, vous verrez une vachapulte. Interagissez avec ;-)",
+    "btn": "[&BNoAAAA=]"
+  },
+  1941: {
+    "mask" : "Wiki: %link%",
+    "link_title": "Rivage maudit",
+    "link_url": "%wiki%/Rivage_maudit#.C3.89v.C3.A8nements"
   },
   1951: {
     "mask": "Wiki : %link%.",
@@ -105,6 +120,10 @@ var tips = {
     "link_url": "%lbm%/les-guides-du-passager/farm/l-instance-personnelle.html",
     "btn": "[&BPoAAAA=]"
   },
+  1980: {
+    "mask": "À partir du Point de passage du pont des lianes %btn%, rendez-vous au nord, dans un petit champ de carottes et de laitues.",
+    "btn": "[&BIYHAAA=]"
+  },
   1985: {
     "mask": "Récoltez du raisin au dessous du Point de passage de la Gueule du Démon %btn% ou dans votre instance personnelle à la Loge du chasseur (Norn).<br />Consultez notre %link%.",
     "link_title": "guide de l'instance personnelle",
@@ -120,6 +139,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-complexe-souterrain.html",
     "link_title": "Complexe souterrain"
+  },
+  2238: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
+    "link_title": "Réacteur de Thaumanova"
   },
   2244: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 31.</small>",
@@ -165,6 +189,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/boss-de-la-fusion.html",
     "link_title": "Boss de la Fusion"
+  },
+  2598: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 45.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-du-marais.html",
+    "link_title": "Marais"
   },
   2889: {
     "mask": "<small>RA : Niv. 29 = 24 ; 43 = 49.</small>"
@@ -270,7 +299,7 @@ var tips = {
     "mask": "Récoltez dans votre Hall de guilde."
   },
   2939: {
-    "mask": "<small>RA : Niv. 79 = 112 ; 91 = 134.</small>"
+    "mask": "<small>RA : Niv. 79 = 113 ; 91 = 134.</small>"
   },
   2940: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 4 = 0 ; 12 = 0.</small>",
@@ -278,7 +307,7 @@ var tips = {
     "link_title": "Non classée"
   },
   2941: {
-    "mask": "<small>RA : Niv. 78 = 111 ; 85 = 124.</small>"
+    "mask": "<small>RA : Niv. 78 = 111 ; 85 = 123.</small>"
   },
   2942: {
     "mask": "Consultez notre guide des %link%.",
@@ -361,7 +390,7 @@ var tips = {
     "link_title": "Réacteur de Thaumanova"
   },
   3038: {
-    "mask": "<small>RA : Niv. 88 = 128 ; 99 = 149.</small>",
+    "mask": "<small>RA : Niv. 88 = 129 ; 99 = 148.</small>",
   },
   3044: {
     "mask": "<small>RA : Niv. 30 = 26 ; 38 = 40.</small>",

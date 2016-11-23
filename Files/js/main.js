@@ -163,10 +163,13 @@ function loadAchievementsDaily() {
           data[i][k]['tip'] = tips[id];
           if(tips[id]) {
             var mask = tips[id].mask,
-                btn = tips[id].btn,
-                link_url = tips[id].link_url.replace('%lbm%', 'http://www.lebusmagique.fr/pages').replace('%yt%', 'https://youtu.be').replace('%wiki%', 'https://wiki-fr.guildwars2.com/wiki'),
-                link_title = tips[id].link_title,
+                btn = tips[id].btn;
+            if(typeof(tips[id].link_url) !== 'undefined') {
+              var link_url = tips[id].link_url.replace('%lbm%', 'http://www.lebusmagique.fr/pages').replace('%yt%', 'https://youtu.be').replace('%wiki%', 'https://wiki-fr.guildwars2.com/wiki');
+            }
+                var link_title = tips[id].link_title,
                 tip = mask.replace("%btn%", "<button onclick=\"copyToClipboard('"+btn+"')\"><i class=\"fa fa-clipboard\" aria-hidden=\"true\"></i> "+btn+"</button>").replace("%link%", "<a href=\""+link_url+"\" target=\"_blank\">"+link_title+"</a>");
+
             data[i][k]['tip'] = tip;
           }
 

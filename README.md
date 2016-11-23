@@ -21,6 +21,11 @@
 
 ## Changelog
 
+### v0.1-alpha.9
+
+* Correction d'un bug si pas de lien dans les conseils
+* Ajout de conseils pour les succès du 22/11/16
+
 ### v0.1-alpha.8
 
 * Les images ont été converties en base64
