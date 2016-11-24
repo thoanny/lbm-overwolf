@@ -21,6 +21,10 @@
 
 ## Changelog
 
+### v0.1-alpha.10
+
+* Ajout de GruntJS
+
 ### v0.1-alpha.9
 
 * Correction d'un bug si pas de lien dans les conseils

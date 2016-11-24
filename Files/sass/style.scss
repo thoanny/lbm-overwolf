@@ -1,4 +1,4 @@
-﻿html {
+html {
 	overflow: hidden;
 	height: 100%;
 	width: 100%;
@@ -15,9 +15,9 @@ input, select {
 
 @font-face {
   font-family: 'Bangers';
-  src: url('fonts/Bangers.woff2') format('woff2'),
-       url('fonts/Bangers.woff') format('woff'),
-       url('fonts/Bangers.ttf')  format('truetype');
+  src: url('../fonts/Bangers.woff2') format('woff2'),
+       url('../fonts/Bangers.woff') format('woff'),
+       url('../fonts/Bangers.ttf')  format('truetype');
 }
 
 body {
