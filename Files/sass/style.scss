@@ -89,6 +89,46 @@ a:hover {
 	text-decoration: underline;
 }
 
+dl {
+	margin-top: 0;
+	margin-bottom: 1.5em;
+	position: relative;
+
+	&.achievement {
+		margin-left: 15px;
+
+		dt {
+			cursor: pointer;
+		}
+
+		&:before {
+			content: '\f096';
+			font-family: FontAwesome;
+			position: absolute;
+			left: -20px;
+			font-size: 1.3em;
+			top: -2px;
+		}
+
+		&.checked {
+			&:before {
+				content: '\f046';
+			}
+			dt {
+				text-decoration: line-through;
+				font-style: italic;
+			}
+			dd {
+				display: none;
+			}
+		}
+	}
+}
+
+dd {
+	margin-left: 15px;
+}
+
 header {
 	/*background: rgba(0, 0, 0, .33);*/
 	position:fixed;

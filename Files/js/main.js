@@ -276,3 +276,12 @@ function loadAchievementsCategory(catid, catname) {
     $('#menu').dropdown();
   });
 })(jQuery);
+
+$(document).on("click",'.menu ul span', function(){
+    var page = $(this).attr('class');
+    loadPage(page);
+});
+$(document).on("click",'dl.achievement dt', function(){
+    var dl = $(this).parent();
+    dl.toggleClass('checked');
+});

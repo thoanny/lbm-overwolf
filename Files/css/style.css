@@ -59,6 +59,32 @@ a {
 a:hover {
   text-decoration: underline; }
 
+dl {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  position: relative; }
+  dl.achievement {
+    margin-left: 15px; }
+    dl.achievement dt {
+      cursor: pointer; }
+    dl.achievement:before {
+      content: '\f096';
+      font-family: FontAwesome;
+      position: absolute;
+      left: -20px;
+      font-size: 1.3em;
+      top: -2px; }
+    dl.achievement.checked:before {
+      content: '\f046'; }
+    dl.achievement.checked dt {
+      text-decoration: line-through;
+      font-style: italic; }
+    dl.achievement.checked dd {
+      display: none; }
+
+dd {
+  margin-left: 15px; }
+
 header {
   /*background: rgba(0, 0, 0, .33);*/
   position: fixed;

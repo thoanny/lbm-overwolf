@@ -21,6 +21,11 @@
 
 ## Changelog
 
+### v0.1-alpha.16
+
+* Suppression des icones des succès
+* Prototype de suivi des succès réalisés
+
 ### v0.1-alpha.14
 
 * Ajout de normalize.css
