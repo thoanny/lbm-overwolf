@@ -98,51 +98,9 @@
 				{{/if}}
 			</script>
 
-			<script id="daily-pve-tpl" type="text/x-handlebars-template">
-				{{#each pve}}
-					<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
-						<dt>
-							<strong>{{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
-						</dt>
-						<dd>
-							<small>Niv. min : {{level.min}}, max : {{level.max}}</small><br />
-							{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
-						</dd>
-					</dl>
-				{{/each}}
-			</script>
-
-			<script id="daily-pvp-tpl" type="text/x-handlebars-template">
-				{{#each pvp}}
-					<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
-						<dt>
-							<strong>{{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
-						</dt>
-						<dd>
-							<small>Niv. min : {{level.min}}, max : {{level.max}}</small><br />
-							{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
-						</dd>
-					</dl>
-				{{/each}}
-			</script>
-
-			<script id="daily-wvw-tpl" type="text/template">
-				{{#each wvw}}
-					<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
-						<dt>
-							<strong>{{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
-						</dt>
-						<dd>
-							<small>Niv. min : {{level.min}}, max : {{level.max}}</small><br />
-							{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
-						</dd>
-					</dl>
-				{{/each}}
-			</script>
-
-			<script id="daily-special-tpl" type="text/template">
-				{{#if special}}
-				{{#each special}}
+			<script id="daily-tpl" type="text/x-handlebars-template">
+				{{#if achievements}}
+				{{#each achievements}}
 					<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
 						<dt>
 							<strong>{{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
@@ -154,50 +112,11 @@
 					</dl>
 				{{/each}}
 				{{else}}
-					<p>Aucun succès spécial pour le moment...</p>
+					<p>Aucun succès dans cette catégorie pour le moment...</p>
 				{{/if}}
 			</script>
 
-			<script id="daily-fen-tpl" type="text/x-handlebars-template">
-				{{#each category}}
-					<dl class="achievement achievement-{{id}}">
-						<dt>
-							<strong>{{name}}</strong>
-						</dt>
-						<dd>
-							{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
-						</dd>
-					</dl>
-				{{/each}}
-			</script>
-
-			<script id="daily-bay-tpl" type="text/x-handlebars-template">
-				{{#each category}}
-					<dl class="achievement achievement-{{id}}">
-						<dt>
-							<strong>{{name}}</strong>
-						</dt>
-						<dd>
-							{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
-						</dd>
-					</dl>
-				{{/each}}
-			</script>
-
-			<script id="daily-frontier-tpl" type="text/x-handlebars-template">
-				{{#each category}}
-					<dl class="achievement achievement-{{id}}">
-						<dt>
-							<strong>{{name}}</strong>
-						</dt>
-						<dd>
-							{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
-						</dd>
-					</dl>
-				{{/each}}
-			</script>
-
-			<script id="daily-fractals-tpl" type="text/x-handlebars-template">
+			<script id="daily-category-tpl" type="text/x-handlebars-template">
 				{{#each category}}
 					<dl class="achievement achievement-{{id}}">
 						<dt>

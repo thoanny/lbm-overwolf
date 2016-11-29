@@ -162,7 +162,8 @@ function loadAchievementsDaily( type ) {
     var list = [];
     var names = [],
         requirements = [],
-        icons = [];
+        icons = [],
+        achievements = [];
 
     $.each(data, function(i, j) {
       $.each(j, function(k, l) {
@@ -221,9 +222,11 @@ function loadAchievementsDaily( type ) {
         });
       });
 
-      var source   = $("#daily-"+type+"-tpl").html();
+      achievements['achievements'] = data[type];
+
+      var source   = $("#daily-tpl").html();
       var template = Handlebars.compile(source);
-      var html    = template(data);
+      var html    = template(achievements);
       $('#page .container').html(html);
 
     });
@@ -260,7 +263,7 @@ function loadAchievementsCategory(catid, catname) {
 
       data = {"category": data, "id": catid, "title": title};
 
-      var source   = $("#daily-"+catname+"-tpl").html();
+      var source   = $("#daily-category-tpl").html();
       var template = Handlebars.compile(source);
       var html    = template(data);
       $('#page .container').html(html);
