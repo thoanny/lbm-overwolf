@@ -58,10 +58,25 @@ var tips = {
     "mask": "Un peu au sud est du Point de passage des landes ravagées %btn%, vous verrez une vachapulte. Interagissez avec ;-)",
     "btn": "[&BNoAAAA=]"
   },
+  1939: {
+    "mask": "Trouvez une idée d'activité grâce à %link%.",
+    "link_title": "nos guide dédiés",
+    "link_url" : "%lbm%/succes/activites/"
+  },
+  1940: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Forêt de Caledon",
+    "link_url" : "%wiki%/For%C3%AAt_de_Caledon#.C3.89v.C3.A8nements"
+  },
   1941: {
-    "mask" : "Wiki: %link%",
+    "mask" : "Wiki : %link%",
     "link_title": "Rivage maudit",
     "link_url": "%wiki%/Rivage_maudit#.C3.89v.C3.A8nements"
+  },
+  1947: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Marais de Lumillule",
+    "link_url" : "%wiki%/Marais_de_Lumillule#.C3.89v.C3.A8nements"
   },
   1951: {
     "mask": "Wiki : %link%.",
@@ -145,6 +160,11 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
     "link_title": "Réacteur de Thaumanova"
   },
+  2239: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 20.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-aveugleneige.html",
+    "link_title": "Aveugleneige"
+  },
   2244: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 31.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/flanc-de-falaise.html",
@@ -189,6 +209,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/boss-de-la-fusion.html",
     "link_title": "Boss de la Fusion"
+  },
+  2597: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/non-classee.html",
+    "link_title": "Non classé"
   },
   2598: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 45.</small>",
@@ -437,6 +462,10 @@ var tips = {
   3175: {
     "mask": "<small>RA : Niv. 75 = 106.</small>"
   },
+  3176: {
+    "mask": "Combinez les ingrédients suivants au Chaudron bouillonnant %btn% : 12 houx frais, 8 amas de suif gelés, 3 coquilles d'œuf résistantes au froid et 1 pierre de feu grawl.",
+    "btn": "[&BHwJAAA=]"
+  },
   3177: {
     "mask": "<small>RA : Niv. 100 = 150.</small>"
   },
@@ -447,6 +476,11 @@ var tips = {
   },
   3196: {
     "mask": "<small>RA : Niv. 50 = 61.</small>"
+  },
+  3215: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 86.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
+    "link_title": "Réacteur de Thaumanova"
   },
   3229: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 25 = 17.</small>",

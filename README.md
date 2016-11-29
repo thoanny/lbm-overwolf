@@ -21,6 +21,11 @@
 
 ## Changelog
 
+### v0.1-alpha.21
+
+* Correction des liens des succès quotidiens
+* Ajout de conseils pour les succès du 29/11/16
+
 ### v0.1-alpha.19
 
 * Simplification du code d'affichage des succès

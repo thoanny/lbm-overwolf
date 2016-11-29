@@ -237,9 +237,11 @@ function loadAchievementsCategory(catid, catname) {
           data[m] = { "id":  n.id, "name": n.name, "icon": icon, "requirement": n.requirement };
           if(tips[n.id]) {
             var mask = tips[n.id].mask,
-                btn = tips[n.id].btn,
-                link_url = tips[n.id].link_url,
-                link_title = tips[n.id].link_title,
+                btn = tips[n.id].btn;
+            if(typeof(tips[n.id].link_url) !== 'undefined') {
+              var link_url = tips[n.id].link_url.replace('%lbm%', 'http://www.lebusmagique.fr/pages').replace('%yt%', 'https://youtu.be').replace('%wiki%', 'https://wiki-fr.guildwars2.com/wiki');
+            }
+            var link_title = tips[n.id].link_title,
                 tip = mask.replace("%btn%", "<button onclick=\"copyToClipboard('"+btn+"')\"><i class=\"fa fa-clipboard\" aria-hidden=\"true\"></i> "+btn+"</button>").replace("%link%", "<a href=\""+link_url+"\" target=\"_blank\">"+link_title+"</a>");
             data[m]['tip'] = tip;
           }
