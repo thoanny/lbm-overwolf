@@ -17,11 +17,11 @@ module.exports = function(grunt) {
                 files: {
                     'Files/js/main.min.js': [
                         'Files/js/jquery-3.1.1.min.js',
-                        'Files/js/jquery-ui-1.12.1.min.js',
                         'Files/js/handlebars-v4.0.5.js',
                         'Files/js/handlebars-intl.min.js',
                         'Files/js/locale-data/fr.js',
-                        'Files/js/jquery.mCustomScrollbar.concat.min.js',
+                        'Files/js/jquery.dropdown.js',
+                        'Files/js/modernizr.custom.js',
                         'Files/js/tips.js',
                         'Files/js/main.js'
                     ]
@@ -62,7 +62,11 @@ module.exports = function(grunt) {
         cssmin: {
           target: {
             files: {
-              'Files/css/style.min.css': ['Files/css/font-awesome.min.css', 'Files/css/jquery.mCustomScrollbar.min.css', 'Files/css/style.css']
+              'Files/css/style.min.css': [
+                'Files/css/font-awesome.min.css',
+                'Files/css/normalize.5.0.0.css',
+                'Files/css/style.css'
+              ]
             }
           }
         },

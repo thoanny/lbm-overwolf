@@ -11,15 +11,22 @@
 * [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main)
 * [Bangers (Google Fonts)](https://fonts.google.com/specimen/Bangers)
 * [jQuery](https://jquery.com/)
-* [jQuery UI](https://jqueryui.com/)
 * [Font Awesome](http://fontawesome.io/)
 * [handlebars](http://handlebarsjs.com/)
 * [handlebars Intl](http://formatjs.io/handlebars/)
-* [jQuery custom content scroller](http://manos.malihu.gr/jquery-custom-content-scroller/)
+* [normalize.css 5.0.0](https://necolas.github.io/normalize.css/)
+* [Simple Effects for Drop-Down Lists](http://tympanus.net/codrops/2012/11/29/simple-effects-for-drop-down-lists/)
 
 ©2010–2016 ArenaNet, LLC. Tous droits réservés. Guild Wars, Guild Wars 2, Guild Wars 2: Heart of Thorns, ArenaNet, NCSOFT, le logo NC et tous les logos et dessins associés sont des marques commerciales et/ou déposées de NCSOFT Corporation. Toutes les autres marques appartiennent à leurs propriétaires respectifs.
 
 ## Changelog
+
+### v0.1-alpha.14
+
+* Ajout de normalize.css
+* Ajout d'un dropdown personnalisé
+* Suppression de jQuery UI
+* Suppression de jQuery custom content scroller
 
 ### v0.1-alpha.10
 

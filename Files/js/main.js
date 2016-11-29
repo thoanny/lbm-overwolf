@@ -68,68 +68,95 @@ function loadTeamspeakBtn() {
   }
 };
 
+function loadPage(page) {
+
+  $('#page .container').html('<i class="fa fa-spinner fa-pulse fa-fw"></i> Chargement en cours...');
+
+  if(page == 'guild-motd') {
+    loadMotd();
+  } else if(page == 'guild-stash') {
+    loadStash();
+  } else if(page == 'last-news-pages') {
+  } else if(page == 'next-events') {
+    loadEvents();
+  } else if(page == 'daily-pve') {
+    loadAchievementsDaily('pve');
+  } else if(page == 'daily-pvp') {
+    loadAchievementsDaily('pvp');
+  } else if(page == 'daily-wvw') {
+    loadAchievementsDaily('wvw');
+  } else if(page == 'daily-special') {
+    loadAchievementsDaily('special');
+  } else if(page == 'daily-fen') {
+    loadAchievementsCategory(142, 'fen');
+  } else if(page == 'daily-bay') {
+    loadAchievementsCategory(145, 'bay');
+  } else if(page == 'daily-frontier') {
+    loadAchievementsCategory(149, 'frontier');
+  } else if(page == 'daily-fractals') {
+    loadAchievementsCategory(88, 'fractals');
+  } else if(page == 'pact-agent') {
+
+  }
+
+};
+
 function loadMotd() {
   $.getJSON(lbm_api_url+'/?data=guild', function(data) {
-
     var motd = data.motd;
     data.motd = motd.replace(/\n/g, "<br />");
-
-    var source   = $("#motd-tpl").html();
-    var template = Handlebars.compile(source);
-    var html    = template(data, {data: {intl: intlData}});
-    $('#lbm #motd').html(html);
-
-  });
-};
-
-function loadIndex() {
-  loadTeamspeakBtn();
-  loadMotd();
-  loadNews();
-  loadPages();
-  loadStash();
-  loadEvents();
-  loadAchievementsDaily();
-  loadAchievementsCategories();
-};
-
-function loadNews() {
-  $.getJSON(lbm_api_url+'/?data=news', function(data) {
-    var source = $("#news-tpl").html();
+    var source = $("#guild-motd-tpl").html();
     var template = Handlebars.compile(source);
     var html = template(data, {data: {intl: intlData}});
-    $('#lbm #news').html(html);
+    $('#page .container').html(html);
   });
 };
 
-function loadPages() {
-  $.getJSON(lbm_api_url+'/?data=pages', function(data) {
-    var source = $("#pages-tpl").html();
-    var template = Handlebars.compile(source);
-    var html = template(data, {data: {intl: intlData}});
-    $('#lbm #pages').html(html);
+// function loadIndex() {
+//   loadTeamspeakBtn();
+//   loadMotd();
+//   loadNews();
+//   loadPages();
+//   loadStash();
+//   loadEvents();
+//   loadAchievementsDaily();
+//   loadAchievementsCategories();
+// };
+
+function loadNewsPages() {
+  $.getJSON(lbm_api_url+'/?data=newspages', function(data) {
+    return data;
   });
 };
+
+// function loadPages() {
+//   $.getJSON(lbm_api_url+'/?data=pages', function(data) {
+//     var source = $("#pages-tpl").html();
+//     var template = Handlebars.compile(source);
+//     var html = template(data, {data: {intl: intlData}});
+//     $('#lbm #pages').html(html);
+//   });
+// };
 
 function loadStash() {
   $.getJSON(lbm_api_url+'/?data=stash', function(data) {
-    var source = $("#stash-tpl").html();
+    var source = $("#guild-stash-tpl").html();
     var template = Handlebars.compile(source);
-    var html = template(data);
-    $('#stash').html(html);
+    var html = template(data, {data: {intl: intlData}});
+    $('#page .container').html(html);
   });
 };
 
 function loadEvents() {
   $.getJSON(lbm_api_url+'/?data=events', function(data) {
-      var source = $("#events-tpl").html();
-      var template = Handlebars.compile(source);
-      var html = template(data, {data: {intl: intlData}});
-      $('#events').html(html);
+    var source = $("#next-events-tpl").html();
+    var template = Handlebars.compile(source);
+    var html = template(data, {data: {intl: intlData}});
+    $('#page .container').html(html);
     });
 };
 
-function loadAchievementsDaily() {
+function loadAchievementsDaily( type ) {
   $.getJSON(gw2_api_url+'/achievements/daily', function(data) {
 
     var list = [];
@@ -194,52 +221,58 @@ function loadAchievementsDaily() {
         });
       });
 
-      var source   = $("#achievements-daily").html();
+      var source   = $("#daily-"+type+"-tpl").html();
       var template = Handlebars.compile(source);
       var html    = template(data);
-      $('#achievements').html(html);
+      $('#page .container').html(html);
 
     });
 
   });
 };
 
-function loadAchievementsCategories() {
-  $.each([142, 145, 149, 88], function(b, c) {
-    $.getJSON(gw2_api_url+'/achievements/categories/'+c+'?lang=fr', function(data) {
+function loadAchievementsCategory(catid, catname) {
 
-      var list = data.achievements;
-      var icon = data.icon;
-      var title = data.name;
-      var data = [];
+  $.getJSON(gw2_api_url+'/achievements/categories/'+catid+'?lang=fr', function(data) {
 
-      var ids = list.join(',');
+    var list = data.achievements;
+    var icon = data.icon;
+    var title = data.name;
+    var data = [];
 
-      $.getJSON(gw2_api_url+'/achievements?lang=fr&ids='+ids, function(d) {
-        $.each(d, function(m, n) {
-          if(typeof(n.icon) !== "undefined") {
-            icon = n.icon;
+    var ids = list.join(',');
+
+    $.getJSON(gw2_api_url+'/achievements?lang=fr&ids='+ids, function(d) {
+      $.each(d, function(m, n) {
+        if(typeof(n.icon) !== "undefined") {
+          icon = n.icon;
+        }
+          data[m] = { "id":  n.id, "name": n.name, "icon": icon, "requirement": n.requirement };
+          if(tips[n.id]) {
+            var mask = tips[n.id].mask,
+                btn = tips[n.id].btn,
+                link_url = tips[n.id].link_url,
+                link_title = tips[n.id].link_title,
+                tip = mask.replace("%btn%", "<button onclick=\"copyToClipboard('"+btn+"')\"><i class=\"fa fa-clipboard\" aria-hidden=\"true\"></i> "+btn+"</button>").replace("%link%", "<a href=\""+link_url+"\" target=\"_blank\">"+link_title+"</a>");
+            data[m]['tip'] = tip;
           }
-            data[m] = { "id":  n.id, "name": n.name, "icon": icon, "requirement": n.requirement };
-            if(tips[n.id]) {
-              var mask = tips[n.id].mask,
-                  btn = tips[n.id].btn,
-                  link_url = tips[n.id].link_url,
-                  link_title = tips[n.id].link_title,
-                  tip = mask.replace("%btn%", "<button onclick=\"copyToClipboard('"+btn+"')\"><i class=\"fa fa-clipboard\" aria-hidden=\"true\"></i> "+btn+"</button>").replace("%link%", "<a href=\""+link_url+"\" target=\"_blank\">"+link_title+"</a>");
-              data[m]['tip'] = tip;
-            }
-        });
-
-        data = {"category": data, "id": c, "title": title};
-
-        var source   = $("#achievements-category").html();
-        var template = Handlebars.compile(source);
-        var html    = template(data);
-        $('#achievements-categories').append(html);
-
       });
 
+      data = {"category": data, "id": catid, "title": title};
+
+      var source   = $("#daily-"+catname+"-tpl").html();
+      var template = Handlebars.compile(source);
+      var html    = template(data);
+      $('#page .container').html(html);
+
     });
+
   });
+
 };
+
+(function($){
+  $(window).on("load",function(){
+    $('#menu').dropdown();
+  });
+})(jQuery);
