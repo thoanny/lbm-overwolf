@@ -72,25 +72,23 @@
 				<p>{{{motd}}}</p>
 			</script>
 
-			<script id="news-tpl" type="text/x-handlebars-template">
-				<h2>{{news.title}}</h2>
+			<script id="newspages-tpl" type="text/x-handlebars-template">
+				<h2>Dernières news publiées</h2>
 				{{#if news.items}}
-				<ul>
+				<ul class="news">
 					{{#each news.items}}
-						<li><a href="{{link}}" target="_blank">{{title}}</a><br /><small>Publiée {{formatRelative pubDate}}</small></li>
+						<li><a href="{{link}}" target="_blank">{{title}}</a><small>Publiée {{formatRelative pubDate}}</small></li>
 					{{/each}}
 				</ul>
 				{{else}}
 					<p>Aucune news à afficher...</p>
 				{{/if}}
-			</script>
 
-			<script id="pages-tpl" type="text/x-handlebars-template">
-				<h2>{{pages.title}}</h2>
+				<h2>Dernières pages ajoutées</h2>
 				{{#if pages.items}}
-				<ul>
+				<ul class="pages">
 					{{#each pages.items}}
-						<li><a href="{{link}}" target="_blank">{{title}}</a><br /><small>Créée {{formatRelative pubDate}}</small></li>
+						<li><a href="{{link}}" target="_blank">{{title}}</a><small>Créée {{formatRelative pubDate}}</small></li>
 					{{/each}}
 				</ul>
 				{{else}}

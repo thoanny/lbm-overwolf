@@ -77,6 +77,7 @@ function loadPage(page) {
   } else if(page == 'guild-stash') {
     loadStash();
   } else if(page == 'last-news-pages') {
+    loadNewsPages();
   } else if(page == 'next-events') {
     loadEvents();
   } else if(page == 'daily-pve') {
@@ -112,31 +113,14 @@ function loadMotd() {
   });
 };
 
-// function loadIndex() {
-//   loadTeamspeakBtn();
-//   loadMotd();
-//   loadNews();
-//   loadPages();
-//   loadStash();
-//   loadEvents();
-//   loadAchievementsDaily();
-//   loadAchievementsCategories();
-// };
-
 function loadNewsPages() {
   $.getJSON(lbm_api_url+'/?data=newspages', function(data) {
-    return data;
+    var source = $("#newspages-tpl").html();
+    var template = Handlebars.compile(source);
+    var html = template(data, {data: {intl: intlData}});
+    $('#page .container').html(html);
   });
 };
-
-// function loadPages() {
-//   $.getJSON(lbm_api_url+'/?data=pages', function(data) {
-//     var source = $("#pages-tpl").html();
-//     var template = Handlebars.compile(source);
-//     var html = template(data, {data: {intl: intlData}});
-//     $('#lbm #pages').html(html);
-//   });
-// };
 
 function loadStash() {
   $.getJSON(lbm_api_url+'/?data=stash', function(data) {

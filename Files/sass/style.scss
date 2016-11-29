@@ -556,3 +556,22 @@ li.ui-tab img {
 .cd-select {
 	border: 1px solid #ddd;
 }
+
+ul.news, ul.pages {
+	padding: 0;
+
+	li {
+		margin-bottom: .5em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+		
+		a {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: block;
+		}
+	}
+}

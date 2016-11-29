@@ -403,3 +403,15 @@ li.ui-tab img {
 
 .cd-select {
   border: 1px solid #ddd; }
+
+ul.news, ul.pages {
+  padding: 0; }
+  ul.news li, ul.pages li {
+    margin-bottom: .5em; }
+    ul.news li:last-child, ul.pages li:last-child {
+      margin-bottom: 0; }
+    ul.news li a, ul.pages li a {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block; }
