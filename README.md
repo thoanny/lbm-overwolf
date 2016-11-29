@@ -21,6 +21,12 @@
 
 ## Changelog
 
+### v0.1-alpha.19
+
+* Simplification du code d'affichage des succès
+* Correction de l'affichage des news et pages
+* Masquer le lien "Agents du Pacte" du menu
+
 ### v0.1-alpha.16
 
 * Suppression des icones des succès
