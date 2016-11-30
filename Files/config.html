@@ -75,115 +75,128 @@
 
       var config_favorite_guild = getConfig('favorite_guild');
 
-        if(getConfig('api_key')) {
-          var api_key = getConfig('api_key');
-          $('input#api_key').val(api_key);
+      if(getConfig('api_key')) {
+        var api_key = getConfig('api_key');
+        $('input#api_key').val(api_key);
 
-          $.getJSON('https://api.guildwars2.com/v2/tokeninfo?access_token='+api_key, function(data) {
-            $('input#permissions').val(JSON.stringify(data.permissions));
-            $.each(data.permissions, function(i, j) {
-              $("#permissions li."+j+" i.fa-li").removeClass('fa-square').addClass('fa-check-square');
-    			  });
-          }).fail(function(error) {
-				    if(error.status == 403) {
-							$('input#api_key').addClass('error');
-						}
-				  });
+        $.getJSON('https://api.guildwars2.com/v2/tokeninfo?access_token='+api_key, function(data) {
+          $('input#permissions').val(JSON.stringify(data.permissions));
+          $.each(data.permissions, function(i, j) {
+            $("#permissions li."+j+" i.fa-li").removeClass('fa-square').addClass('fa-check-square');
+  			  });
+        }).fail(function(error) {
+			    if(error.status == 403) {
+						$('input#api_key').addClass('error');
+		          deleteConfig('permissions');
+		          deleteConfig('account_name');
+		          deleteConfig('account_id');
+		          deleteConfig('high_level');
+		          deleteConfig('account_access');
+							deleteConfig('favorite_guild');
+					}
+			  });
 
-          $.getJSON('https://api.guildwars2.com/v2/account?access_token='+api_key, function(data) {
-            $('input#account_access').val(data.access);
-            $('input#account_name').val(data.name);
-            $('input#account_id').val(data.id);
+        $.getJSON('https://api.guildwars2.com/v2/account?access_token='+api_key, function(data) {
+          $('input#account_access').val(data.access);
+          $('input#account_name').val(data.name);
+          $('input#account_id').val(data.id);
 
-						$('select#favorite_guild').html('<option value="">-- Choisissez une guilde --</option>');
+					$('select#favorite_guild').html('<option value="">-- Choisissez une guilde --</option>');
 
-						$.each(data.guilds, function(i, j) {
+					$.each(data.guilds, function(i, j) {
 
-              $.getJSON('https://api.guildwars2.com/v2/guild/'+ j, function(data) {
+            $.getJSON('https://api.guildwars2.com/v2/guild/'+ j, function(data) {
 
-								var selected = '';
-                if(config_favorite_guild && config_favorite_guild == data.tag) {
-                  selected = ' selected="selected"'
-                }
-                $('select#favorite_guild').append('<option value="'+data.tag+'"'+selected+'>['+data.tag+'] '+data.name+'</option>');
+							var selected = '';
+              if(config_favorite_guild && config_favorite_guild == data.tag) {
+                selected = ' selected="selected"'
+              }
+              $('select#favorite_guild').append('<option value="'+data.tag+'"'+selected+'>['+data.tag+'] '+data.name+'</option>');
 
-              });
+            });
 
-    			  });
+  			  });
 
-          });
+        });
 
-          $.getJSON('https://api.guildwars2.com/v2/characters?access_token='+api_key, function(data) {
-						var high_level = 0;
+        $.getJSON('https://api.guildwars2.com/v2/characters?access_token='+api_key, function(data) {
+					var high_level = 0;
 
-            $.each(data, function(i, j) {
+          $.each(data, function(i, j) {
 
-              $.getJSON('https://api.guildwars2.com/v2/characters/'+ j.replace(' ', '%20') +'?lang=fr&access_token='+api_key, function(data) {
+            $.getJSON('https://api.guildwars2.com/v2/characters/'+ j.replace(' ', '%20') +'?lang=fr&access_token='+api_key, function(data) {
 
-								if(high_level < data.level) {
-									high_level = data.level;
-									$('input#high_level').val(high_level);
-								}
+							if(high_level < data.level) {
+								high_level = data.level;
+								$('input#high_level').val(high_level);
+							}
 
-              });
+            });
 
-    			  });
+  			  });
 
-          });
+        });
 
+      }
+
+			$( "input#api_key" ).focus(function() {
+				if( $(this).hasClass('error') ) {
+					$(this).removeClass('error');
+				}
+			});
+
+      $('form#config').submit(function(e){
+        var $api_key = $('input#api_key'),
+            $high_level = $('input#high_level'),
+            $permissions = $('input#permissions'),
+            $account_name = $('input#account_name'),
+            $account_id = $('input#account_id'),
+            $account_access = $('input#account_access'),
+            $favorite_guild = $('select#favorite_guild'),
+						$button = $('button[type="submit"]');
+
+				$button.find('i').remove();
+				$button.prepend('<i class="fa fa-spinner fa-pulse"></i> ');
+
+        if($api_key.val() == '') {
+          $api_key.next('.error').show();
+					deleteConfig('api_key');
+        } else {
+          $api_key.next('.error').hide();
+          setConfig('api_key', $api_key.val());
         }
 
-        $('form#config').submit(function(e){
-          var $api_key = $('input#api_key'),
-              $high_level = $('input#high_level'),
-              $permissions = $('input#permissions'),
-              $account_name = $('input#account_name'),
-              $account_id = $('input#account_id'),
-              $account_access = $('input#account_access'),
-              $favorite_guild = $('select#favorite_guild'),
-							$button = $('button[type="submit"]');
+        if($permissions.val() !== '') {
+          setConfig('permissions', $permissions.val());
+        }
 
-					$button.find('i').remove();
-					$button.prepend('<i class="fa fa-spinner fa-pulse"></i> ');
+        if($account_name.val() !== '') {
+          setConfig('account_name', $account_name.val());
+        }
 
-          if($api_key.val() == '') {
-            $api_key.next('.error').show();
-          } else {
-            $api_key.next('.error').hide();
-            setConfig('api_key', $api_key.val());
-          }
+        if($account_id.val() !== '') {
+          setConfig('account_id', $account_id.val());
+        }
 
-          if($permissions.val() !== '') {
-            setConfig('permissions', $permissions.val());
-          }
+        if($high_level.val() !== '') {
+          setConfig('high_level', $high_level.val());
+        }
 
-          if($account_name.val() !== '') {
-            setConfig('account_name', $account_name.val());
-          }
+				if($account_access.val() !== '') {
+          setConfig('account_access', $account_access.val());
+        }
 
-          if($account_id.val() !== '') {
-            setConfig('account_id', $account_id.val());
-          }
+				if($favorite_guild.val() !== '') {
+          setConfig('favorite_guild', $favorite_guild.val());
+        } else {
+					deleteConfig('favorite_guild');
+				}
 
-          if($high_level.val() !== '') {
-            setConfig('high_level', $high_level.val());
-          }
+				$button.find('i').removeClass('fa-spinner').removeClass('fa-pulse').addClass('fa-check-circle');
+				location.reload();
 
-					if($account_access.val() !== '') {
-            setConfig('account_access', $account_access.val());
-          }
-
-					if($favorite_guild.val() !== '') {
-            setConfig('favorite_guild', $favorite_guild.val());
-          } else {
-						deleteConfig('favorite_guild');
-					}
-
-					$button.find('i').removeClass('fa-spinner').removeClass('fa-pulse').addClass('fa-check-circle');
-					location.reload();
-
-          return false;
-        });
+        return false;
+      });
       </script>
 
 		</div>

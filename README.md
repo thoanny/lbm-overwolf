@@ -21,6 +21,12 @@
 
 ## Changelog
 
+### v0.1-alpha.24
+
+* Mise à jour du style de la configuration
+* Cacher les champs inutiles pour l'utilisateur
+* Correction du workflow d'enregistrement de la configuration
+
 ### v0.1-alpha.22
 
 * Ajout de conseils pour les succès du 30/11/16
