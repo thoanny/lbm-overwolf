@@ -54,6 +54,16 @@ var tips = {
     "link_url": "%yt%/aHldqSDkt_A",
     "link_title": "Fosses de l'engeance"
   },
+  1929: {
+    "mask": "Rendez-vous un peu au sud du Point de Passage de la Spirale %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
+    "btn": "[&BDUBAAA=]",
+    "link_url": "%yt%/O-KlKgU4Q-0",
+    "link_title": "Bond de Morgan"
+  },
+  1936: {
+    "mask": "Rendez-vous au Point de passage du Refuge de Doubléperon %btn%, montez les escaliers et continuez à l'est, en direction du panorama.",
+    "btn": "[&BH0BAAA=]"
+  },
   1938: {
     "mask": "Un peu au sud est du Point de passage des landes ravagées %btn%, vous verrez une vachapulte. Interagissez avec ;-)",
     "btn": "[&BNoAAAA=]"
@@ -72,6 +82,11 @@ var tips = {
     "mask" : "Wiki : %link%",
     "link_title": "Rivage maudit",
     "link_url": "%wiki%/Rivage_maudit#.C3.89v.C3.A8nements"
+  },
+  1946: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Les Steppes de la strie flamboyante",
+    "link_url" : "%wiki%/Les_Steppes_de_la_strie_flamboyante#.C3.89v.C3.A8nements"
   },
   1947: {
     "mask": "Wiki : %link%.",
@@ -102,6 +117,11 @@ var tips = {
     "mask": "Wiki : %link%.",
     "link_title": "Saut de Malchor",
     "link_url": "%wiki%/Saut_de_Malchor#.C3.89v.C3.A8nements"
+  },
+  1964: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Plaines d'Ashford",
+    "link_url" : "%wiki%/Plaines_d'Ashford#.C3.89v.C3.A8nements"
   },
   1969: {
     "mask": "Récoltez la veine de fer riche juste au dessous du Point de passage des Champs de la potence %btn% ou dans votre instance personnelle à la Terrasse du Rêveur (Sylvari) ou au Labo de développement appliqué (Asura).<br />Consultez notre %link%.",
@@ -155,6 +175,11 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-complexe-souterrain.html",
     "link_title": "Complexe souterrain"
   },
+  2189: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 10.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-du-marais.html",
+    "link_title": "Marais"
+  },
   2238: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
@@ -184,6 +209,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/flanc-de-falaise.html",
     "link_title": "Flanc de falaise"
+  },
+  2330: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 26.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-du-chaos.html",
+    "link_title": "Chaos"
   },
   2341: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 40.</small>",
@@ -250,7 +280,7 @@ var tips = {
     "link_title": "ruines aquatiques"
   },
   2899: {
-    "mask": "<small>RA : Niv. 60 = 61.</small>"
+    "mask": "<small>RA : Niv. 42 = 47.</small>"
   },
   2900: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 3 et 18 = 0.</small>",
@@ -318,7 +348,10 @@ var tips = {
     "mask": "<small>RA : Niv. 82 = 118 ; 94 = 140.</small>"
   },
   2932: {
-    "mask": "<small>RA : Niv. 100 = 150.</small>"
+    "mask": "<small>RA : Niv. 98 = 147.</small>"
+  },
+  2934: {
+    "mask": "<small>RA : Niv. 70 = 97.</small>"
   },
   2937: {
     "mask": "Récoltez dans votre Hall de guilde."
@@ -364,6 +397,9 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-ruines-aquatiques.html",
     "link_title": "ruines aquatiques"
   },
+  2957: {
+    "mask": "Récoltez dans votre Hall de guilde."
+  },
   2958: {
     "mask": "<small>RA : Niv. 33 = 31 ; 47 = 56.</small>"
   },
@@ -373,12 +409,15 @@ var tips = {
     "link_url": "%lbm%/expeditions/donjons/tonnelle-du-crepuscule/"
   },
   2962: {
-    "mask": "<small>RA : Niv. 75 = 106.</small>"
+    "mask": "<small>RA : Niv. 73 = 102.</small>"
   },
   2964: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 61 = 81.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-ruines-aquatiques.html",
     "link_title": "ruines aquatiques"
+  },
+  2966: {
+    "mask": "<small>RA : Niv. 90 = 132.</small>"
   },
   2967: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 84 = 122 ; Niv. 97 = 145.</small>",
@@ -394,14 +433,22 @@ var tips = {
     "link_title": "Flanc de falaise"
   },
   2978: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 25 = 17.</small>",
+    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 18 = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/capitaine-mai-trin-second-horrik.html",
     "link_title": "Boss capitaine Mai Trin"
+  },
+  2979: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 10 = 0.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/boss-de-la-fusion.html",
+    "link_title": "Boss de la Fusion"
   },
   2981: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 15 = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
     "link_title": "Réacteur de Thaumanova"
+  },
+  2985: {
+    "mask": "<small>RA : Niv. 40 = 43.</small>"
   },
   2986: {
     "mask": "<small>RA : Niv. 60 = 79.</small>"
