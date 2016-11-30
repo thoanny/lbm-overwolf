@@ -7,70 +7,69 @@
 		<title>Le Bus Magique</title>
 	</head>
 
-	<body>
-		<div id="content" style="top:50px;padding: 0 1em;">
+	<body class="config">
+		<div class="resizeGrip" id="resizeGripBottom" onmousedown="dragResize('Bottom');"></div>
+
+		<div id="content">
 
 			<header>
 				<button id="close" onclick="closeWindow();"><i class="fa fa-times" aria-hidden="true"></i></button>
-				<button id="drag" onmousedown="dragMove();"><i class="fa fa-arrows" aria-hidden="true"></i></button>
+				<div id="drag" onmousedown="dragMove();"></div>
 			</header>
 
-      <h2>Configuration</h2>
+			<div id="page">
+				<div class="container">
+					<h2>Configuration</h2>
 
-      <form id="config" autocomplete="off">
-        <fieldset>
-          <legend>API</legend>
-          <p>
-            <label>Clé API</label>
-            <input type="text" id="api_key" />
-            <input type="hidden" id="permissions" />
-            <span class="error" style="display:none;">Erreur</span>
-          </p>
-          <ul id="permissions" class="fa-ul">
-            <li class="account"><i class="fa-li fa fa-square"></i> account</li>
-            <li class="inventories"><i class="fa-li fa fa-square"></i> inventories</li>
-            <li class="characters"><i class="fa-li fa fa-square"></i> characters</li>
-            <li class="tradingpost"><i class="fa-li fa fa-square"></i> tradingpost</li>
-            <li class="wallet"><i class="fa-li fa fa-square"></i> wallet</li>
-            <li class="unlocks"><i class="fa-li fa fa-square"></i> unlocks</li>
-            <li class="pvp"><i class="fa-li fa fa-square"></i> pvp</li>
-            <li class="builds"><i class="fa-li fa fa-square"></i> builds</li>
-            <li class="progression"><i class="fa-li fa fa-square"></i> progression</li>
-            <li class="guilds"><i class="fa-li fa fa-square"></i> guilds</li>
-          </ul>
-        </fieldset>
-        <fieldset>
-          <legend>Compte</legend>
-          <p>
-            <label>Nom de compte</label>
-            <input type="text" id="account_name" disabled="disabel" />
-          </p>
-          <p>
-            <label>ID</label>
-            <input type="text" id="account_id" disabled="disabel" />
-          </p>
-          <p>
-            <label>Accès</label>
-            <input type="text" id="account_access" disabled="disabel" />
-          </p>
-					<p>
-            <label>Plus haut niveau</label>
-            <input type="text" id="high_level" disabled="disabel" />
-          </p>
-        </fieldset>
-        <fieldset>
-          <legend>Guilde</legend>
-          <p>
-            <label>Guilde représentée</label>
-            <select id="favorite_guild">
-              <option value="">Aucun guilde connue</option>
-            </select>
-          </p>
-        </fieldset>
-        <p>
-          <button type="submit">Enregistrer les modifications</button>
-        </p>
-      </form>
+		      <form id="config" autocomplete="off">
+		        <fieldset>
+		          <legend>API</legend>
+		          <p>
+		            <label for="api_key">Clé API</label>
+		            <input type="text" id="api_key" />
+		            <input type="hidden" id="permissions" />
+		            <span class="error" style="display:none;">Erreur</span>
+		          </p>
+		          <ul id="permissions" class="fa-ul">
+		            <li class="account"><i class="fa-li fa fa-square"></i> account</li>
+		            <li class="inventories"><i class="fa-li fa fa-square"></i> inventories</li>
+		            <li class="characters"><i class="fa-li fa fa-square"></i> characters</li>
+		            <li class="tradingpost"><i class="fa-li fa fa-square"></i> tradingpost</li>
+		            <li class="wallet"><i class="fa-li fa fa-square"></i> wallet</li>
+		            <li class="unlocks"><i class="fa-li fa fa-square"></i> unlocks</li>
+		            <li class="pvp"><i class="fa-li fa fa-square"></i> pvp</li>
+		            <li class="builds"><i class="fa-li fa fa-square"></i> builds</li>
+		            <li class="progression"><i class="fa-li fa fa-square"></i> progression</li>
+		            <li class="guilds"><i class="fa-li fa fa-square"></i> guilds</li>
+		          </ul>
+		        </fieldset>
+		        <fieldset>
+		          <legend>Compte</legend>
+		          <p>
+		            <label>Nom de compte</label>
+		            <input type="text" id="account_name" disabled="disabled" />
+		          </p>
+		        </fieldset>
+		        <fieldset>
+		          <legend>Guilde</legend>
+		          <p>
+		            <label>Guilde représentée</label>
+		            <select id="favorite_guild">
+		              <option value="">Aucun guilde connue</option>
+		            </select>
+		          </p>
+		        </fieldset>
+		        <p>
+							<input type="hidden" id="account_id" />
+							<input type="hidden" id="high_level" />
+							<input type="hidden" id="account_access" />
+		          <button type="submit">Enregistrer les modifications</button>
+		        </p>
+		      </form>
+				</div>
+			</div>
+
+
 
       <script>
 
@@ -85,7 +84,11 @@
             $.each(data.permissions, function(i, j) {
               $("#permissions li."+j+" i.fa-li").removeClass('fa-square').addClass('fa-check-square');
     			  });
-          });
+          }).fail(function(error) {
+				    if(error.status == 403) {
+							$('input#api_key').addClass('error');
+						}
+				  });
 
           $.getJSON('https://api.guildwars2.com/v2/account?access_token='+api_key, function(data) {
             $('input#account_access').val(data.access);
@@ -137,7 +140,11 @@
               $account_name = $('input#account_name'),
               $account_id = $('input#account_id'),
               $account_access = $('input#account_access'),
-              $favorite_guild = $('select#favorite_guild');
+              $favorite_guild = $('select#favorite_guild'),
+							$button = $('button[type="submit"]');
+
+					$button.find('i').remove();
+					$button.prepend('<i class="fa fa-spinner fa-pulse"></i> ');
 
           if($api_key.val() == '') {
             $api_key.next('.error').show();
@@ -171,6 +178,9 @@
           } else {
 						deleteConfig('favorite_guild');
 					}
+
+					$button.find('i').removeClass('fa-spinner').removeClass('fa-pulse').addClass('fa-check-circle');
+					location.reload();
 
           return false;
         });

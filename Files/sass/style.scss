@@ -15,10 +15,10 @@ $icon-pact-agents: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAA
 $icon-daily-special: $icon-daily-wintersday;
 
 html {
+	background:rgba(0, 0, 0, .15);
 	overflow: hidden;
 	height: 100%;
 	width: 100%;
-	background: none;
   font-family: Arial, sans-serif;
   color: #fff;
 	margin:0;
@@ -46,6 +46,12 @@ body {
 	margin:0;
 	padding:0;
 	text-shadow: 0 0 3px #000;
+
+  &.config {
+    #content {
+      top: 100px;
+    }
+  }
 }
 
 h1, h2, h3, h4 {
@@ -128,9 +134,58 @@ dl {
 dd {
 	margin-left: 15px;
 }
+form {
+  fieldset {
+    // margin: 1em 1em 0;
+    margin-top: 1em;
+    padding: 0 1em;
+
+    legend {
+      font-weight: bold;
+    }
+
+    label {
+      padding: 0 .75em .5em;
+      display: inline-block;
+    }
+
+    input, select {
+      padding: .5em .75em;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      border: 1px solid rgba(0, 0, 0, .33);
+      border-radius: 4px;
+
+      &[disabled="disabled"] {
+        border: 0;
+        background: rgba(255, 255, 255, .5);
+        color: rgba(255, 255, 255, .5);
+      }
+
+      &:focus {
+        border-color: rgba(0, 0, 0, .66);
+      }
+
+      &.error {
+        border-color: red;
+      }
+    }
+
+    ul#permissions {
+      li {
+        width: 49%;
+        display: inline-block;
+      }
+    }
+  }
+
+  button {
+    padding: .5em .75em;
+  }
+}
 
 header {
-	/*background: rgba(0, 0, 0, .33);*/
 	position:fixed;
 	top: 0;
 	width: 100%;
@@ -222,7 +277,7 @@ header {
 	bottom: 0;
 	overflow: auto;
 	.container {
-		padding: 1em;
+		padding: 1em 0 1em 1em;
 	}
 }
 
@@ -566,7 +621,7 @@ ul.news, ul.pages {
 		&:last-child {
 			margin-bottom: 0;
 		}
-		
+
 		a {
 			white-space: nowrap;
 			overflow: hidden;

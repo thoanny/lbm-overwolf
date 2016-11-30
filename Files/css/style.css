@@ -1,8 +1,8 @@
 html {
+  background: rgba(0, 0, 0, 0.15);
   overflow: hidden;
   height: 100%;
   width: 100%;
-  background: none;
   font-family: Arial, sans-serif;
   color: #fff;
   margin: 0;
@@ -24,6 +24,8 @@ body {
   margin: 0;
   padding: 0;
   text-shadow: 0 0 3px #000; }
+  body.config #content {
+    top: 100px; }
 
 h1, h2, h3, h4 {
   font-family: 'Bangers', cursive;
@@ -85,8 +87,36 @@ dl {
 dd {
   margin-left: 15px; }
 
+form fieldset {
+  margin-top: 1em;
+  padding: 0 1em; }
+  form fieldset legend {
+    font-weight: bold; }
+  form fieldset label {
+    padding: 0 .75em .5em;
+    display: inline-block; }
+  form fieldset input, form fieldset select {
+    padding: .5em .75em;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.33);
+    border-radius: 4px; }
+    form fieldset input[disabled="disabled"], form fieldset select[disabled="disabled"] {
+      border: 0;
+      background: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.5); }
+    form fieldset input:focus, form fieldset select:focus {
+      border-color: rgba(0, 0, 0, 0.66); }
+    form fieldset input.error, form fieldset select.error {
+      border-color: red; }
+  form fieldset ul#permissions li {
+    width: 49%;
+    display: inline-block; }
+form button {
+  padding: .5em .75em; }
+
 header {
-  /*background: rgba(0, 0, 0, .33);*/
   position: fixed;
   top: 0;
   width: 100%;
@@ -158,7 +188,7 @@ header {
   bottom: 0;
   overflow: auto; }
   #page .container {
-    padding: 1em; }
+    padding: 1em 0 1em 1em; }
 
 #resizeGripBottom {
   height: 12px;
