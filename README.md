@@ -21,11 +21,15 @@
 
 ## Changelog
 
+### v0.1-alpha.25
+
+* Mise en place des besoins dans le coffre de guilde
+
 ### v0.1-alpha.24
 
 * Mise à jour du style de la configuration
 * Cacher les champs inutiles pour l'utilisateur
-* Correction du workflow d'enregistrement de la configuration
+* Correction du workflow de sauvegarde de la configuration
 
 ### v0.1-alpha.22
 

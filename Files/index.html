@@ -37,11 +37,23 @@
 			<div id="page"><div class="container"><i class="fa fa-spinner fa-pulse fa-fw"></i> Chargement en cours...</div></div>
 
 			<script id="guild-stash-tpl" type="text/x-handlebars-template">
+				{{#if needs}}
 				<h2>Nous aurions besoin...</h2>
-				<p>@todo</p>
+				<table class="items" celppading="0" cellspacing="3" width="100%" style="margin-top:1em;">
+					{{#each needs}}
+					<tr>
+						<td width="1">{{#if icon}}<img src="{{icon}}" />{{/if}}</td>
+						<td><span class="quality {{rarity}}">{{name}}</span></td>
+						<td width="1" align="right">&times;&nbsp;{{count}}</td>
+					</tr>
+					{{/each}}
+				</table>
+				<p style="margin-top:.5em;">Merci pour vos dons !</p>
+				{{/if}}
+
 				<h2>Dans le coffre de guilde</h2>
 
-				<p><strong>Emplacements libres du coffre :</strong> {{empty}}/{{size}}.</p>
+				<p><strong>Emplacements libres :</strong> {{empty}}/{{size}}.</p>
 				<p><strong>Solde bancaire :</strong> {{{coins_for_humans}}}.</p>
 
 				<table class="items" celppading="0" cellspacing="3" width="100%">
