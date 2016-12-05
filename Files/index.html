@@ -113,7 +113,7 @@
 				{{#each achievements}}
 					<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
 						<dt>
-							<strong>{{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
+							<strong>({{id}}) {{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
 						</dt>
 						<dd>
 							<small>Niv. min : {{level.min}}, max : {{level.max}}</small><br />
@@ -130,7 +130,7 @@
 				{{#each category}}
 					<dl class="achievement achievement-{{id}}">
 						<dt>
-							<strong>{{name}}</strong>
+							<strong>({{id}}) {{name}}</strong>
 						</dt>
 						<dd>
 							{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
