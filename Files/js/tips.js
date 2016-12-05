@@ -93,6 +93,11 @@ var tips = {
     "link_title": "Marais de Lumillule",
     "link_url" : "%wiki%/Marais_de_Lumillule#.C3.89v.C3.A8nements"
   },
+  1950: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Mont Maelström",
+    "link_url": "%wiki%/Mont_Maelström#.C3.89v.C3.A8nements"
+  },
   1951: {
     "mask": "Wiki : %link%.",
     "link_title": "Province de Metrica",
@@ -382,7 +387,7 @@ var tips = {
     "mask": "<small>RA : Niv. 27 = 20 ; Niv. 37 = 38.</small>"
   },
   2950: {
-    "mask": "<small>RA : Niv. 53 = 66 ; 68 = 94.</small>"
+    "mask": "<small>RA : Niv. 53 = 66 ; 68 = 93.</small>"
   },
   2952: {
     "mask": "<small>RA : Niv. 86 = 125 ; Niv. 93 = 138.</small>"
@@ -534,5 +539,9 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-cauchemars.html",
     "link_title": "Cauchemars"
   },
-
+  3238: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA : 106.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-cauchemars.html",
+    "link_title": "Cauchemars"
+  },
 };

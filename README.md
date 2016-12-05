@@ -21,6 +21,11 @@
 
 ## Changelog
 
+### v0.1-alpha.27
+
+* Affichage de l'identifiant des succès pour la bêta
+* Ajout de conseils pour les succès du 30/11/16
+
 ### v0.1-alpha.25
 
 * Mise en place des besoins dans le coffre de guilde
