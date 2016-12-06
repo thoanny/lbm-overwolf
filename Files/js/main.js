@@ -262,14 +262,16 @@ function loadAchievementsCategory(catid, catname) {
 
 (function($){
   $(window).on("load",function(){
+    var current_window = document.location.href.match(/[^\/]+$/)[0];
+
     $('#menu').dropdown();
 
-    if(getConfig('page')) {
+    if(getConfig('page') && current_window == 'index.html') {
       var page = getConfig('page');
       loadPage(page);
       $('div.menu > span').html( $('div.menu ul li[data-value="'+page+'"]').html() );
       $('div.menu input[name="menu"]').val( page );
-    } else {
+    } else if(current_window == 'index.html') {
       loadPage('guild-motd');
     }
   });

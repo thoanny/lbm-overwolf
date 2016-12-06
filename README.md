@@ -21,10 +21,11 @@
 
 ## Changelog
 
-### v0.1-alpha.29
+### v0.1-alpha.30
 
 * Ajout de conseils pour les succès du 06/12/16
 * Enregistrer la dernière rubrique ouverte
+* Correction d'un bug dans la navigation
 
 ### v0.1-alpha.27
 
