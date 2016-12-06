@@ -36,11 +36,23 @@ var tips = {
     "link_url": "%yt%/aRENFxZPY_8",
     "link_title": "Perchoir des chamanes"
   },
+  1898: {
+    "mask": "Rendez-vous au sud ouest du Point de Passage de Sleive %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
+    "btn": "[&BP4FAAA=]",
+    "link_url": "%yt%/DKHDVj2PSf8",
+    "link_title": "Grottes du spéléologue"
+  },
   1902: {
     "mask": "Rendez-vous à l'est du Point de Passage de Fablegriffe %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
     "btn": "[&BMcDAAA=]",
     "link_url": "%yt%/tZdOK8Kg3Rs",
     "link_title": "Étendue de Fablegriffe"
+  },
+  1907: {
+    "mask": "Rendez-vous au nord du Point de Passage de Govoran %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
+    "btn": "[&BMgCAAA=]",
+    "link_url": "%yt%/wuYwMiKXkLU",
+    "link_title": "Énigme au carré"
   },
   1910: {
     "mask": "Rendez-vous à l'est du Point de passage d'Arca %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
@@ -107,6 +119,11 @@ var tips = {
     "mask": "Wiki : %link%.",
     "link_title": "Contreforts du Voyageur",
     "link_url": "%wiki%/Contreforts_du_Voyageur#.C3.89v.C3.A8nements"
+  },
+  1954: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Chutes de la canopée",
+    "link_url": "%wiki%/Chutes_de_la_canopée#.C3.89v.C3.A8nements"
   },
   1957: {
     "mask": "Wiki : %link%.",
@@ -176,7 +193,7 @@ var tips = {
     "link_title": "Gouffre gelé"
   },
   2166: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 24.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-complexe-souterrain.html",
     "link_title": "Complexe souterrain"
   },
@@ -328,7 +345,7 @@ var tips = {
     "mask": "<small>RA : Niv. 51 = 63 ; Niv. 74 = 104.</small>"
   },
   2923: {
-    "mask": "<small>RA : Niv. 80 = 114.</small>"
+    "mask": "<small>RA : Niv. 80 = 115.</small>"
   },
   2925: {
     "mask": "<small>RA : Niv. 62 = 83.</small>"
@@ -451,6 +468,10 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 15 = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
     "link_title": "Réacteur de Thaumanova"
+  },
+  2983: {
+    "mask": "Rendez-vous au Point de passage de Jaka Itzel %btn%.",
+    "btn": "[&BOAHAAA=]"
   },
   2985: {
     "mask": "<small>RA : Niv. 40 = 43.</small>"

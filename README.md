@@ -21,10 +21,14 @@
 
 ## Changelog
 
+### v0.1-alpha.28
+
+* Ajout de conseils pour les succès du 06/12/16
+
 ### v0.1-alpha.27
 
 * Affichage de l'identifiant des succès pour la bêta
-* Ajout de conseils pour les succès du 30/11/16
+* Ajout de conseils pour les succès du 05/12/16
 
 ### v0.1-alpha.25
 
