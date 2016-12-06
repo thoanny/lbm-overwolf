@@ -21,11 +21,12 @@
 
 ## Changelog
 
-### v0.1-alpha.30
+### v0.1-alpha.31
 
 * Ajout de conseils pour les succès du 06/12/16
 * Enregistrer la dernière rubrique ouverte
 * Correction d'un bug dans la navigation
+* Ajout de timers différents en fonction de la rubrique pour raffraichir les infos
 
 ### v0.1-alpha.27
 

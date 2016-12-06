@@ -70,32 +70,38 @@ function loadTeamspeakBtn() {
 
 function loadPage(page) {
 
+  var d1 = new Date();
+  var d2 = new Date(); d2.setDate(d2.getDate() + 1); d2.setHours(1); d2.setMinutes(0); d2.setSeconds(0);
+  var d3 = d2 - d1;
+  var MINUTE_IN_MS = 60000;
+  var HOUR_IN_MS = MINUTE_IN_MS * 6;
+
   $('#page .container').html('<i class="fa fa-spinner fa-pulse fa-fw"></i> Chargement en cours...');
 
   if(page == 'guild-motd') {
-    loadMotd();
+    loadMotd(); setInterval(function(){ loadPage(page); }, MINUTE_IN_MS*5);
   } else if(page == 'guild-stash') {
-    loadStash();
+    loadStash(); setInterval(function(){ loadPage(page); }, MINUTE_IN_MS*5);
   } else if(page == 'last-news-pages') {
-    loadNewsPages();
+    loadNewsPages(); setInterval(function(){ loadPage(page); }, HOUR_IN_MS);
   } else if(page == 'next-events') {
-    loadEvents();
+    loadEvents(); setInterval(function(){ loadPage(page); }, HOUR_IN_MS*4);
   } else if(page == 'daily-pve') {
-    loadAchievementsDaily('pve');
+    loadAchievementsDaily('pve'); setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'daily-pvp') {
-    loadAchievementsDaily('pvp');
+    loadAchievementsDaily('pvp'); setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'daily-wvw') {
-    loadAchievementsDaily('wvw');
+    loadAchievementsDaily('wvw'); setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'daily-special') {
-    loadAchievementsDaily('special');
+    loadAchievementsDaily('special'); setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'daily-fen') {
-    loadAchievementsCategory(142, 'fen');
+    loadAchievementsCategory(142, 'fen'); setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'daily-bay') {
-    loadAchievementsCategory(145, 'bay');
+    loadAchievementsCategory(145, 'bay'); setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'daily-frontier') {
-    loadAchievementsCategory(149, 'frontier');
+    loadAchievementsCategory(149, 'frontier'); setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'daily-fractals') {
-    loadAchievementsCategory(88, 'fractals');
+    loadAchievementsCategory(88, 'fractals'); setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'pact-agent') {
 
   }
