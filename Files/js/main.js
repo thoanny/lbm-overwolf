@@ -263,12 +263,22 @@ function loadAchievementsCategory(catid, catname) {
 (function($){
   $(window).on("load",function(){
     $('#menu').dropdown();
+
+    if(getConfig('page')) {
+      var page = getConfig('page');
+      loadPage(page);
+      $('div.menu > span').html( $('div.menu ul li[data-value="'+page+'"]').html() );
+      $('div.menu input[name="menu"]').val( page );
+    } else {
+      loadPage('guild-motd');
+    }
   });
 })(jQuery);
 
 $(document).on("click",'.menu ul span', function(){
     var page = $(this).attr('class');
     loadPage(page);
+    setConfig('page', page);
 });
 $(document).on("click",'dl.achievement dt', function(){
     var dl = $(this).parent();
