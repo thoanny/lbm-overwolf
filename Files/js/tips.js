@@ -217,6 +217,16 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/flanc-de-falaise.html",
     "link_title": "Flanc de falaise"
   },
+  2245: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 15.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-etherlame.html",
+    "link_title": "Étherlame"
+  },
+  2266: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 34.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/ocean-solide.html",
+    "link_title": "Océan solide"
+  },
   2297: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 22.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-volcanique.html",
@@ -278,6 +288,9 @@ var tips = {
   2890: {
     "mask": "<small>RA : Niv. 52 = 65 ; 72 = 100.</small>"
   },
+  2892: {
+    "mask": "<small>RA : Niv. 77 = 109 ; Niv. 89 = 130.</small>"
+  },
   2893: {
     "mask": "Découvrez nos guides détaillés des chemins des %link%.",
     "link_title": "Catacombes d'Ascalon",
@@ -317,6 +330,9 @@ var tips = {
   2902: {
     "mask": "<small>RA : Niv. 36 = 36 ; 44 = 50.</small>"
   },
+  2903: {
+    "mask": "<small>RA : Niv. 83 = 120.</small>"
+  },
   2907: {
     "mask": "<small>RA : Niv. 31 = 27.</small>"
   },
@@ -351,7 +367,7 @@ var tips = {
     "mask": "<small>RA : Niv. 62 = 83.</small>"
   },
   2926: {
-    "mask": "<small>RA : Niv. 59 = 77 ; 69 = 95.</small>"
+    "mask": "<small>RA : Niv. 59 = 77 ; Niv. 69 = 95.</small>"
   },
   2927: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 14 = 0 ; Niv. 24 = 15.</small>",
@@ -367,13 +383,18 @@ var tips = {
     "link_title": "Complexe souterrain"
   },
   2930: {
-    "mask": "<small>RA : Niv. 82 = 118 ; 94 = 140.</small>"
+    "mask": "<small>RA : Niv. 82 = 118 ; Niv. 94 = 139.</small>"
   },
   2932: {
     "mask": "<small>RA : Niv. 98 = 147.</small>"
   },
   2934: {
     "mask": "<small>RA : Niv. 70 = 97.</small>"
+  },
+  2935: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA : 2 = 0 ; 21 = 10.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-du-marais.html",
+    "link_title": "Marais"
   },
   2937: {
     "mask": "Récoltez dans votre Hall de guilde."
@@ -394,6 +415,9 @@ var tips = {
     "link_url": "%lbm%/gw2-hearth-of-thorns/bassin-aurique/bassin-aurique-aventures.html",
     "link_title": "aventures du Bassin aurique"
   },
+  2944: {
+    "mask": "<small>RA : Niv. 58 = 75.</small>"
+  },
   2947: {
     "mask": "<small>RA : Niv. 81 = 116 ; 95 = 141.</small>"
   },
@@ -404,7 +428,7 @@ var tips = {
     "mask": "<small>RA : Niv. 27 = 20 ; Niv. 37 = 38.</small>"
   },
   2950: {
-    "mask": "<small>RA : Niv. 53 = 66 ; 68 = 93.</small>"
+    "mask": "<small>RA : Niv. 53 = 66 ; Niv. 68 = 93.</small>"
   },
   2952: {
     "mask": "<small>RA : Niv. 86 = 125 ; Niv. 93 = 138.</small>"
@@ -413,6 +437,9 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 20 = 8.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/ocean-solide.html",
     "link_title": "Océan solide"
+  },
+  2955: {
+    "mask": "<small>RA : Niv. 39 = 41 ; Niv. 67 = 91.</small>"
   },
   2956: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 76 = 107.</small>",
@@ -423,12 +450,15 @@ var tips = {
     "mask": "Récoltez dans votre Hall de guilde."
   },
   2958: {
-    "mask": "<small>RA : Niv. 33 = 31 ; 47 = 56.</small>"
+    "mask": "<small>RA : Niv. 33 = 31 ; Niv. 47 = 56.</small>"
   },
   2959: {
     "mask": "Découvrez nos guides détaillés des chemins de la %link%.",
     "link_title": "Tonnelle du crépuscule",
     "link_url": "%lbm%/expeditions/donjons/tonnelle-du-crepuscule/"
+  },
+  2961: {
+    "mask": "<small>RA : Niv. 32 = 29 ; Niv. 41 = 45.</small>"
   },
   2962: {
     "mask": "<small>RA : Niv. 73 = 102.</small>"
@@ -447,10 +477,18 @@ var tips = {
     "link_title": "Réacteur de Thaumanova"
   },
   2971: {
-    "mask": "<small>RA : Niv. 35 = 34 ; 45 = 52.</small>"
+    "mask": "<small>RA : Niv. 35 = 34 ; Niv. 45 = 52.</small>"
+  },
+  2972: {
+    "mask": "<small>RA : Niv. 56 = 72 ; Niv. 67 = 91.</small>"
+  },
+  2976: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 9 = 0 ; Niv. 23 = 13.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-de-l-alliance-de-la-fournaise.html",
+    "link_title": "Fournaise de la Fusion"
   },
   2977: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 7 = 0 ; 22 = 11.</small>",
+    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 7 = 0 ; Niv. 22 = 11.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/flanc-de-falaise.html",
     "link_title": "Flanc de falaise"
   },
@@ -549,6 +587,11 @@ var tips = {
   },
   3196: {
     "mask": "<small>RA : Niv. 50 = 61.</small>"
+  },
+  3204: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 104.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-aveugleneige.html",
+    "link_title": "Aveugleneige"
   },
   3215: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 86.</small>",
