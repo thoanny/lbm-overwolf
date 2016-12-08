@@ -111,7 +111,7 @@
 			<script id="daily-tpl" type="text/x-handlebars-template">
 				{{#if achievements}}
 				{{#each achievements}}
-					<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}">
+					<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}" data-id="{{id}}">
 						<dt>
 							<strong>({{id}}) {{name}}</strong> <span class="label{{#each required_access}} label-{{.}}{{/each}}"></span>
 						</dt>
@@ -128,7 +128,7 @@
 
 			<script id="daily-category-tpl" type="text/x-handlebars-template">
 				{{#each category}}
-					<dl class="achievement achievement-{{id}}">
+					<dl class="achievement achievement-{{id}}" data-id="{{id}}">
 						<dt>
 							<strong>({{id}}) {{name}}</strong>
 						</dt>

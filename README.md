@@ -21,10 +21,11 @@
 
 ## Changelog
 
-### v0.1-alpha.33
+### v0.1-alpha.34
 
 * Ajout de conseils pour les succès du 08/12/16
 * Correction d'un bug de rafraîchissement des rubriques
+* Sauvegarde de l'avancement des succès quotidiens
 
 ### v0.1-alpha.31
 

@@ -226,6 +226,8 @@ function loadAchievementsDaily( type ) {
       var html    = template(achievements);
       $('#page .container').html(html);
 
+      achievements_done();
+
     });
 
   });
@@ -267,10 +269,33 @@ function loadAchievementsCategory(catid, catname) {
       var html    = template(data);
       $('#page .container').html(html);
 
+      achievements_done();
+
     });
 
   });
 
+};
+
+function achievements_done() {
+  var done_today = getConfig('achievements_done_today');
+  var done_list = getConfig('achievements_done_list');
+  var date = new Date();
+  var today = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+
+  if(done_today && done_today != today) {
+    setConfig('achievements_done_today', today);
+    setConfig('achievements_done_list', []);
+  } else if(done_today && done_list) {
+    var done_list = done_list.split(',');
+    $.each(done_list, function(i, j) {
+      console.log('.achievement.achievement-'+j);
+      $('.achievement.achievement-'+j).addClass('checked');
+    });
+  } else {
+    setConfig('achievements_done_today', today);
+    setConfig('achievements_done_list', []);
+  }
 };
 
 (function($){
@@ -295,7 +320,23 @@ $(document).on("click",'.menu ul span', function(){
     loadPage(page);
     setConfig('page', page);
 });
+
 $(document).on("click",'dl.achievement dt', function(){
     var dl = $(this).parent();
+    var id = dl.data('id');
+    var done_list = getConfig('achievements_done_list');
+
+    if(dl.hasClass('checked')) {
+      done_list = done_list.split(',').map(Number);
+      done_list.splice(done_list.indexOf(id), 1);
+      setConfig('achievements_done_list', done_list.join());
+    } else {
+      if(done_list == '[]') {
+        setConfig('achievements_done_list', id);
+      } else {
+        setConfig('achievements_done_list', done_list+','+id);
+      }
+    }
+
     dl.toggleClass('checked');
 });
