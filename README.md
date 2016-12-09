@@ -21,6 +21,10 @@
 
 ## Changelog
 
+### v0.1-alpha.35
+
+* Ajout de conseils pour les succès du 09/12/16
+
 ### v0.1-alpha.34
 
 * Ajout de conseils pour les succès du 08/12/16

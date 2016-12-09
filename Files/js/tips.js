@@ -60,6 +60,18 @@ var tips = {
     "link_url": "%yt%/ZVw5vJiSp94",
     "link_title": "Butin/Vengeance de Fawcett"
   },
+  1913: {
+    "mask": "Rendez-vous au nord ouest du Point de Passage de la Spirale %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
+    "btn": "[&BDUBAAA=]",
+    "link_url": "%yt%/GmtJuw62GWs",
+    "link_title": "Rêverie cauchemardesque"
+  },
+  1919: {
+    "mask": "Rendez-vous à l'ouest en direction du panorama, à partir du Point de Passage du Rocher de l'épave %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
+    "btn": "[&BOQGAAA=]",
+    "link_url": "%yt%/d2R8tIz9cww",
+    "link_title": "Archives ensevelies"
+  },
   1926: {
     "mask": "Rendez-vous au sud est du Point de passage du Marais d'Anathema %btn%.<br />Voir la vidéo de la Sado Expedition : %link%.",
     "btn": "[&BPwAAAA=]",
@@ -232,6 +244,11 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-volcanique.html",
     "link_title": "Volcanique"
   },
+  2309: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 36.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/non-classee.html",
+    "link_title": "Non classé"
+  },
   2327: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-etherlame.html",
@@ -261,6 +278,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/non-classee.html",
     "link_title": "Non classée"
+  },
+  2473: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 17.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-cauchemars.html",
+    "link_title": "Cauchemars"
   },
   2492: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
@@ -297,9 +319,7 @@ var tips = {
     "link_url": "%lbm%/expeditions/donjons/catacombes-d-ascalon/"
   },
   2895: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 55 = 70 ; Niv. 64 = 86.</small>",
-    "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
-    "link_title": "Réacteur de Thaumanova"
+    "mask": "<small>RA : Niv. 55 = 70 ; Niv. 64 = 86.</small>"
   },
   2896: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 1 = 0 ; 11 = 0.</small>",
@@ -428,7 +448,7 @@ var tips = {
     "mask": "<small>RA : Niv. 27 = 20 ; Niv. 37 = 38.</small>"
   },
   2950: {
-    "mask": "<small>RA : Niv. 53 = 66 ; Niv. 68 = 93.</small>"
+    "mask": "<small>RA : Niv. 53 = 67 ; Niv. 68 = 93.</small>"
   },
   2952: {
     "mask": "<small>RA : Niv. 86 = 125 ; Niv. 93 = 138.</small>"
@@ -472,9 +492,7 @@ var tips = {
     "mask": "<small>RA : Niv. 90 = 132.</small>"
   },
   2967: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 84 = 122 ; Niv. 97 = 145.</small>",
-    "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
-    "link_title": "Réacteur de Thaumanova"
+    "mask": "<small>RA : Niv. 84 = 122 ; Niv. 97 = 145.</small>"
   },
   2971: {
     "mask": "<small>RA : Niv. 35 = 34 ; Niv. 45 = 52.</small>"
@@ -521,9 +539,7 @@ var tips = {
     "mask": "<small>RA : Niv. 87 = 127 ; 92 = 136.</small>"
   },
   2991: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 34 = 33 ; Niv. 48 = 58.</small>",
-    "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
-    "link_title": "Réacteur de Thaumanova"
+    "mask": "<small>RA : Niv. 34 = 33 ; Niv. 48 = 58.</small>"
   },
   3038: {
     "mask": "<small>RA : Niv. 88 = 129 ; 99 = 148.</small>",
@@ -597,6 +613,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 86.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
     "link_title": "Réacteur de Thaumanova"
+  },
+  3228: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 77.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/flanc-de-falaise.html",
+    "link_title": "Flanc de falaise"
   },
   3229: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 25 = 17.</small>",
