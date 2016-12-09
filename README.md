@@ -21,10 +21,11 @@
 
 ## Changelog
 
-### v0.1-alpha.36
+### v0.1-alpha.37
 
 * Ajout de conseils pour les succès du 09/12/16
 * Ajout du réseau des agents du Pacte
+* Ajout des noms des agents du Pacte (un agent est attaché à une zone et ne change pas)
 
 ### v0.1-alpha.34
 
