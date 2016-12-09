@@ -107,8 +107,8 @@ function loadPage(page) {
     loadAchievementsCategory(149, 'frontier'); var refresh = setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'daily-fractals') {
     loadAchievementsCategory(88, 'fractals'); var refresh = setInterval(function(){ loadPage(page); }, d3);
-  } else if(page == 'pact-agent') {
-
+  } else if(page == 'pact-agents') {
+    loadPactAgents(); var refresh = setInterval(function(){ loadPage(page); }, d3);
   }
 
   setConfig('refresh', refresh);
@@ -274,6 +274,78 @@ function loadAchievementsCategory(catid, catname) {
     });
 
   });
+
+};
+
+function loadPactAgents() {
+
+  var agents = [
+    [ // Dimanche
+      {"map": "Ascalon", "waypoint": "Point de passage du Camp de la Crête de neige", "chat_code": "[&BCECAAA=]", "name": ""},
+      {"map": "Cimefroides", "waypoint": "Point de passage de la Lumière froide", "chat_code": "[&BIUCAAA=]", "name": ""},
+      {"map": "Kryte", "waypoint": "Camp de Maraifangeux", "chat_code": "[&BC0AAAA=]", "name": ""},
+      {"map": "Orr", "waypoint": "Point de passage de Fort Trinité", "chat_code": "[&BO4CAAA=]", "name": ""},
+      {"map": "Jungle de Maguuma", "waypoint": "Point de passage de Mabon", "chat_code": "[&BDoBAAA=]", "name": ""},
+      {"map": "Contrées sauvages de Maguuma", "waypoint": "Tonnelle d'Azarr", "chat_code": "[&BIkHAAA=]", "name": ""},
+    ],
+    [ // Lundi
+      {"map": "Ascalon", "waypoint": "Pointe d'Haymal", "chat_code": "[&BA8CAAA=]", "name": ""},
+      {"map": "Cimefroides", "waypoint": "Camp de la crête rocheuse", "chat_code": "[&BIMCAAA=]", "name": ""},
+      {"map": "Kryte", "waypoint": "Collines de portage", "chat_code": "[&BKYBAAA=]", "name": ""},
+      {"map": "Orr", "waypoint": "Point de passage du Ralliement", "chat_code": "[&BNIEAAA=]", "name": ""},
+      {"map": "Jungle de Maguuma", "waypoint": "Point de passage du dépôt de la garde du lion", "chat_code": "[&BEwDAAA=]", "name": ""},
+      {"map": "Contrées sauvages de Maguuma", "waypoint": "Refuge de restauration", "chat_code": "[&BIcHAAA=]", "name": ""},
+    ],
+    [ // Mardi
+      {"map": "Ascalon", "waypoint": "Point de passage du Point de Temperus", "chat_code": "[&BIMBAAA=]", "name": ""},
+      {"map": "Cimefroides", "waypoint": "Point de passage de Travelen", "chat_code": "[&BGQCAAA=]", "name": ""},
+      {"map": "Kryte", "waypoint": "Garenhoff", "chat_code": "[&BBkAAAA=]", "name": ""},
+      {"map": "Orr", "waypoint": "Point de passage des Crevasses oubliées", "chat_code": "[&BKgCAAA=]", "name": ""},
+      {"map": "Jungle de Maguuma", "waypoint": "Point de passage de Desider Atum", "chat_code": "[&BEgAAAA=]", "name": ""},
+      {"map": "Contrées sauvages de Maguuma", "waypoint": "Point de passage du Camp de la détermination", "chat_code": "[&BH8HAAA=]", "name": ""},
+    ],
+    [ // Mercredi
+      {"map": "Ascalon", "waypoint": "Village de Ferrusatos", "chat_code": "[&BPEBAAA=]", "name": ""},
+      {"map": "Cimefroides", "waypoint": "Mennerheim", "chat_code": "[&BDgDAAA=]", "name": ""},
+      {"map": "Kryte", "waypoint": "Point de passage de Chimèrepavois", "chat_code": "[&BKYAAAA=]", "name": ""},
+      {"map": "Orr", "waypoint": "Mande-Ombre de Caer", "chat_code": "[&BP0CAAA=]", "name": ""},
+      {"map": "Jungle de Maguuma", "waypoint": "Guet de Gardemarais", "chat_code": "[&BMIBAAA=]", "name": ""},
+      {"map": "Contrées sauvages de Maguuma", "waypoint": "Ville de Prospérité", "chat_code": "[&BH4HAAA=]", "name": ""},
+    ],
+    [ // Jeudi
+      {"map": "Ascalon", "waypoint": "Point de passage des Ruines de Piken la vieille", "chat_code": "[&BOQBAAA=]", "name": ""},
+      {"map": "Cimefroides", "waypoint": "Antreroche", "chat_code": "[&BF0GAAA=]", "name": ""},
+      {"map": "Kryte", "waypoint": "Comptoir de l'Autel du Ruisseau", "chat_code": "[&BIMAAAA=]", "name": ""},
+      {"map": "Orr", "waypoint": "Point de passage de Fort Trinité", "chat_code": "[&BO4CAAA=]", "name": ""},
+      {"map": "Jungle de Maguuma", "waypoint": "Protecteurs séraphins", "chat_code": "[&BE8AAAA=]", "name": ""},
+      {"map": "Contrées sauvages de Maguuma", "waypoint": "Oasis bleue", "chat_code": "[&BKsHAAA=]", "name": ""},
+    ],
+    [ // Vendredi
+      {"map": "Ascalon", "waypoint": "Point de passage des Portails du faucon", "chat_code": "[&BNMAAAA=]", "name": "Verma Broyedon"},
+      {"map": "Cimefroides", "waypoint": "Point de passage du Col du dolyak", "chat_code": "[&BHsBAAA=]", "name": "Despina Katelyn"},
+      {"map": "Kryte", "waypoint": "Point de passage de l'Ilot de perles", "chat_code": "[&BNUGAAA=]", "name": "Dame Derwena"},
+      {"map": "Orr", "waypoint": "Point de passage des Crevasses oubliées", "chat_code": "[&BKgCAAA=]", "name": "Spécialiste Yana"},
+      {"map": "Jungle de Maguuma", "waypoint": "Point de passage du Barde", "chat_code": "[&BMwCAAA=]", "name": "Le renard"},
+      {"map": "Contrées sauvages de Maguuma", "waypoint": "Atelier de réparation", "chat_code": "[&BJQHAAA=]", "name": "Mehem le Voyageur"},
+    ],
+    [ // Samedi
+      {"map": "Ascalon", "waypoint": "Domaine de Bovarin", "chat_code": "[&BBABAAA=]", "name": ""},
+      {"map": "Cimefroides", "waypoint": "Balddistead", "chat_code": "[&BEICAAA=]", "name": ""},
+      {"map": "Kryte", "waypoint": "Point de passage du Fort des Veilleurs", "chat_code": "[&BJIBAAA=]", "name": ""},
+      {"map": "Orr", "waypoint": "Torche d'Augur", "chat_code": "[&BBEDAAA=]", "name": ""},
+      {"map": "Jungle de Maguuma", "waypoint": "Folie du Brave", "chat_code": "[&BLkCAAA=]", "name": ""},
+      {"map": "Contrées sauvages de Maguuma", "waypoint": "Point de passage du Camp de la détermination", "chat_code": "[&BH8HAAA=]", "name": ""},
+    ]
+  ];
+
+  var today = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+  var date = new Date();
+  var data = {"today": today[date.getDay()], "agents": agents[date.getDay()]};
+
+  var source   = $("#pact-agents-tpl").html();
+  var template = Handlebars.compile(source);
+  var html    = template(data);
+  $('#page .container').html(html);
 
 };
 

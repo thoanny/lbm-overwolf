@@ -21,9 +21,10 @@
 
 ## Changelog
 
-### v0.1-alpha.35
+### v0.1-alpha.36
 
 * Ajout de conseils pour les succès du 09/12/16
+* Ajout du réseau des agents du Pacte
 
 ### v0.1-alpha.34
 

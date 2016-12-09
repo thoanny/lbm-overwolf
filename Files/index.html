@@ -31,7 +31,7 @@
 				<option value="daily-bay" class="daily-bay">Baie des braises quotidienne</option>
 				<option value="daily-frontier" class="daily-frontier">Confins de Givramer quotidienne</option>
 				<option value="daily-fractals" class="daily-fractals">Fractales quotidiennes</option>
-				<!-- <option value="pact-agents" class="pact-agents">Agents du Pacte</option> -->
+				<option value="pact-agents" class="pact-agents">Agents du Pacte</option>
 			</select>
 
 			<div id="page"><div class="container"><i class="fa fa-spinner fa-pulse fa-fw"></i> Chargement en cours...</div></div>
@@ -141,6 +141,15 @@
 
 			<script id="pact-agents-tpl" type="text/x-handlebars-template">
 				<h2>Agents du Pacte</h2>
+				<p>Pour plus d'informations sur le reseau des agents du Pacte, rendez-vous sur <a href="http://www.lebusmagique.fr/pages/gw2-hearth-of-thorns/maitrises/le-reseau-des-agents-du-pacte.html" target="_blank">notre guide</a>.</p>
+				<h3>{{today}}</h3>
+				<p><button onclick="copyToClipboard('{{#each agents}}{{#if @first}}{{name}} {{chat_code}}{{else}} - {{name}} {{chat_code}}{{/if}}{{/each}}')"><i class="fa fa-clipboard" aria-hidden="true"></i> Tous les agents d'aujourd'hui</button></p>
+				{{#each agents}}
+				<dl>
+					<dt><strong>{{name}}</strong> ({{map}})</dt>
+					<dd><button onclick="copyToClipboard('{{name}} : {{chat_code}}')"><i class="fa fa-clipboard" aria-hidden="true"></i> {{waypoint}}</button></dd>
+				</dl>
+				{{/each}}
 			</script>
 
 		</div>
