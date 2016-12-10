@@ -152,6 +152,11 @@ var tips = {
     "link_title": "Saut de Malchor",
     "link_url": "%wiki%/Saut_de_Malchor#.C3.89v.C3.A8nements"
   },
+  1963: {
+    "mask": "Wiki : %link%.",
+    "link_title": "La Vallée de la reine",
+    "link_url" : "%wiki%/La_Vallée_de_la_reine#.C3.89v.C3.A8nements"
+  },
   1964: {
     "mask": "Wiki : %link%.",
     "link_title": "Plaines d'Ashford",
@@ -204,10 +209,20 @@ var tips = {
     "link_url": "%lbm%/expeditions/world-boss/gouffre-gele.html",
     "link_title": "Gouffre gelé"
   },
+  2025: {
+    "mask": "Rendez-vous sur notre page %link%.",
+    "link_title": "Timer World Boss",
+    "link_url": "%lbm%/outils-gw2/les-world-boss.html"
+  },
   2166: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 24.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-complexe-souterrain.html",
     "link_title": "Complexe souterrain"
+  },
+  2171: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 44.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/boss-de-la-fusion.html",
+    "link_title": "Boss de la Fusion"
   },
   2189: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 10.</small>",
@@ -243,6 +258,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 22.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-volcanique.html",
     "link_title": "Volcanique"
+  },
+  2308: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-aveugleneige.html",
+    "link_title": "Aveugleneige"
   },
   2309: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 36.</small>",
@@ -348,7 +368,7 @@ var tips = {
     "link_url": "%lbm%/expeditions/donjons/citadelle-de-la-flamme/"
   },
   2902: {
-    "mask": "<small>RA : Niv. 36 = 36 ; 44 = 50.</small>"
+    "mask": "<small>RA : Niv. 36 = 36 ; Niv. 44 = 50.</small>"
   },
   2903: {
     "mask": "<small>RA : Niv. 83 = 120.</small>"
@@ -357,13 +377,13 @@ var tips = {
     "mask": "<small>RA : Niv. 31 = 27.</small>"
   },
   2908: {
-    "mask": "<small>RA : Niv. 28 = 22 ; 46 = 54.</small>"
+    "mask": "<small>RA : Niv. 28 = 22 ; Niv. 46 = 54.</small>"
   },
   2909: {
     "mask": "<small>RA : Niv. 49 = 59.</small>"
   },
   2911: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 6 = 0 ; 19 = 0.</small>",
+    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 6 = 0 ; Niv. 19 = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-volcanique.html",
     "link_title": "Volcanique"
   },
@@ -395,7 +415,7 @@ var tips = {
     "link_title": "Étherlame"
   },
   2928: {
-    "mask": "<small>RA : Niv. 65 = 88 ; Niv. 71 = 99.</small>"
+    "mask": "<small>RA : Niv. 65 = 88 ; Niv. 71 = 98.</small>"
   },
   2929: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 8 = 0 ; 17 = 0.</small>",
@@ -412,7 +432,7 @@ var tips = {
     "mask": "<small>RA : Niv. 70 = 97.</small>"
   },
   2935: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : 2 = 0 ; 21 = 10.</small>",
+    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 2 = 0 ; Niv. 21 = 10.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-du-marais.html",
     "link_title": "Marais"
   },
@@ -536,19 +556,19 @@ var tips = {
     "mask": "<small>RA : Niv. 60 = 79.</small>"
   },
   2989: {
-    "mask": "<small>RA : Niv. 87 = 127 ; 92 = 136.</small>"
+    "mask": "<small>RA : Niv. 87 = 128 ; Niv. 92 = 136.</small>"
   },
   2991: {
     "mask": "<small>RA : Niv. 34 = 33 ; Niv. 48 = 58.</small>"
   },
   3038: {
-    "mask": "<small>RA : Niv. 88 = 129 ; 99 = 148.</small>",
+    "mask": "<small>RA : Niv. 88 = 129 ; Niv. 99 = 148.</small>",
   },
   3044: {
-    "mask": "<small>RA : Niv. 30 = 26 ; 38 = 40.</small>",
+    "mask": "<small>RA : Niv. 30 = 26 ; Niv. 38 = 40.</small>",
   },
   3045: {
-    "mask": "<small>RA : Niv. 54 = 68 ; 63 = 84.</small>",
+    "mask": "<small>RA : Niv. 54 = 68 ; Niv. 63 = 84.</small>",
   },
   3052: {
     "mask": "Vous obtenez une première compétence utilisable en vol dès que vous entrez dans le Marais de la pierre de sang. Ciblez un ennemi en vol et utilisez le nombre requis de fois votre compétence. Vous pouvez également acheter des compétences supplémentaires sur l'aéronef de Garde-âmes."
@@ -628,5 +648,10 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA : 106.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-cauchemars.html",
     "link_title": "Cauchemars"
+  },
+  3237: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 67.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/le-complexe-souterrain.html",
+    "link_title": "Complexe souterrain"
   },
 };
