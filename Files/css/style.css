@@ -445,3 +445,45 @@ ul.news, ul.pages {
       overflow: hidden;
       text-overflow: ellipsis;
       display: block; }
+
+#menu-v3 {
+  position: relative;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.75);
+  float: left;
+  width: 100%;
+  text-shadow: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px solid red; }
+  #menu-v3 ul {
+    display: none; }
+  #menu-v3 > li {
+    display: block;
+    width: 25%;
+    float: left; }
+    #menu-v3 > li a {
+      display: block;
+      width: 100%;
+      padding: 1em;
+      text-align: center; }
+    #menu-v3 > li.active ul {
+      display: block;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 0;
+      margin-top: 2px;
+      float: left;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 99995;
+      list-style: none; }
+      #menu-v3 > li.active ul li {
+        float: left; }
+        #menu-v3 > li.active ul li a {
+          display: block; }
+        #menu-v3 > li.active ul li.active a {
+          background: red; }
+    #menu-v3 > li.active > a {
+      background: red; }

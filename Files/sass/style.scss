@@ -630,3 +630,69 @@ ul.news, ul.pages {
 		}
 	}
 }
+
+#menu-v3 {
+	position:relative;
+	z-index: 99999;
+	background:rgba(0, 0, 0, .75);
+	float:left;
+	width: 100%;
+	text-shadow: none;
+	margin: 0;
+	padding: 0;
+	border-bottom:2px solid red;
+
+	ul {
+		display: none;
+	}
+
+	> li {
+		display:block;
+		width: 25%;
+		float:left;
+
+		a {
+			display:block;
+			width: 100%;
+			padding: 1em;
+			text-align: center;
+
+		}
+
+		&.active {
+			ul {
+				display: block;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				left: 0;
+				margin-top: 2px;
+				float:left;
+				width: 100%;
+				background:rgba(0, 0, 0, .75);
+				z-index: 99995;
+				list-style: none;
+
+				li {
+					float:left;
+
+					a {
+						display: block;
+					}
+
+					&.active {
+						a {
+							background: red;
+						}
+					}
+				}
+			}
+
+			> a {
+				background: red;
+			}
+		}
+
+
+	}
+}
