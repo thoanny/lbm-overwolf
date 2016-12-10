@@ -372,25 +372,55 @@ function achievements_done() {
 
 (function($){
   $(window).on("load",function(){
-    var current_window = document.location.href.match(/[^\/]+$/)[0];
+    var current_menu = getConfig('menu');
+    var current_submenu = getConfig('submenu');
 
-    $('#menu').dropdown();
-
-    if(getConfig('page') && current_window == 'index.html') {
-      var page = getConfig('page');
-      loadPage(page);
-      $('div.menu > span').html( $('div.menu ul li[data-value="'+page+'"]').html() );
-      $('div.menu input[name="menu"]').val( page );
-    } else if(current_window == 'index.html') {
+    if(current_menu) {
+      $('#menu-v3 > li.active').removeClass('active');
+      $('#menu-v3 > li > a.'+current_menu).parent().addClass('active');
+    } else if (!current_submenu) {
       loadPage('guild-motd');
+    }
+
+    if(current_submenu) {
+      $('#menu-v3 ul li.active').removeClass('active');
+      $('#menu-v3 ul li a.'+current_submenu).parent().addClass('active');
+      loadPage(current_submenu);
+    } else {
+      loadPage(current_menu);
     }
   });
 })(jQuery);
 
-$(document).on("click",'.menu ul span', function(){
-    var page = $(this).attr('class');
-    loadPage(page);
-    setConfig('page', page);
+$(document).on("click",'#menu-v3 a[data-page]', function(){
+  var page = $(this).data('page');
+  var hasParent = $(this).parent().parent().prev('a').length;
+
+  deleteConfig('menu');
+  deleteConfig('submenu');
+
+  if(hasParent) {
+    setConfig('menu', $(this).parent().parent().prev('a').attr('class'));
+    setConfig('submenu', page);
+  } else {
+    setConfig('menu', page);
+  }
+
+  setConfig('page', page);
+  loadPage(page);
+});
+
+$(document).on("click",'#menu-v3 a', function(e){
+  e.preventDefault();
+
+  var hasParent = $(this).parent().parent().prev('a').length;
+  if(hasParent) {
+    $('#menu-v3 ul li.active').removeClass('active');
+    $(this).parent().addClass('active');
+  } else {
+    $('#menu-v3 li.active').removeClass('active');
+    $(this).parent().addClass('active');
+  }
 });
 
 $(document).on("click",'dl.achievement dt', function(){

@@ -21,31 +21,31 @@
 			<ul id="menu-v3">
 				<li class="active"><a href="#" class="guild">Guilde</a>
 					<ul>
-						<li class="active"><a href="#" class="guild-motd">Message du jour</a></li>
-						<li><a href="#" class="guild-stash">Coffre de guilde</a></li>
-						<li><a href="#" class="next-events">&Eacute;vénements à venir</a></li>
+						<li class="active"><a href="#" class="guild-motd" data-page="guild-motd">Message du jour</a></li>
+						<li><a href="#" class="guild-stash" data-page="guild-stash">Coffre de guilde</a></li>
+						<li><a href="#" class="next-events" data-page="next-events">&Eacute;vénements à venir</a></li>
 					</ul>
 				</li>
 				<li><a href="#" class="site">Site</a>
 					<ul>
-						<li><a href="#" class="last-news">Dernières news</a></li>
-						<li><a href="#" class="last-pages">Dernières pages</a></li>
-						<li><a href="#" class="pact-agents">Agents du Pacte</a></li>
+						<li><a href="#" class="last-news" data-page="last-news">Dernières news</a></li>
+						<li><a href="#" class="last-pages" data-page="last-pages">Dernières pages</a></li>
+						<li><a href="#" class="pact-agents" data-page="pact-agents">Agents du Pacte</a></li>
 					</ul>
 				</li>
 				<li><a href="#" class="daily">Succès</a>
 					<ul>
-						<li><a href="#" class="daily-pve">Succès JcE quotidien</a></li>
-						<li><a href="#" class="daily-pvp">Succès JcJ quotidien</a></li>
-						<li><a href="#" class="daily-wvw">Succès McM quotidien</a></li>
-						<li><a href="#" class="daily-special">Succès spéciaux quotidien</a></li>
-						<li><a href="#" class="daily-fen">Marais de la pierre de sang quotidiens</a></li>
-						<li><a href="#" class="daily-bay">Baie des braises quotidienne</a></li>
-						<li><a href="#" class="daily-frontier">Confins de Givramer quotidienne</a></li>
-						<li><a href="#" class="daily-fractals">Fractales quotidiennes</a></li>
+						<li><a href="#" class="daily-pve" data-page="daily-pve">Succès JcE quotidien</a></li>
+						<li><a href="#" class="daily-pvp" data-page="daily-pvp">Succès JcJ quotidien</a></li>
+						<li><a href="#" class="daily-wvw" data-page="daily-wvw">Succès McM quotidien</a></li>
+						<li><a href="#" class="daily-special" data-page="daily-special">Succès spéciaux quotidien</a></li>
+						<li><a href="#" class="daily-fen" data-page="daily-fen">Marais de la pierre de sang quotidiens</a></li>
+						<li><a href="#" class="daily-bay" data-page="daily-bay">Baie des braises quotidienne</a></li>
+						<li><a href="#" class="daily-frontier" data-page="daily-frontier">Confins de Givramer quotidienne</a></li>
+						<li><a href="#" class="daily-fractals" data-page="faily-fractals">Fractales quotidiennes</a></li>
 					</ul>
 				</li>
-				<li><a href="#" class="config">Paramètres</a></li>
+				<li><a href="#" class="config" data-page="config">Paramètres</a></li>
 			</ul>
 
 			<div id="page"><div class="container"><i class="fa fa-spinner fa-pulse fa-fw"></i> Chargement en cours...</div></div>
@@ -164,19 +164,6 @@
 					<dd><button onclick="copyToClipboard('{{name}} : {{chat_code}}')"><i class="fa fa-clipboard" aria-hidden="true"></i> {{waypoint}}</button></dd>
 				</dl>
 				{{/each}}
-			</script>
-
-			<script>
-				$(document).on("click",'#menu-v3 > li > a', function(){
-			    console.log('click1');
-					$('#menu-v3 > li.active').removeClass('active');
-					$('#menu-v3 ul li.active').removeClass('active');
-					$(this).parent().addClass('active');
-				});
-				$(document).on("click",'#menu-v3 ul li a', function(){
-					$('#menu-v3 ul li.active').removeClass('active');
-			    $(this).parent().addClass('active');
-				});
 			</script>
 
 		</div>

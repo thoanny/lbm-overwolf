@@ -464,7 +464,6 @@ ul.news, ul.pages {
     float: left; }
     #menu-v3 > li a {
       display: block;
-      width: 100%;
       padding: 1em;
       text-align: center; }
     #menu-v3 > li.active ul {
