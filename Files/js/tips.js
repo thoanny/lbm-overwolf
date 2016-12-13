@@ -8,6 +8,12 @@ var tips = {
     "mask": "Rendez-vous au Point de passage de la Garnison %btn% et montez les escaliers derrière le Soldat séraphin Diedra (c&oelig;ur).",
     "btn": "[&BPEAAAA=]"
   },
+  1874: {
+    "mask": "Rendez-vous au nord du Point de Passage du Ravin %btn%.<br />Voir la vidéo de la Sado Expedition : %link%.",
+    "btn": "[&BLoDAAA=]",
+    "link_url": "%yt%/MjLICmNJ73Y",
+    "link_title": "Butin de Goff"
+  },
   1875: {
     "mask": "Voir la vidéo de la SaDo Expedition : %link%.",
     "link_url": "%yt%/DnOCbLY-FIo",
