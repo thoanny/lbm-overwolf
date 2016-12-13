@@ -55,16 +55,6 @@ function closeWindow(){
   });
 };
 
-function openConfigWindow() {
-  overwolf.windows.obtainDeclaredWindow("ConfigWindow", function(result){
-    if (result.status == "success"){
-      overwolf.windows.restore(result.window.id, function(result){
-          console.log(result);
-      });
-    }
-  });
-};
-
 function copyToClipboard(data) {
   overwolf.utils.placeOnClipboard(data);
 };
