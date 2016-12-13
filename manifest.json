@@ -25,16 +25,6 @@
 					"topmost": true,
 					"disable_rightclick": true,
 					"ignore_keyboard_events": true
-				},
-				"ConfigWindow": {
-					"file":"Files/config.html",
-					"show_in_taskbar": false,
-					"transparent":true,
-					"resizable":false,
-					"use_os_windowing": false,
-					"size":{"width":350, "height":670},
-					"topmost": true,
-					"disable_rightclick": true
 				}
 		}
 	},

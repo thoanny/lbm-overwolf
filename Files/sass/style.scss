@@ -97,7 +97,7 @@ a:hover {
 
 dl {
 	margin-top: 0;
-	margin-bottom: 1.5em;
+	margin-bottom: .75em;
 	position: relative;
 
 	&.achievement {
@@ -256,7 +256,7 @@ header {
 
 #content {
 	position: absolute;
-	top:145px;
+	top:180px;
 	/*top:95px;*/
 	bottom: 10px;
 	left: 0;
@@ -417,201 +417,6 @@ li.ui-tab img {
 	display: none;
 }
 
-/* MENU */
-
-.menu > span span, .menu ul li span {
-	&.guild-motd:before {
-		background-image: url($icon-motd);
-	}
-	&.guild-stash:before {
-		background-image: url($icon-stash);
-	}
-	&.last-news-pages:before {
-		background-image: url($icon-news-pages);
-	}
-	&.next-events:before {
-		background-image: url($icon-events);
-	}
-	&.daily-pve:before {
-		background-image: url($icon-daily-pve);
-	}
-	&.daily-pvp:before {
-		background-image: url($icon-daily-pvp);
-	}
-	&.daily-wvw:before {
-		background-image: url($icon-daily-wvw);
-	}
-	&.daily-special:before {
-		background-image: url($icon-daily-special);
-	}
-	&.daily-fen:before {
-		background-image: url($icon-daily-fen);
-	}
-	&.daily-bay:before {
-		background-image: url($icon-daily-bay);
-	}
-	&.daily-frontier:before {
-		background-image: url($icon-daily-frontier);
-	}
-	&.daily-fractals:before {
-		background-image: url($icon-daily-fractals);
-	}
-	&.pact-agents:before {
-		background-image: url($icon-pact-agents);
-	}
-}
-
-.menu {
-	position:absolute;
-	top: -65px;
-	left: 30px;
-	z-index: 9999;
-	text-shadow: none;
-
-	> span {
-		width: 100%;
-		height: 32px;
-		line-height: 32px;
-		color: #999;
-		font-weight: 700;
-		/*font-size: 16px;*/
-		/*background: #fff;*/
-		background: rgba(0, 0, 0, .5);
-		display: block;
-		padding: 0 5px 0 5px;
-		position: relative;
-		cursor: pointer;
-		background: black;
-		color: #fff;
-
-		&:after {
-			content: '\25BC';
-			position: absolute;
-			right: 0px;
-			top: 0;
-			width: 32px;
-			text-align: center;
-			font-size: 12px;
-			padding: 0 10px;
-			height: 100%;
-			line-height: 32px;
-		}
-
-		span[class^="icon-"],
-		span[class*=" icon-"]{
-			padding: 0 20px 0 45px;
-		}
-
-		> span {
-			max-width: 240px;
-			display: block;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-			overflow: hidden;
-		}
-	}
-
-	&.cd-active {
-		> span {
-			color: #DC241F;
-			background: rgba(0, 0, 0, .75);
-			color:#fff;
-
-			&:after {
-			content: '\25B2';
-			}
-		}
-
-		> span,
-		ul li span {
-		box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-		}
-
-		ul li span {
-		-webkit-transition: all 0.2s linear 0s;
-		-moz-transition: all 0.2s linear 0s;
-		-ms-transition: all 0.2s linear 0s;
-		-o-transition: all 0.2s linear 0s;
-		transition: all 0.2s linear 0s;
-
-			&:hover {
-				background: #DC241F;
-				color: #fff;
-			}
-		}
-	}
-
-	ul {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		display: block;
-		position: relative;
-		position: absolute;
-		top: 0px;
-		width: 100%;
-
-		li {
-			display: block;
-			position: absolute;
-			width: 100%;
-
-			span {
-				width: 100%;
-				/*background: #fff;*/
-				background: rgba(0, 0, 0, .75);
-				line-height: 32px;
-				padding: 0 5px 0 5px;
-				display: block;
-				/*color: #bcbcbc;*/
-				color: #ffffff;
-				cursor: pointer;
-				font-weight: 700;
-			}
-		}
-	}
-
-	> span,
-	ul li span {
-	-webkit-backface-visibility: hidden;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	}
-
-	> span > span:before, ul li span:before {
-		content: '';
-		width: 30px;
-		height: 30px;
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: 100%;
-		display: inline-block;
-		vertical-align: middle;
-		margin-right: .5em;
-	}
-
-	> span,
-	ul li:nth-last-child(-n+3) span {
-	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-	}
-
-}
-
-.menu,
-.cd-select {
-	position: absolute;
-	width: 280px;
-	margin: 20px auto;
-	display: block;
-}
-.cd-select {
-	border: 1px solid #ddd;
-}
-
 ul.news, ul.pages {
 	padding: 0;
 
@@ -628,5 +433,138 @@ ul.news, ul.pages {
 			text-overflow: ellipsis;
 			display: block;
 		}
+	}
+}
+
+#menu-v3 {
+	position:relative;
+	z-index: 99999;
+	background:rgba(0, 0, 0, .75);
+	float:left;
+	width: 100%;
+	text-shadow: none;
+	margin: -80px 0 0 0;
+	padding: 0;
+	border-bottom:2px solid #991b1b;
+
+	ul {
+		display: none;
+	}
+
+	> li {
+		display:block;
+		width: 25%;
+		float:left;
+
+		a {
+			display:block;
+			// width: 100%;
+			padding: .75em 1em;
+			text-align: center;
+			color: #fff;
+
+			&:hover {
+				text-decoration: none;
+				background: #8c3d45;
+			}
+
+		}
+
+		ul {
+			li {
+				a {
+					padding: .25em;
+				}
+			}
+		}
+
+		&.active {
+			ul {
+				display: block;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				left: 0;
+				margin-top: 2px;
+				float:left;
+				width: 100%;
+				background:rgba(0, 0, 0, .75);
+				z-index: 99995;
+				list-style: none;
+
+				li {
+					float:left;
+
+					a {
+						display: block;
+					}
+
+					&.active {
+						a {
+							background: #991b1b;
+						}
+					}
+				}
+			}
+
+			> a {
+				background: #991b1b;
+			}
+		}
+
+
+	}
+
+	ul a:before {
+		content: '';
+		width: 35px;
+		height: 35px;
+		display: inline-block;
+		vertical-align: middle;
+		background-repeat: no-repeat;
+		background-position:center center;
+		background-size: 100%;
+	}
+	a.daily-pve:before {
+		background-image: url($icon-daily-pve);
+	}
+	a.daily-pvp:before {
+		background-image: url($icon-daily-pvp);
+	}
+	a.daily-wvw:before {
+		background-image: url($icon-daily-wvw);
+	}
+	a.daily-special:before {
+		background-image: url($icon-daily-special);
+	}
+	a.daily-fen:before {
+		background-image: url($icon-daily-fen);
+	}
+	a.daily-bay:before {
+		background-image: url($icon-daily-bay);
+	}
+	a.daily-frontier:before {
+		background-image: url($icon-daily-frontier);
+	}
+	a.daily-fractals:before {
+		background-image: url($icon-daily-fractals);
+	}
+	a.guild-motd:before {
+		background-image: url($icon-motd);
+	}
+	a.guild-stash:before {
+		background-image: url($icon-stash);
+	}
+	a.next-events:before {
+		background-image: url($icon-events);
+	}
+	a.last-news:before {
+		background-image: url($icon-news-pages);
+	}
+	a.last-pages:before {
+		background-image: url($icon-news-pages);
+	}
+	a.pact-agents:before {
+		background-image: url($icon-pact-agents);
 	}
 }

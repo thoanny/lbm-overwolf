@@ -8,31 +8,44 @@
 		<script> HandlebarsIntl.registerWith(Handlebars); var intlData = { locales: 'fr-FR' } </script>
 	</head>
 
-	<body unselectable="on" onselectstart="return false;" onmousedown="return false;" class="index">
+	<body unselectable="on" onselectstart="return false;" class="index">
 		<div class="resizeGrip" id="resizeGripBottom" onmousedown="dragResize('Bottom');"></div>
 		<div id="content">
 
 			<header>
 				<a id="close" onclick="closeWindow();"><i class="fa fa-times" aria-hidden="true"></i></a>
 				<div id="drag" onmousedown="dragMove();"></div>
-				<a id="config" onclick="openConfigWindow();"><i class="fa fa-cog" aria-hidden="true"></i></a>
 			</header>
 
-			<select id="menu" class="cd-select">
-				<option value="guild-motd" class="guild-motd" selected>Message du jour</option>
-				<option value="guild-stash" class="guild-stash">Coffre de guilde</option>
-				<option value="last-news-pages" class="last-news-pages">Dernières news et pages</option>
-				<option value="next-events" class="next-events">&Eacute;vénements à venir</option>
-				<option value="daily-pve" class="daily-pve">Succès JcE quotidien</option>
-				<option value="daily-pvp" class="daily-pvp">Succès JcJ quotidien</option>
-				<option value="daily-wvw" class="daily-wvw">Succès McM quotidien</option>
-				<option value="daily-special" class="daily-special">Succès spéciaux quotidien</option>
-				<option value="daily-fen" class="daily-fen">Marais de la pierre de sang quotidiens</option>
-				<option value="daily-bay" class="daily-bay">Baie des braises quotidienne</option>
-				<option value="daily-frontier" class="daily-frontier">Confins de Givramer quotidienne</option>
-				<option value="daily-fractals" class="daily-fractals">Fractales quotidiennes</option>
-				<option value="pact-agents" class="pact-agents">Agents du Pacte</option>
-			</select>
+			<ul id="menu-v3">
+				<li class="active"><a href="#" class="guild">Guilde</a>
+					<ul>
+						<li class="active"><a href="#" class="guild-motd" data-page="guild-motd"></a></li>
+						<li><a href="#" class="guild-stash" data-page="guild-stash"></a></li>
+						<li><a href="#" class="next-events" data-page="next-events"></a></li>
+					</ul>
+				</li>
+				<li><a href="#" class="site">Site</a>
+					<ul>
+						<li><a href="#" class="last-news" data-page="last-news"></a></li>
+						<li><a href="#" class="last-pages" data-page="last-pages"></a></li>
+						<li><a href="#" class="pact-agents" data-page="pact-agents"></a></li>
+					</ul>
+				</li>
+				<li><a href="#" class="daily">Succès</a>
+					<ul>
+						<li><a href="#" class="daily-pve" data-page="daily-pve"></a></li>
+						<li><a href="#" class="daily-pvp" data-page="daily-pvp"></a></li>
+						<li><a href="#" class="daily-wvw" data-page="daily-wvw"></a></li>
+						<li><a href="#" class="daily-special" data-page="daily-special"></a></li>
+						<li><a href="#" class="daily-fen" data-page="daily-fen"></a></li>
+						<li><a href="#" class="daily-bay" data-page="daily-bay"></a></li>
+						<li><a href="#" class="daily-frontier" data-page="daily-frontier"></a></li>
+						<li><a href="#" class="daily-fractals" data-page="daily-fractals"></a></li>
+					</ul>
+				</li>
+				<li><a href="#" class="config" data-page="config">Config.</a></li>
+			</ul>
 
 			<div id="page"><div class="container"><i class="fa fa-spinner fa-pulse fa-fw"></i> Chargement en cours...</div></div>
 
@@ -150,6 +163,51 @@
 					<dd><button onclick="copyToClipboard('{{name}} : {{chat_code}}')"><i class="fa fa-clipboard" aria-hidden="true"></i> {{waypoint}}</button></dd>
 				</dl>
 				{{/each}}
+			</script>
+
+			<script id="config-tpl" type="text/x-handlebars-template">
+				<h2>Configuration</h2>
+				<form id="config" autocomplete="off">
+					<fieldset>
+						<legend>API</legend>
+						<p>
+							<label for="api_key">Clé API</label>
+							<input type="text" id="api_key" />
+						</p>
+						<ul id="permissions" class="fa-ul">
+							<li class="account"><i class="fa-li fa fa-square"></i> account</li>
+							<li class="inventories"><i class="fa-li fa fa-square"></i> inventories</li>
+							<li class="characters"><i class="fa-li fa fa-square"></i> characters</li>
+							<li class="tradingpost"><i class="fa-li fa fa-square"></i> tradingpost</li>
+							<li class="wallet"><i class="fa-li fa fa-square"></i> wallet</li>
+							<li class="unlocks"><i class="fa-li fa fa-square"></i> unlocks</li>
+							<li class="pvp"><i class="fa-li fa fa-square"></i> pvp</li>
+							<li class="builds"><i class="fa-li fa fa-square"></i> builds</li>
+							<li class="progression"><i class="fa-li fa fa-square"></i> progression</li>
+							<li class="guilds"><i class="fa-li fa fa-square"></i> guilds</li>
+						</ul>
+					</fieldset>
+					<fieldset>
+						<legend>Compte</legend>
+						<p>
+							<label>Nom de compte</label>
+							<input type="text" id="account_name" disabled="disabled" />
+						</p>
+					</fieldset>
+					<fieldset>
+						<legend>Guilde</legend>
+						<p>
+							<label>Guilde représentée</label>
+							<select id="favorite_guild">
+								<option value="">Aucune</option>
+							</select>
+						</p>
+					</fieldset>
+					<p>
+						<button type="submit">Enregistrer les modifications</button>
+						<button id="reload" style="display:none;" onclick="javascript:location.reload();">Recharger</button>
+					</p>
+				</form>
 			</script>
 
 		</div>

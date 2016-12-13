@@ -20,8 +20,6 @@ module.exports = function(grunt) {
                         'Files/js/handlebars-v4.0.5.js',
                         'Files/js/handlebars-intl.min.js',
                         'Files/js/locale-data/fr.js',
-                        'Files/js/jquery.dropdown.js',
-                        'Files/js/modernizr.custom.js',
                         'Files/js/tips.js',
                         'Files/js/main.js'
                     ]

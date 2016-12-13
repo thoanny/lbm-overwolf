@@ -18,7 +18,18 @@ function deleteConfig(key) {
   if(getConfig(key)) {
     localStorage.removeItem(key);
   }
-}
+};
+
+function resetConfig() {
+  deleteConfig('api_key');
+  deleteConfig('permissions');
+  deleteConfig('account_name');
+  deleteConfig('account_id');
+  deleteConfig('high_level');
+  deleteConfig('account_access');
+  deleteConfig('favorite_guild');
+  deleteConfig('guilds');
+};
 
 function dragResize(edge){
 	overwolf.windows.getCurrentWindow(function(result){
@@ -40,16 +51,6 @@ function closeWindow(){
   overwolf.windows.getCurrentWindow(function(result){
     if (result.status=="success"){
       overwolf.windows.close(result.window.id);
-    }
-  });
-};
-
-function openConfigWindow() {
-  overwolf.windows.obtainDeclaredWindow("ConfigWindow", function(result){
-    if (result.status == "success"){
-      overwolf.windows.restore(result.window.id, function(result){
-          console.log(result);
-      });
     }
   });
 };
@@ -109,6 +110,8 @@ function loadPage(page) {
     loadAchievementsCategory(88, 'fractals'); var refresh = setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'pact-agents') {
     loadPactAgents(); var refresh = setInterval(function(){ loadPage(page); }, d3);
+  } else if(page == 'config') {
+    loadConfig(); var refresh = 0;
   }
 
   setConfig('refresh', refresh);
@@ -349,6 +352,64 @@ function loadPactAgents() {
 
 };
 
+function loadConfig() {
+
+  var data;
+
+  var source = $("#config-tpl").html();
+  var template = Handlebars.compile(source);
+  var html = template(data, {data: {intl: intlData}});
+  $('#page .container').html(html);
+
+  var config_guilds = getConfig('guilds');
+  var config_favorite_guild = getConfig('favorite_guild');
+  var config_account_name = getConfig('account_name');
+  var config_api_key = getConfig('api_key');
+  var config_permissions = getConfig('permissions');
+
+  if(config_account_name) {
+    $('input#account_name').val(config_account_name);
+  }
+
+  if(config_api_key) {
+    $('input#api_key').val(config_api_key);
+  }
+
+  if(config_guilds) {
+    var count = JSON.parse(config_guilds).length;
+
+    if(count == 1) {
+      $("select#favorite_guild").html('<option value="">Aucune ('+count+' disponible)</option>');
+    } else if(count > 1) {
+      $("select#favorite_guild").html('<option value="">Aucune ('+count+' disponibles)</option>');
+    }
+
+    $.each(JSON.parse(config_guilds), function(i, j) {
+      j = j.split("|");
+      var selected = '';
+      if(config_favorite_guild && config_favorite_guild == j[0]) {
+        selected = ' selected="selected"';
+      }
+      $("select#favorite_guild").append('<option value="'+j[0]+'"'+selected+'>['+j[0]+'] '+j[1]+'</option>');
+    });
+  }
+
+  console.log(getConfig('guilds'));
+
+  if(config_permissions) {
+    $.each(JSON.parse(config_permissions), function(i, j) {
+      $("#permissions li."+j+" i.fa-li").removeClass('fa-square').addClass('fa-check-square');
+    });
+  }
+
+  $( "input#api_key" ).focus(function() {
+    if( $(this).hasClass('error') ) {
+      $(this).removeClass('error');
+    }
+  });
+
+};
+
 function achievements_done() {
   var done_today = getConfig('achievements_done_today');
   var done_list = getConfig('achievements_done_list');
@@ -372,25 +433,55 @@ function achievements_done() {
 
 (function($){
   $(window).on("load",function(){
-    var current_window = document.location.href.match(/[^\/]+$/)[0];
+    var current_menu = getConfig('menu');
+    var current_submenu = getConfig('submenu');
 
-    $('#menu').dropdown();
-
-    if(getConfig('page') && current_window == 'index.html') {
-      var page = getConfig('page');
-      loadPage(page);
-      $('div.menu > span').html( $('div.menu ul li[data-value="'+page+'"]').html() );
-      $('div.menu input[name="menu"]').val( page );
-    } else if(current_window == 'index.html') {
+    if(current_menu) {
+      $('#menu-v3 > li.active').removeClass('active');
+      $('#menu-v3 > li > a.'+current_menu).parent().addClass('active');
+    } else if (!current_submenu) {
       loadPage('guild-motd');
+    }
+
+    if(current_submenu) {
+      $('#menu-v3 ul li.active').removeClass('active');
+      $('#menu-v3 ul li a.'+current_submenu).parent().addClass('active');
+      loadPage(current_submenu);
+    } else {
+      loadPage(current_menu);
     }
   });
 })(jQuery);
 
-$(document).on("click",'.menu ul span', function(){
-    var page = $(this).attr('class');
-    loadPage(page);
-    setConfig('page', page);
+$(document).on("click",'#menu-v3 a[data-page]', function(){
+  var page = $(this).data('page');
+  var hasParent = $(this).parent().parent().prev('a').length;
+
+  deleteConfig('menu');
+  deleteConfig('submenu');
+
+  if(hasParent) {
+    setConfig('menu', $(this).parent().parent().prev('a').attr('class'));
+    setConfig('submenu', page);
+  } else {
+    setConfig('menu', page);
+  }
+
+  setConfig('page', page);
+  loadPage(page);
+});
+
+$(document).on("click",'#menu-v3 a', function(e){
+  e.preventDefault();
+
+  var hasParent = $(this).parent().parent().prev('a').length;
+  if(hasParent) {
+    $('#menu-v3 ul li.active').removeClass('active');
+    $(this).parent().addClass('active');
+  } else {
+    $('#menu-v3 li.active').removeClass('active');
+    $(this).parent().addClass('active');
+  }
 });
 
 $(document).on("click",'dl.achievement dt', function(){
@@ -411,4 +502,67 @@ $(document).on("click",'dl.achievement dt', function(){
     }
 
     dl.toggleClass('checked');
+});
+
+$(document).on("submit", "form#config", function(){
+  var $api_key = $('input#api_key'),
+      $favorite_guild = $('select#favorite_guild'),
+      $button = $('button[type="submit"]'),
+      $reload = $('button#reload');
+
+  $button.find('i').remove();
+  $button.prepend('<i class="fa fa-spinner fa-pulse"></i> ');
+
+  if($api_key.val() == '') {
+    resetConfig();
+    location.reload();
+    return false;
+  }
+
+  $.getJSON('https://api.guildwars2.com/v2/tokeninfo?access_token='+$api_key.val(), function(data) {
+    setConfig('api_key', $api_key.val());
+    setConfig('permissions', JSON.stringify(data.permissions));
+
+    $.getJSON('https://api.guildwars2.com/v2/account?access_token='+$api_key.val(), function(data) {
+      setConfig('account_access', data.access);
+      setConfig('account_name', data.name);
+      setConfig('account_id', data.id);
+
+      var guilds = [];
+
+      $.each(data.guilds, function(i, j) {
+        $.getJSON('https://api.guildwars2.com/v2/guild/'+ j, function(data) {
+          guilds.push(data.tag+'|'+data.name);
+          setConfig('guilds', guilds);
+        });
+		  });
+    });
+
+    $.getJSON('https://api.guildwars2.com/v2/characters?access_token='+$api_key.val(), function(data) {
+      var high_level = 0;
+      $.each(data, function(i, j) {
+        $.getJSON('https://api.guildwars2.com/v2/characters/'+ j.replace(' ', '%20') +'?lang=fr&access_token='+$api_key.val(), function(data) {
+          if(high_level < data.level) {
+            high_level = data.level;
+            setConfig('high_level', high_level);
+          }
+        });
+      });
+    });
+
+    if($favorite_guild.val() !== '') {
+      setConfig('favorite_guild', $favorite_guild.val());
+    }
+
+  }).fail(function(error) {
+    if(error.status == 403) {
+      resetConfig();
+      location.reload();
+    }
+  });
+
+  $button.find('i').removeClass('fa-spinner').removeClass('fa-pulse').addClass('fa-check-circle');
+  $reload.show();
+
+  return false;
 });
