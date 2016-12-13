@@ -97,7 +97,7 @@
 				<p>{{{motd}}}</p>
 			</script>
 
-			<script id="newspages-tpl" type="text/x-handlebars-template">
+			<script id="news-tpl" type="text/x-handlebars-template">
 				<h2>Dernières news publiées</h2>
 				{{#if news.items}}
 				<ul class="news">
@@ -108,7 +108,9 @@
 				{{else}}
 					<p>Aucune news à afficher...</p>
 				{{/if}}
+			</script>
 
+			<script id="pages-tpl" type="text/x-handlebars-template">
 				<h2>Dernières pages ajoutées</h2>
 				{{#if pages.items}}
 				<ul class="pages">

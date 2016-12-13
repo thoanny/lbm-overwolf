@@ -88,8 +88,10 @@ function loadPage(page) {
     loadMotd(); var refresh = setInterval(function(){ loadPage(page); }, MINUTE_IN_MS*5);
   } else if(page == 'guild-stash') {
     loadStash(); var refresh = setInterval(function(){ loadPage(page); }, MINUTE_IN_MS*5);
-  } else if(page == 'last-news-pages') {
-    loadNewsPages(); var refresh = setInterval(function(){ loadPage(page); }, HOUR_IN_MS);
+  } else if(page == 'last-news') {
+    loadNews(); var refresh = setInterval(function(){ loadPage(page); }, HOUR_IN_MS);
+  } else if(page == 'last-pages') {
+    loadPages(); var refresh = setInterval(function(){ loadPage(page); }, HOUR_IN_MS);
   } else if(page == 'next-events') {
     loadEvents(); var refresh = setInterval(function(){ loadPage(page); }, HOUR_IN_MS*4);
   } else if(page == 'daily-pve') {
@@ -129,9 +131,18 @@ function loadMotd() {
   });
 };
 
-function loadNewsPages() {
-  $.getJSON(lbm_api_url+'/?data=newspages', function(data) {
-    var source = $("#newspages-tpl").html();
+function loadNews() {
+  $.getJSON(lbm_api_url+'/?data=news', function(data) {
+    var source = $("#news-tpl").html();
+    var template = Handlebars.compile(source);
+    var html = template(data, {data: {intl: intlData}});
+    $('#page .container').html(html);
+  });
+};
+
+function loadPages() {
+  $.getJSON(lbm_api_url+'/?data=pages', function(data) {
+    var source = $("#pages-tpl").html();
     var template = Handlebars.compile(source);
     var html = template(data, {data: {intl: intlData}});
     $('#page .container').html(html);
