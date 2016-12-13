@@ -235,6 +235,17 @@ function loadAchievementsDaily( type ) {
 
       achievements['achievements'] = data[type];
 
+
+      if(type == 'pve') {
+        achievements['title'] = 'Succès JcE quotidien';
+      } else if(type == 'pvp') {
+        achievements['title'] = 'Succès JcJ quotidien';
+      } else if(type == 'wvw') {
+        achievements['title'] = 'Succès McM quotidien';
+      } else if(type == 'special') {
+        achievements['title'] = 'Succès spéciaux quotidien';
+      }
+
       var source   = $("#daily-tpl").html();
       var template = Handlebars.compile(source);
       var html    = template(achievements);

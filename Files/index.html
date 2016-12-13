@@ -82,6 +82,7 @@
 			</script>
 
 			<script id="next-events-tpl" type="text/x-handlebars-template">
+				<h2>&Eacute;vénements à venir</h2>
 				{{#each events}}
 					<dl>
 						<dt>{{formatDate Event.time_start day="numeric" month="long" year="numeric" hour="numeric" minute="numeric"}}</dt>
@@ -94,6 +95,7 @@
 			</script>
 
 			<script id="guild-motd-tpl" type="text/x-handlebars-template">
+				<h2>Message de guilde</h2>
 				<p>{{{motd}}}</p>
 			</script>
 
@@ -124,6 +126,7 @@
 			</script>
 
 			<script id="daily-tpl" type="text/x-handlebars-template">
+				<h2>{{title}}</h2>
 				{{#if achievements}}
 				{{#each achievements}}
 					<dl class="achievement achievement-{{id}} {{display_level}} {{display_access}}" data-id="{{id}}">
@@ -142,6 +145,7 @@
 			</script>
 
 			<script id="daily-category-tpl" type="text/x-handlebars-template">
+				<h2>{{title}}</h2>
 				{{#each category}}
 					<dl class="achievement achievement-{{id}}" data-id="{{id}}">
 						<dt>
