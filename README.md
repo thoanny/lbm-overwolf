@@ -21,11 +21,12 @@
 
 ## Changelog
 
-### v0.1-alpha.41
+### v0.1-alpha.42
 
 * Modification du menu (v3)
 * Ajout de conseils pour les succès du 13/12/16
 * Ajout d'images au premier niveau du menu
+* Différenciation des images des news et des pages
 
 ### v0.1-alpha.38
 
