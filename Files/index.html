@@ -8,7 +8,7 @@
 		<script> HandlebarsIntl.registerWith(Handlebars); var intlData = { locales: 'fr-FR' } </script>
 	</head>
 
-	<body unselectable="on" onselectstart="return false;" onmousedown="return false;" class="index">
+	<body unselectable="on" onselectstart="return false;" class="index">
 		<div class="resizeGrip" id="resizeGripBottom" onmousedown="dragResize('Bottom');"></div>
 		<div id="content">
 
@@ -164,6 +164,51 @@
 					<dd><button onclick="copyToClipboard('{{name}} : {{chat_code}}')"><i class="fa fa-clipboard" aria-hidden="true"></i> {{waypoint}}</button></dd>
 				</dl>
 				{{/each}}
+			</script>
+
+			<script id="config-tpl" type="text/x-handlebars-template">
+				<h2>Configuration</h2>
+				<form id="config" autocomplete="off">
+					<fieldset>
+						<legend>API</legend>
+						<p>
+							<label for="api_key">Clé API</label>
+							<input type="text" id="api_key" />
+						</p>
+						<ul id="permissions" class="fa-ul">
+							<li class="account"><i class="fa-li fa fa-square"></i> account</li>
+							<li class="inventories"><i class="fa-li fa fa-square"></i> inventories</li>
+							<li class="characters"><i class="fa-li fa fa-square"></i> characters</li>
+							<li class="tradingpost"><i class="fa-li fa fa-square"></i> tradingpost</li>
+							<li class="wallet"><i class="fa-li fa fa-square"></i> wallet</li>
+							<li class="unlocks"><i class="fa-li fa fa-square"></i> unlocks</li>
+							<li class="pvp"><i class="fa-li fa fa-square"></i> pvp</li>
+							<li class="builds"><i class="fa-li fa fa-square"></i> builds</li>
+							<li class="progression"><i class="fa-li fa fa-square"></i> progression</li>
+							<li class="guilds"><i class="fa-li fa fa-square"></i> guilds</li>
+						</ul>
+					</fieldset>
+					<fieldset>
+						<legend>Compte</legend>
+						<p>
+							<label>Nom de compte</label>
+							<input type="text" id="account_name" disabled="disabled" />
+						</p>
+					</fieldset>
+					<fieldset>
+						<legend>Guilde</legend>
+						<p>
+							<label>Guilde représentée</label>
+							<select id="favorite_guild">
+								<option value="">Aucune</option>
+							</select>
+						</p>
+					</fieldset>
+					<p>
+						<button type="submit">Enregistrer les modifications</button>
+						<button id="reload" style="display:none;" onclick="javascript:location.reload();">Recharger</button>
+					</p>
+				</form>
 			</script>
 
 		</div>
