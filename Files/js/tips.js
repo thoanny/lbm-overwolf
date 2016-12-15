@@ -4,6 +4,11 @@ var tips = {
     "link_url": "%lbm%/les-guides-du-passager/guide-lvl-80/la-forge-mystique/la-forge-mystique.html",
     "link_title": "la Forge Mystique"
   },
+  1262: {
+    "mask": "Découvrez notre guide complet du %link%.",
+    "link_title": "pays des merveilles d'Hivernel",
+    "link_url": "%lbm%/mises-a-jour-passees/hivernel-2014/puzzle-de-saut-pays-des-merveilles-d-hiver.html"
+  },
   1839: {
     "mask": "Rendez-vous au Point de passage de la Garnison %btn% et montez les escaliers derrière le Soldat séraphin Diedra (c&oelig;ur).",
     "btn": "[&BPEAAAA=]"
@@ -93,6 +98,10 @@ var tips = {
   1936: {
     "mask": "Rendez-vous au Point de passage du Refuge de Doubléperon %btn%, montez les escaliers et continuez à l'est, en direction du panorama.",
     "btn": "[&BH0BAAA=]"
+  },
+  1937: {
+    "mask": "Rendez-vous au Point de passage du Camp de la détermination %btn%, le panorama est tout près.",
+    "btn": "[&BH8HAAA=]"
   },
   1938: {
     "mask": "Un peu au sud est du Point de passage des landes ravagées %btn%, vous verrez une vachapulte. Interagissez avec ;-)",
@@ -205,7 +214,7 @@ var tips = {
     "btn": "[&BIYHAAA=]"
   },
   1985: {
-    "mask": "Récoltez du raisin au dessous du Point de passage de la Gueule du Démon %btn% ou dans votre instance personnelle à la Loge du chasseur (Norn).<br />Consultez notre %link%.",
+    "mask": "Récoltez du raisin au dessus du Point de passage de la Gueule du Démon %btn% ou dans votre instance personnelle à la Loge du chasseur (Norn).<br />Consultez notre %link%.",
     "link_title": "guide de l'instance personnelle",
     "link_url": "%lbm%/les-guides-du-passager/farm/l-instance-personnelle.html",
     "btn": "[&BOYAAAA=]"
@@ -310,6 +319,16 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-cauchemars.html",
     "link_title": "Cauchemars"
   },
+  2377: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 38.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-aveugleneige.html",
+    "link_title": "Aveugleneige"
+  },
+  2491: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/le-complexe-souterrain.html",
+    "link_title": "Complexe souterrain"
+  },
   2492: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-volcanique.html",
@@ -331,13 +350,13 @@ var tips = {
     "link_title": "Marais"
   },
   2889: {
-    "mask": "<small>RA : Niv. 29 = 24 ; 43 = 49.</small>"
+    "mask": "<small>RA : Niv. 29 = 24 ; Niv. 43 = 49.</small>"
   },
   2890: {
-    "mask": "<small>RA : Niv. 52 = 65 ; 72 = 100.</small>"
+    "mask": "<small>RA : Niv. 52 = 65 ; Niv. 72 = 100.</small>"
   },
   2892: {
-    "mask": "<small>RA : Niv. 77 = 109 ; Niv. 89 = 130.</small>"
+    "mask": "<small>RA : Niv. 77 = 109 ; Niv. 89 = 131.</small>"
   },
   2893: {
     "mask": "Découvrez nos guides détaillés des chemins des %link%.",
@@ -403,6 +422,11 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-aveugleneige.html",
     "link_title": "Aveugleneige"
   },
+  2917: {
+    "mask": "Découvrez nos guides détaillés des chemins de l'%link%.",
+    "link_title": "&Eacute;treinte des Lamentations",
+    "link_url": "%lbm%/expeditions/donjons/etreinte-des-lamentations/"
+  },
   2918: {
     "mask": "<small>RA : Niv. 51 = 63 ; Niv. 74 = 104.</small>"
   },
@@ -445,11 +469,16 @@ var tips = {
   2937: {
     "mask": "Récoltez dans votre Hall de guilde."
   },
+  2938: {
+    "mask": "Découvrez nos guides détaillés des chemins de la %link%.",
+    "link_title": "Cité en ruine d'Arah",
+    "link_url": "%lbm%/expeditions/donjons/etreinte-des-lamentations/"
+  },
   2939: {
-    "mask": "<small>RA : Niv. 79 = 113 ; 91 = 134.</small>"
+    "mask": "<small>RA : Niv. 79 = 113 ; Niv. 91 = 134.</small>"
   },
   2940: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 4 = 0 ; 12 = 0.</small>",
+    "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 4 = 0 ; Niv. 12 = 0.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/non-classee.html",
     "link_title": "Non classée"
   },
@@ -640,6 +669,11 @@ var tips = {
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-reacteur-thaumanova.html",
     "link_title": "Réacteur de Thaumanova"
   },
+  3222: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 100.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-volcanique.html",
+    "link_title": "Volcanique"
+  },
   3228: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 77.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/flanc-de-falaise.html",
@@ -659,5 +693,10 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 67.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/le-complexe-souterrain.html",
     "link_title": "Complexe souterrain"
+  },
+  3245: {
+    "mask": "Retrouvez toutes les informations utiles dans notre guide du %link%.",
+    "link_title": "Chaos des neiges",
+    "link_url": "%lbm%/mises-a-jour-passees/hivernel-2014/activite-chaos-des-neiges.html"
   },
 };
