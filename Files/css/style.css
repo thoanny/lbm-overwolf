@@ -32,7 +32,7 @@ h1, h2, h3, h4 {
   color: #F7B06D;
   font-weight: normal;
   letter-spacing: .05em;
-  margin-top: .25em;
+  margin-top: 0;
   margin-bottom: 0; }
 
 h1 {
@@ -41,7 +41,6 @@ h1 {
 h2 {
   font-size: 1.8em;
   overflow: hidden;
-  height: 25px;
   padding-left: 5px;
   padding-right: 5px;
   text-overflow: ellipsis;
@@ -168,7 +167,7 @@ header {
 
 #content {
   position: absolute;
-  top: 180px;
+  top: 175px;
   /*top:95px;*/
   bottom: 10px;
   left: 0;
@@ -309,7 +308,7 @@ ul.news, ul.pages {
   float: left;
   width: 100%;
   text-shadow: none;
-  margin: -80px 0 0 0;
+  margin: -75px 0 0 0;
   padding: 0;
   border-bottom: 2px solid #991b1b; }
   #menu-v3 ul {

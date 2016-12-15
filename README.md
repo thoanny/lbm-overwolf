@@ -21,9 +21,10 @@
 
 ## Changelog
 
-### v0.1-alpha.45
+### v0.1-alpha.46
 
 * Ajout de conseils pour les succès du 15/12/16
+* Correction du style des titres
 
 ### v0.1-alpha.44
 
