@@ -21,10 +21,11 @@
 
 ## Changelog
 
-### v0.1-alpha.46
+### v0.1-alpha.47
 
 * Ajout de conseils pour les succès du 15/12/16
 * Correction du style des titres
+* Correction du bug au clic de souris (fix #3)
 
 ### v0.1-alpha.44
 

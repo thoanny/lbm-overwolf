@@ -33,6 +33,15 @@ input, select {
 	font-family: Arial, sans-serif;
 }
 
+label.radio {
+	display: block;
+
+	input {
+		vertical-align: middle;
+		width: auto;
+	}
+}
+
 @font-face {
   font-family: 'Bangers';
   src: url('../fonts/Bangers.woff2') format('woff2'),

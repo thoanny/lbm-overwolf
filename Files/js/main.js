@@ -398,25 +398,17 @@ function loadConfig() {
   }
 
   if(config_guilds) {
-    var count = JSON.parse(config_guilds).length;
-
-    if(count == 1) {
-      $("select#favorite_guild").html('<option value="">Aucune ('+count+' disponible)</option>');
-    } else if(count > 1) {
-      $("select#favorite_guild").html('<option value="">Aucune ('+count+' disponibles)</option>');
-    }
+    $("div.radios.guilds").html('<label class="radio"><input type="radio" id="favorite_guild" name="favorite_guild" value="" checked="checked" /> Aucune</label>');
 
     $.each(JSON.parse(config_guilds), function(i, j) {
       j = j.split("|");
       var selected = '';
       if(config_favorite_guild && config_favorite_guild == j[0]) {
-        selected = ' selected="selected"';
+        selected = ' checked="checked"';
       }
-      $("select#favorite_guild").append('<option value="'+j[0]+'"'+selected+'>['+j[0]+'] '+j[1]+'</option>');
+      $("div.radios.guilds").prepend('<label class="radio"><input type="radio" id="favorite_guild" name="favorite_guild" value="'+j[0]+'"'+selected+'/> ['+j[0]+'] '+j[1]+'</label>');
     });
   }
-
-  console.log(getConfig('guilds'));
 
   if(config_permissions) {
     $.each(JSON.parse(config_permissions), function(i, j) {
@@ -528,7 +520,7 @@ $(document).on("click",'dl.achievement dt', function(){
 
 $(document).on("submit", "form#config", function(){
   var $api_key = $('input#api_key'),
-      $favorite_guild = $('select#favorite_guild'),
+      $favorite_guild = $('input#favorite_guild:checked'),
       $button = $('button[type="submit"]'),
       $reload = $('button#reload');
 

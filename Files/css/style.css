@@ -11,6 +11,12 @@ html {
 input, select {
   font-family: Arial, sans-serif; }
 
+label.radio {
+  display: block; }
+  label.radio input {
+    vertical-align: middle;
+    width: auto; }
+
 @font-face {
   font-family: 'Bangers';
   src: url("../fonts/Bangers.woff2") format("woff2"), url("../fonts/Bangers.woff") format("woff"), url("../fonts/Bangers.ttf") format("truetype"); }
