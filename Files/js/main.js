@@ -451,15 +451,15 @@ function achievements_done() {
     var current_submenu = getConfig('submenu');
 
     if(current_menu) {
-      $('#menu-v3 > li.active').removeClass('active');
-      $('#menu-v3 > li > a.'+current_menu).parent().addClass('active');
+      $('#menu > li.active').removeClass('active');
+      $('#menu > li > a.'+current_menu).parent().addClass('active');
     } else if (!current_submenu) {
       loadPage('guild-motd');
     }
 
     if(current_submenu) {
-      $('#menu-v3 ul li.active').removeClass('active');
-      $('#menu-v3 ul li a.'+current_submenu).parent().addClass('active');
+      $('#menu ul li.active').removeClass('active');
+      $('#menu ul li a.'+current_submenu).parent().addClass('active');
       loadPage(current_submenu);
     } else {
       loadPage(current_menu);
@@ -467,7 +467,7 @@ function achievements_done() {
   });
 })(jQuery);
 
-$(document).on("click",'#menu-v3 a[data-page]', function(){
+$(document).on("click",'#menu a[data-page]', function(){
   var page = $(this).data('page');
   var hasParent = $(this).parent().parent().prev('a').length;
 
@@ -485,15 +485,15 @@ $(document).on("click",'#menu-v3 a[data-page]', function(){
   loadPage(page);
 });
 
-$(document).on("click",'#menu-v3 a', function(e){
+$(document).on("click",'#menu a', function(e){
   e.preventDefault();
 
   var hasParent = $(this).parent().parent().prev('a').length;
   if(hasParent) {
-    $('#menu-v3 ul li.active').removeClass('active');
+    $('#menu ul li.active').removeClass('active');
     $(this).parent().addClass('active');
   } else {
-    $('#menu-v3 li.active').removeClass('active');
+    $('#menu li.active').removeClass('active');
     $(this).parent().addClass('active');
   }
 });

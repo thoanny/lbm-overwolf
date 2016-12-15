@@ -15,17 +15,18 @@
 * [handlebars](http://handlebarsjs.com/)
 * [handlebars Intl](http://formatjs.io/handlebars/)
 * [normalize.css 5.0.0](https://necolas.github.io/normalize.css/)
-* [Simple Effects for Drop-Down Lists](http://tympanus.net/codrops/2012/11/29/simple-effects-for-drop-down-lists/)
 
 ©2010–2016 ArenaNet, LLC. Tous droits réservés. Guild Wars, Guild Wars 2, Guild Wars 2: Heart of Thorns, ArenaNet, NCSOFT, le logo NC et tous les logos et dessins associés sont des marques commerciales et/ou déposées de NCSOFT Corporation. Toutes les autres marques appartiennent à leurs propriétaires respectifs.
 
 ## Changelog
 
-### v0.1-alpha.47
+### v0.1-alpha.49
 
 * Ajout de conseils pour les succès du 15/12/16
 * Correction du style des titres
 * Correction du bug au clic de souris (fix #3)
+* Suppression de la référence à l'ancien menu
+* Remplacer #menu-v3 par #menu
 
 ### v0.1-alpha.44
 
