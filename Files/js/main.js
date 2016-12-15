@@ -31,6 +31,16 @@ function resetConfig() {
   deleteConfig('guilds');
 };
 
+function setOpacity() {
+  var opacity = getConfig('opacity');
+  $('html').removeClass('opacity-15').removeClass('opacity-25').removeClass('opacity-50').removeClass('opacity-75');
+  if(opacity) {
+    $('html').addClass('opacity-'+opacity);
+  } else {
+    $('html').addClass('opacity-15');
+  }
+};
+
 function dragResize(edge){
 	overwolf.windows.getCurrentWindow(function(result){
 		if (result.status=="success"){
@@ -131,6 +141,7 @@ function loadPage(page) {
   }
 
   setConfig('refresh', refresh);
+  setOpacity();
 
 };
 
@@ -402,6 +413,7 @@ function loadConfig() {
   var config_account_name = getConfig('account_name');
   var config_api_key = getConfig('api_key');
   var config_permissions = getConfig('permissions');
+  var config_opacity = getConfig('opacity');
 
   if(config_account_name) {
     $('input#account_name').val(config_account_name);
@@ -436,6 +448,10 @@ function loadConfig() {
     }
   });
 
+  if(config_opacity) {
+    $('input[value="'+config_opacity+'"]').attr("checked", "checked");
+  }
+
 };
 
 function achievements_done() {
@@ -462,6 +478,7 @@ function achievements_done() {
 (function($){
   $(window).on("load",function(){
     add_class_has_scrollbar();
+    setOpacity();
 
     var current_menu = getConfig('menu');
     var current_submenu = getConfig('submenu');
@@ -545,11 +562,14 @@ $(document).on("click",'input#api_key', function(){
 $(document).on("submit", "form#config", function(){
   var $api_key = $('input#api_key'),
       $favorite_guild = $('input#favorite_guild:checked'),
+      $opacity = $('input#opacity:checked'),
       $button = $('button[type="submit"]'),
       $reload = $('button#reload');
 
   $button.find('i').remove();
   $button.prepend('<i class="fa fa-spinner fa-pulse"></i> ');
+
+  setConfig('opacity', $opacity.val());
 
   if($api_key.val() == '') {
     resetConfig();

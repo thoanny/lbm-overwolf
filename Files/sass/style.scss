@@ -19,7 +19,6 @@ $icon-config: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXH
 $icon-daily-special: $icon-daily-wintersday;
 
 html {
-	background:rgba(0, 0, 0, .15);
 	overflow: hidden;
 	height: 100%;
 	width: 100%;
@@ -27,6 +26,11 @@ html {
   color: #fff;
 	margin:0;
 	padding:0;
+
+	&.opacity-15 { background:rgba(0, 0, 0, .15); }
+	&.opacity-25 { background:rgba(0, 0, 0, .25); }
+	&.opacity-50 { background:rgba(0, 0, 0, .50); }
+	&.opacity-75 { background:rgba(0, 0, 0, .75); }
 }
 
 input, select {
@@ -39,6 +43,12 @@ label.radio {
 	input {
 		vertical-align: middle;
 		width: auto;
+	}
+}
+
+.radios.opacity {
+	label.radio {
+		display: inline-block;
 	}
 }
 

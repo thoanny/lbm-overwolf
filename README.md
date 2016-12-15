@@ -20,7 +20,7 @@
 
 ## Changelog
 
-### v0.1-alpha.51
+### v0.1-alpha.52
 
 * Ajout de conseils pour les succès du 15/12/16
 * Correction du style des titres
@@ -29,6 +29,7 @@
 * Remplacer #menu-v3 par #menu
 * Correction du décalage à droite (fix #1)
 * Intégration du javascript de index.html dans main.js
+* Ajout d'une option pour modifier l'opacité
 
 ### v0.1-alpha.44
 
