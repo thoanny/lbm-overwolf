@@ -290,7 +290,10 @@ header {
 	bottom: 0;
 	overflow: auto;
 	.container {
-		padding: 1em 0 1em 1em;
+		padding: 1em;
+	}
+	&.scrollbar .container {
+		padding-right: 0;
 	}
 }
 

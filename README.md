@@ -20,13 +20,14 @@
 
 ## Changelog
 
-### v0.1-alpha.49
+### v0.1-alpha.50
 
 * Ajout de conseils pour les succès du 15/12/16
 * Correction du style des titres
 * Correction du bug au clic de souris (fix #3)
 * Suppression de la référence à l'ancien menu
 * Remplacer #menu-v3 par #menu
+* Correction du décalage à droite (fix #1)
 
 ### v0.1-alpha.44
 
