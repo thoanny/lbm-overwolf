@@ -69,6 +69,20 @@ function loadTeamspeakBtn() {
   }
 };
 
+(function($) {
+    $.fn.hasScrollBar = function() {
+        return this.get(0).scrollHeight > this.height();
+    }
+})(jQuery);
+
+function add_class_has_scrollbar() {
+  if($('#page').hasScrollBar()) {
+    $('#page').addClass('scrollbar');
+  } else {
+    $('#page').removeClass('scrollbar');
+  }
+};
+
 function loadPage(page) {
 
   var d1 = new Date();
@@ -436,7 +450,7 @@ function achievements_done() {
   } else if(done_today && done_list) {
     var done_list = done_list.split(',');
     $.each(done_list, function(i, j) {
-      console.log('.achievement.achievement-'+j);
+      // console.log('.achievement.achievement-'+j);
       $('.achievement.achievement-'+j).addClass('checked');
     });
   } else {
@@ -448,7 +462,7 @@ function achievements_done() {
 (function($){
   $(window).on("load",function(){
     add_class_has_scrollbar();
-    
+
     var current_menu = getConfig('menu');
     var current_submenu = getConfig('submenu');
 
@@ -466,6 +480,10 @@ function achievements_done() {
     } else {
       loadPage(current_menu);
     }
+  });
+
+  $( window ).resize(function() {
+    add_class_has_scrollbar();
   });
 })(jQuery);
 
@@ -518,6 +536,10 @@ $(document).on("click",'dl.achievement dt', function(){
     }
 
     dl.toggleClass('checked');
+});
+
+$(document).on("click",'input#api_key', function(){
+    $(this).focus().select();
 });
 
 $(document).on("submit", "form#config", function(){

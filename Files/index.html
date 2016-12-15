@@ -216,33 +216,6 @@
 				</form>
 			</script>
 
-			<script>
-			$(document).on("click",'input#api_key', function(){
-					$(this).focus().select();
-			});
-			</script>
-
-			<script>
-			(function($) {
-			    $.fn.hasScrollBar = function() {
-			        return this.get(0).scrollHeight > this.height();
-			    }
-			})(jQuery);
-
-			function add_class_has_scrollbar() {
-				if($('#page').hasScrollBar()) {
-					$('#page').addClass('scrollbar');
-				} else {
-					$('#page').removeClass('scrollbar');
-				}
-				console.log('has scrollbar or not scrollbar');
-			}
-
-			$( window ).resize(function() {
-				add_class_has_scrollbar();
-			});
-			</script>
-
 		</div>
 	</body>
 </html>
