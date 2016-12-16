@@ -29,6 +29,16 @@ var tips = {
     "link_url": "%yt%/_9I1di7on9c",
     "link_title": "Souvenirs de Magellan"
   },
+  1879: {
+    "mask": "Voir la vidéo de la SaDo Expedition : %link%.",
+    "link_url": "%yt%/QxuknCiUEHo",
+    "link_title": "Navire des lamentations"
+  },
+  1881: {
+    "mask": "Voir la vidéo de la SaDo Expedition : %link%.",
+    "link_url": "%yt%/nho2rqGVtt8",
+    "link_title": "Pas touche au brillant"
+  },
   1885: {
     "mask": "Rendez-vous au nord du Point de Passage de Terra Carorunda %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
     "btn": "[&BAECAAA=]",
@@ -95,6 +105,10 @@ var tips = {
     "link_url": "%yt%/O-KlKgU4Q-0",
     "link_title": "Bond de Morgan"
   },
+  1931: {
+    "mask": "Rendez-vous au Point de passage de Desider Atum %btn% pour y visiter le panorama.",
+    "btn": "[&BEgAAAA=]"
+  },
   1936: {
     "mask": "Rendez-vous au Point de passage du Refuge de Doubléperon %btn%, montez les escaliers et continuez à l'est, en direction du panorama.",
     "btn": "[&BH0BAAA=]"
@@ -121,6 +135,11 @@ var tips = {
     "mask" : "Wiki : %link%",
     "link_title": "Rivage maudit",
     "link_url": "%wiki%/Rivage_maudit#.C3.89v.C3.A8nements"
+  },
+  1942: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Détroit de la dévastation",
+    "link_url" : "%wiki%/Détroit_de_la_dévastation#.C3.89v.C3.A8nements"
   },
   1946: {
     "mask": "Wiki : %link%.",
@@ -658,6 +677,11 @@ var tips = {
   },
   3196: {
     "mask": "<small>RA : Niv. 50 = 61.</small>"
+  },
+  3201: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 91.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-du-marais.html",
+    "link_title": "Marais"
   },
   3204: {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 104.</small>",
