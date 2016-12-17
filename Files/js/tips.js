@@ -52,10 +52,16 @@ var tips = {
     "link_title": "Laboratoire de Goemm"
   },
   1895: {
-    "mask": "Rendez-vous au sud du Point de Passage des Sources Chaudes de Zelechor %btn%.<br />Voir la vidéo de la Sado Expedition : %link%.",
+    "mask": "Au sud du Point de Passage des Sources Chaudes de Zelechor %btn%.<br />Voir la vidéo de la Sado Expedition : %link%.",
     "btn": "[&BHcBAAA=]",
     "link_url": "%yt%/aRENFxZPY_8",
     "link_title": "Perchoir des chamanes"
+  },
+  1896: {
+    "mask": "Rendez-vous à l'ouest du Point de Passage du Bourbier de la Mélancolie %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
+    "btn": "[&BHwCAAA=]",
+    "link_url": "%yt%/x9fVHreLs_k",
+    "link_title": "Ruines de la banquise brisée"
   },
   1898: {
     "mask": "Rendez-vous au sud ouest du Point de Passage de Sleive %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
@@ -674,6 +680,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA = 90.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-du-champ-de-bataille-urbain.html",
     "link_title": "Champ de bataille urbain"
+  },
+  3189: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 88.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-etherlame.html",
+    "link_title": "Étherlame"
   },
   3196: {
     "mask": "<small>RA : Niv. 50 = 61.</small>"
