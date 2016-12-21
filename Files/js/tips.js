@@ -24,6 +24,12 @@ var tips = {
     "link_url": "%yt%/DnOCbLY-FIo",
     "link_title": "Larmes d'Itlaocol"
   },
+  1876: {
+    "mask": "Rendez-vous au nord du Point de Passage de Cassedent %btn%.<br />Voir la vidéo de la Sado Expedition : %link%.",
+    "btn": "[&BBoCAAA=]",
+    "link_url": "%yt%/DrMNu6OyzeQ",
+    "link_title": "Solitude du Rebelle"
+  },
   1878: {
     "mask": "Voir la vidéo de la SaDo Expedition : %link%.",
     "link_url": "%yt%/_9I1di7on9c",
@@ -182,6 +188,11 @@ var tips = {
     "link_title": "Passage de Lornar",
     "link_url": "%wiki%/Passage_de_Lornar#.C3.89v.C3.A8nements"
   },
+  1958: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Falaises de Hantedraguerre",
+    "link_url": "%wiki%/Falaises_de_Hantedraguerre#.C3.89v.C3.A8nements"
+  },
   1959: {
     "mask": "Consultez notre guide des %link%.",
     "link_url": "%lbm%/mises-a-jour-passees/les-contrees-sauvages-d-argent/les-contrees-sauvages-d-argent-guide.html",
@@ -237,6 +248,10 @@ var tips = {
   1980: {
     "mask": "À partir du Point de passage du pont des lianes %btn%, rendez-vous au nord, dans un petit champ de carottes et de laitues.",
     "btn": "[&BIYHAAA=]"
+  },
+  1981: {
+    "mask": "Rendez-vous au sud du Point de passage du Point de Garde de Décimus %btn%, vous y trouverez une veine de cuivre riche.",
+    "btn": "[&BJgDAAA=]"
   },
   1985: {
     "mask": "Récoltez du raisin au dessus du Point de passage de la Gueule du Démon %btn% ou dans votre instance personnelle à la Loge du chasseur (Norn).<br />Consultez notre %link%.",
@@ -665,6 +680,11 @@ var tips = {
     "mask": "Rien de difficile. Remplissez les conditions d'apparition des boss et vainquez-en un pour terminer cette quotidienne. Consultez notre guide de la %link%.",
     "link_url": "%lbm%/gw2-hearth-of-thorns/baie-des-braises/baie-des-braises-guide.html",
     "link_title": "Baie des Braises"
+  },
+  3172: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 79.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/ocean-solide.html",
+    "link_title": "Océan solide"
   },
   3175: {
     "mask": "<small>RA : Niv. 75 = 106.</small>"

@@ -20,8 +20,9 @@
 
 ## Changelog
 
-### v0.1-alpha.54
+### v0.1-alpha.55
 
+* Ajout de conseils pour les succès du 21/12/16
 * Ajout de conseils pour les succès du 17/12/16
 * Ajout de conseils pour les succès du 16/12/16
 
