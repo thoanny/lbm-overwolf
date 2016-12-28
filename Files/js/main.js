@@ -471,7 +471,7 @@ function achievements_done() {
 
   if(done_today && done_today != today) {
     setConfig('achievements_done_today', today);
-    setConfig('achievements_done_list', []);
+    deleteConfig('achievements_done_list');
   } else if(done_today && done_list) {
     var done_list = done_list.split(',');
     $.each(done_list, function(i, j) {
@@ -480,7 +480,7 @@ function achievements_done() {
     });
   } else {
     setConfig('achievements_done_today', today);
-    setConfig('achievements_done_list', []);
+    deleteConfig('achievements_done_list');
   }
 };
 
@@ -552,9 +552,13 @@ $(document).on("click",'dl.achievement dt', function(){
     if(dl.hasClass('checked')) {
       done_list = done_list.split(',').map(Number);
       done_list.splice(done_list.indexOf(id), 1);
-      setConfig('achievements_done_list', done_list.join());
+      if(done_list.length > 0) {
+        setConfig('achievements_done_list', done_list.join());
+      } else {
+        deleteConfig('achievements_done_list');
+      }
     } else {
-      if(done_list == '[]') {
+      if(!done_list) {
         setConfig('achievements_done_list', id);
       } else {
         setConfig('achievements_done_list', done_list+','+id);
