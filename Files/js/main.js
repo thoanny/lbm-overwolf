@@ -308,7 +308,7 @@ function loadAchievementsCategory(catid, catname) {
         if(typeof(n.icon) !== "undefined") {
           icon = n.icon;
         }
-          data[m] = { "id":  n.id, "name": n.name, "icon": icon, "requirement": n.requirement };
+          data[m] = { "id":  n.id, "name": n.name.replace('Fractale quotidienne', 'Fractale').replace(/Niveau\s(\d)\squotidien/g, 'Niv. $1'), "icon": icon, "requirement": n.requirement };
           if(tips[n.id]) {
             var mask = tips[n.id].mask,
                 btn = tips[n.id].btn;
