@@ -199,7 +199,8 @@ function loadAchievementsDaily( type ) {
     var names = [],
         requirements = [],
         icons = [],
-        achievements = [];
+        achievements = [],
+        tiers = [];
 
     $.each(data, function(i, j) {
       $.each(j, function(k, l) {
@@ -216,6 +217,7 @@ function loadAchievementsDaily( type ) {
           names[n.id] = n.name;
           requirements[n.id] = n.requirement;
           icons[n.id] = n.icon;
+          tiers[n.id] = n.tiers;
       });
 
       $.each(data, function(i, j) {
@@ -224,6 +226,13 @@ function loadAchievementsDaily( type ) {
           data[i][k]['name'] = names[id];
           data[i][k]['icon'] = icons[id];
           data[i][k]['requirement'] = requirements[id];
+          var quantity = requirements[id].match(/\s\s+/ig);
+          if(quantity) {
+            $.each(quantity, function(qk, qv) {
+              data[i][k]['requirement'] = data[i][k]['requirement'].replace(/\s\s+/, ' ' + tiers[id][qk]['count'] + ' ');
+            });
+
+          }
           data[i][k]['tip'] = tips[id];
           if(tips[id]) {
             var mask = tips[id].mask,

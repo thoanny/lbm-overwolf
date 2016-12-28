@@ -20,6 +20,10 @@
 
 ## Changelog
 
+### v0.1-alpha.57
+
+* Ajout des quantités dans la description des succès
+
 ### v0.1-alpha.56
 
 * Ajout de conseils pour les succès du 28/12/16
