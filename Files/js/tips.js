@@ -117,9 +117,19 @@ var tips = {
     "link_url": "%yt%/O-KlKgU4Q-0",
     "link_title": "Bond de Morgan"
   },
+  1930: {
+    "mask": "Constulez notre guide : %link%. Point de passage le plus proche : %btn%",
+    "link_title": "Élémentaire de feu et ogre mécanique",
+    "link_url": "%lbm%/expeditions/world-boss/elementaire-de-feu-et-ogre-mecanique.html",
+    "btn": "[&BEcAAAA=]"
+  },
   1931: {
     "mask": "Rendez-vous au Point de passage de Desider Atum %btn% pour y visiter le panorama.",
     "btn": "[&BEgAAAA=]"
+  },
+  1932: {
+    "mask": "Rendez-vous au Point de passage de Mande-Ombre de Caer %btn% et escaladez la structure jusqu'au panorama.",
+    "btn": "[&BCEDAAA=]"
   },
   1936: {
     "mask": "Rendez-vous au Point de passage du Refuge de Doubléperon %btn%, montez les escaliers et continuez à l'est, en direction du panorama.",
@@ -335,7 +345,7 @@ var tips = {
     "link_title": "Flanc de falaise"
   },
   2330: {
-    "mask": "Consultez notre guide %link%.<br /><small>RA = 26.</small>",
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 25.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-du-chaos.html",
     "link_title": "Chaos"
   },
@@ -496,7 +506,7 @@ var tips = {
     "mask": "<small>RA : Niv. 82 = 118 ; Niv. 94 = 139.</small>"
   },
   2932: {
-    "mask": "<small>RA : Niv. 98 = 147.</small>"
+    "mask": "<small>RA : Niv. 98 = 146.</small>"
   },
   2934: {
     "mask": "<small>RA : Niv. 70 = 97.</small>"
@@ -594,6 +604,11 @@ var tips = {
   },
   2972: {
     "mask": "<small>RA : Niv. 56 = 72 ; Niv. 67 = 91.</small>"
+  },
+  2975: {
+    "mask": "Guide : %link%",
+    "link_url": "%lbm%/gw2-hearth-of-thorns/oree-d-emeraude/oree-d-emeraude-aventures.html#insectes",
+    "link_title": "Des insectes dans les branches"
   },
   2976: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 9 = 0 ; Niv. 23 = 13.</small>",
@@ -738,6 +753,11 @@ var tips = {
     "mask": "Consultez notre guide %link%.<br /><small>RA : Niv. 25 = 17.</small>",
     "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-des-cauchemars.html",
     "link_title": "Cauchemars"
+  },
+  3232: {
+    "mask": "Consultez notre guide %link%.<br /><small>RA = 63.</small>",
+    "link_url": "%lbm%/expeditions/fractales-des-brumes/fractale-aveugleneige.html",
+    "link_title": "Aveugleneige"
   },
   3238: {
     "mask": "Consultez notre guide %link%.<br /><small>RA : 106.</small>",
