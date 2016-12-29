@@ -138,6 +138,8 @@ function loadPage(page) {
     loadPactAgents(); var refresh = setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'config') {
     loadConfig(); var refresh = 0;
+  } else if(page == 'timers') {
+    loadTimers(); var refresh = setInterval(function(){ loadPage(page); }, MINUTE_IN_MS*5);
   }
 
   setConfig('refresh', refresh);
@@ -407,6 +409,759 @@ function loadPactAgents() {
   $('#page .container').html(html);
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var cookieName = "LBM_WB_CHKBX";
+var cookieSeparator = '_';
+Number.prototype.pad = function(size) {
+      var s = String(this);
+      while (s.length < (size || 2)) {s = "0" + s;}
+      return s;
+    }
+
+function countdown(id) {
+
+	var currentDate = new Date();
+	var $event = $('#events #event-'+id);
+	var hours = $event.children('.start').html().split(':');
+	var eventDate = new Date();
+		eventDate.setHours(hours[0], hours[1], 0);
+
+	if (eventDate < currentDate) {
+		eventDate.setTime(eventDate.getTime() + (24*60*60*1000));
+	}
+
+	var hoursCD, minutesCD, secondsCD;
+	var secondsToEvent = (eventDate.getTime() - currentDate.getTime()) / 1000;
+	hoursCD = parseInt(secondsToEvent / 3600);
+	secondsToEvent = secondsToEvent % 3600;
+	minutesCD = parseInt(secondsToEvent / 60);
+	secondsCD = parseInt(secondsToEvent % 60);
+
+	$event.children('.countdown').html(hoursCD.pad() + ':' + minutesCD.pad() + ':' + secondsCD.pad());
+
+	if($event.hasClass('current')) {
+		$event.children('.countdown').html('en cours');
+	} else {
+		$event.children('.countdown').html(hoursCD.pad() + ':' + minutesCD.pad() + ':' + secondsCD.pad());
+	}
+
+	setTimeout(countdown, 1000, id);
+};
+
+function highlightRow(idPreviousRow){
+
+	var date = new Date();
+	var h = date.getHours();
+
+	var roundto5 = 1000 * 60 * 5;
+	var rounded = new Date(Math.round(date.getTime() / roundto5) * roundto5);
+	var m = rounded.getMinutes();
+
+	var id = h.pad() + "" + m.pad();
+	console.log('"'+id+'"');
+
+	if (idPreviousRow != null && idPreviousRow != id) {
+		$('#events .event[data-time="'+idPreviousRow+'"]').removeClass('current');
+	}
+	if (idPreviousRow == null || idPreviousRow != id) {
+
+		if($('#events .event[data-time="'+id+'"]').length) {
+			//console.log('condi-1');
+			$('#events .event[data-time="'+id+'"]').addClass('current');
+		}else if($('#events .event[data-time="'+(id-5)+'"]').length) {
+			//console.log('condi-2');
+			$('#events .event[data-time="'+(id-5)+'"]').addClass('current');
+			id = id-5;
+		}else if($('#events .event[data-time="'+(id-10)+'"]').length) {
+			//console.log('condi-3');
+			$('#events .event[data-time="'+(id-10)+'"]').addClass('current');
+			id = id-10;
+		}else if($('#events .event[data-time="'+(id-15)+'"]').length) {
+			//console.log('condi-4');
+			$('#events .event[data-time="'+(id-15)+'"]').addClass('current');
+			id = id-15;
+		}else if($('#events .event[data-time="'+(id+5)+'"]').length) {
+			//console.log('condi-5');
+			$('#events .event[data-time="'+(id+5)+'"]').addClass('current');
+			id = id+5;
+		}else if($('#events .event[data-time="'+(id+10)+'"]').length) {
+			//console.log('condi-6');
+			$('#events .event[data-time="'+(id+10)+'"]').addClass('current');
+			id = id+10;
+		}else if($('#events .event[data-time="'+(id+15)+'"]').length) {
+			//console.log('condi-7');
+			$('#events .event[data-time="'+(id+15)+'"]').addClass('current');
+			id = id+15;
+		}
+
+		var $predecessors = $('#events .event[data-time="'+id+'"]:first').prevAll().get().reverse();
+		$('#events').append($predecessors);
+
+	}
+
+	setTimeout('highlightRow("'+id+'");','1000');
+	return true;
+};
+
+function loadTimers() {
+
+
+
+
+  var list = [];
+
+var events = {
+	day: {
+		name: "<i class=\"fa fa-sun-o\" aria-hidden=\"true\"></i> Jour",
+    check: false,
+    background: "#BFEFFF",
+		phases: [
+			{ start: "01:30" },
+			{ start: "03:30" },
+			{ start: "05:30" },
+			{ start: "07:30" },
+			{ start: "09:30" },
+			{ start: "11:30" },
+			{ start: "13:30" },
+			{ start: "15:30" },
+			{ start: "17:30" },
+			{ start: "19:30" },
+			{ start: "21:30" },
+			{ start: "23:30" },
+		]
+	},
+	night: {
+		name: "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i> Nuit",
+    check: false,
+    background: "#1998B6",
+		phases: [
+			{ start: "00:45" },
+			{ start: "02:45" },
+			{ start: "04:45" },
+			{ start: "06:45" },
+			{ start: "08:45" },
+			{ start: "10:45" },
+			{ start: "12:45" },
+			{ start: "14:45" },
+			{ start: "16:45" },
+			{ start: "18:45" },
+			{ start: "20:45" },
+			{ start: "22:45" },
+		]
+	},
+	current_events: {
+		name: "Évènements actuels",
+    check: false,
+    background: "#718687",
+		phases: [
+			{ name: "Anomalie : Champs de Gandarran", start: "11:20", waypoint: "[&BOQAAAA=]", background: "#BE8746" },
+			{ name: "Anomalie : Chutes de la canopéen", start: "13:20", waypoint: "[&BEwCAAA=]", background: "#BE8746" },
+			{ name: "Moa et dévorreur", start: "11:35" },
+			{ name: "Moa et dévorreur", start: "14:00" },
+			{ name: "Moa et dévorreur", start: "14:15" },
+			{ name: "Moa et dévorreur", start: "14:30" },
+			{ name: "Arctodus et requin", start: "11:45" },
+			{ name: "Arctodus et requin", start: "14:45" },
+			{ name: "Arctodus et requin", start: "15:00" },
+			{ name: "Vouivre", start: "13:00" },
+			{ name: "Vouivre", start: "13:15" },
+			{ name: "Vouivre", start: "13:35" },
+			{ name: "Vouivre", start: "13:45" },
+		]
+	},
+	verdant_brink: {
+		name: "Orée d'émeraude",
+    check: false,
+    background: "#6DAC2F",
+		phases: [
+			{ name: "Canopée de nuit", start: "01:10" },
+			{ name: "Canopée de nuit", start: "03:10" },
+			{ name: "Canopée de nuit", start: "05:10" },
+			{ name: "Canopée de nuit", start: "07:10" },
+			{ name: "Canopée de nuit", start: "09:10" },
+			{ name: "Canopée de nuit", start: "11:10" },
+			{ name: "Canopée de nuit", start: "13:10" },
+			{ name: "Canopée de nuit", start: "15:10" },
+			{ name: "Canopée de nuit", start: "17:10" },
+			{ name: "Canopée de nuit", start: "19:10" },
+			{ name: "Canopée de nuit", start: "21:10" },
+			{ name: "Canopée de nuit", start: "23:10" },
+		]
+	},
+	auric_basin: {
+		name: "Bassin aurique",
+    check: false,
+		phases: [
+			{ name: "Pilliers", start: "00:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "02:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "04:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "06:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "08:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "10:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "12:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "14:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "16:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "18:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "20:30", background: "#FFE37F" },
+			{ name: "Pilliers", start: "22:30", background: "#FFE37F" },
+			{ name: "Défis", start: "01:45", background: "#FFD53D" },
+			{ name: "Défis", start: "03:45", background: "#FFD53D" },
+			{ name: "Défis", start: "05:45", background: "#FFD53D" },
+			{ name: "Défis", start: "07:45", background: "#FFD53D" },
+			{ name: "Défis", start: "09:45", background: "#FFD53D" },
+			{ name: "Défis", start: "11:45", background: "#FFD53D" },
+			{ name: "Défis", start: "13:45", background: "#FFD53D" },
+			{ name: "Défis", start: "15:45", background: "#FFD53D" },
+			{ name: "Défis", start: "17:45", background: "#FFD53D" },
+			{ name: "Défis", start: "19:45", background: "#FFD53D" },
+			{ name: "Défis", start: "21:45", background: "#FFD53D" },
+			{ name: "Défis", start: "23:45", background: "#FFD53D" },
+			{ name: "Octoliane", start: "02:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "04:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "06:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "08:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "10:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "12:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "14:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "16:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "18:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "20:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "22:00", background: "#EAB700" },
+			{ name: "Octoliane", start: "00:00", background: "#EAB700" },
+			{ name: "Pause", start: "00:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "02:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "04:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "06:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "08:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "10:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "12:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "14:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "16:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "18:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "20:20", background: "#FFF1C1" },
+			{ name: "Pause", start: "22:20", background: "#FFF1C1" },
+		]
+	},
+	tangled_depths: {
+		name: "Prof. verd.",
+    check: false,
+    background: "",
+		color: "red",
+		phases: [
+			{ name: "Préparation", start: "02:25", background: "#ffbdbd" },
+			{ name: "Préparation", start: "05:25", background: "#ffbdbd" },
+			{ name: "Préparation", start: "08:25", background: "#ffbdbd" },
+			{ name: "Préparation", start: "11:25", background: "#ffbdbd" },
+			{ name: "Préparation", start: "14:25", background: "#ffbdbd" },
+			{ name: "Préparation", start: "17:25", background: "#ffbdbd" },
+			{ name: "Préparation", start: "20:25", background: "#ffbdbd" },
+			{ name: "Préparation", start: "23:25", background: "#ffbdbd" },
+			{ name: "Régents Chaks", start: "02:30", background: "#ff9999" },
+			{ name: "Régents Chaks", start: "05:30", background: "#ff9999" },
+			{ name: "Régents Chaks", start: "08:30", background: "#ff9999" },
+			{ name: "Régents Chaks", start: "11:30", background: "#ff9999" },
+			{ name: "Régents Chaks", start: "14:30", background: "#ff9999" },
+			{ name: "Régents Chaks", start: "17:30", background: "#ff9999" },
+			{ name: "Régents Chaks", start: "20:30", background: "#ff9999" },
+			{ name: "Régents Chaks", start: "23:30", background: "#ff9999" },
+			{ name: "Aider les avants-postes", start: "02:50", background: "#FFD7D7" },
+			{ name: "Aider les avants-postes", start: "05:50", background: "#FFD7D7" },
+			{ name: "Aider les avants-postes", start: "08:50", background: "#FFD7D7" },
+			{ name: "Aider les avants-postes", start: "11:50", background: "#FFD7D7" },
+			{ name: "Aider les avants-postes", start: "14:50", background: "#FFD7D7" },
+			{ name: "Aider les avants-postes", start: "17:50", background: "#FFD7D7" },
+			{ name: "Aider les avants-postes", start: "20:50", background: "#FFD7D7" },
+			{ name: "Aider les avants-postes", start: "23:50", background: "#FFD7D7" },
+		]
+	},
+	dragons_stand: {
+		name: "Repli du dragon",
+    check: false,
+    background: "#9f99cc",
+		phases: [
+			{ name: "Début", start: "00:30" },
+			{ name: "Début", start: "02:30" },
+			{ name: "Début", start: "04:30" },
+			{ name: "Début", start: "06:30" },
+			{ name: "Début", start: "08:30" },
+			{ name: "Début", start: "10:30" },
+			{ name: "Début", start: "12:30" },
+			{ name: "Début", start: "14:30" },
+			{ name: "Début", start: "16:30" },
+			{ name: "Début", start: "18:30" },
+			{ name: "Début", start: "20:30" },
+			{ name: "Début", start: "22:30" },
+		]
+	},
+	dry_top: {
+		name: "Cimesèche",
+    check: false,
+    background: "",
+		phases: [
+			{ name: "Tempête", start: "00:40", background: "#DED98A" },
+      { name: "Tempête", start: "01:40", background: "#DED98A" },
+      { name: "Tempête", start: "02:40", background: "#DED98A" },
+      { name: "Tempête", start: "03:40", background: "#DED98A" },
+      { name: "Tempête", start: "04:40", background: "#DED98A" },
+			{ name: "Tempête", start: "05:40", background: "#DED98A" },
+			{ name: "Tempête", start: "06:40", background: "#DED98A" },
+			{ name: "Tempête", start: "07:40", background: "#DED98A" },
+			{ name: "Tempête", start: "08:40", background: "#DED98A" },
+			{ name: "Tempête", start: "09:40", background: "#DED98A" },
+			{ name: "Tempête", start: "10:40", background: "#DED98A" },
+			{ name: "Tempête", start: "11:40", background: "#DED98A" },
+			{ name: "Tempête", start: "12:40", background: "#DED98A" },
+			{ name: "Tempête", start: "13:40", background: "#DED98A" },
+			{ name: "Tempête", start: "14:40", background: "#DED98A" },
+			{ name: "Tempête", start: "15:40", background: "#DED98A" },
+			{ name: "Tempête", start: "16:40", background: "#DED98A" },
+			{ name: "Tempête", start: "17:40", background: "#DED98A" },
+			{ name: "Tempête", start: "18:40", background: "#DED98A" },
+			{ name: "Tempête", start: "19:40", background: "#DED98A" },
+			{ name: "Tempête", start: "20:40", background: "#DED98A" },
+			{ name: "Tempête", start: "21:40", background: "#DED98A" },
+			{ name: "Tempête", start: "22:40", background: "#DED98A" },
+			{ name: "Tempête", start: "23:40", background: "#DED98A" },
+			{ name: "Site de crash", start: "01:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "02:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "03:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "04:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "05:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "06:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "07:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "08:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "09:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "10:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "11:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "12:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "13:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "14:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "15:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "16:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "17:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "18:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "19:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "20:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "21:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "22:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "23:00", background: "#FCFADC" },
+			{ name: "Site de crash", start: "00:00", background: "#FCFADC" },
+		]
+	},
+	megadestroyer: {
+		name: "Mégadestructeur",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/le-megadestructeur.html",
+    background: "#B9D0D5",
+		waypoint: "[&BM0CAAA=]",
+    rewards: { rare: "1" },
+		phases: [
+			{ start: "01:30" },
+			{ start: "04:30" },
+			{ start: "07:30" },
+			{ start: "10:30" },
+			{ start: "13:30" },
+			{ start: "16:30" },
+			{ start: "19:30" },
+			{ start: "22:30" },
+		]
+	},
+	jungle_wurm: {
+		name: "Grande guivre de la jungle",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/guivre-de-la-jungle.html",
+    background: "#B9D0D5",
+		waypoint: "[&BEEFAAA=]",
+    rewards: { dragonite: "3-5", rare: "1" },
+		phases: [
+			{ start: "00:15" },
+			{ start: "02:15" },
+			{ start: "04:15" },
+			{ start: "06:15" },
+			{ start: "08:15" },
+			{ start: "10:15" },
+			{ start: "12:15" },
+			{ start: "14:15" },
+			{ start: "16:15" },
+			{ start: "20:15" },
+			{ start: "22:15" },
+		]
+	},
+	tequatl_the_sunless: {
+		name: "Tequatl le Sans-soleil",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/tequatl-le-sans-soleil.html",
+    background: "#EA568F",
+		waypoint: "[&BNABAAA=]",
+    rewards: { chest: "2", dragonite: "20", rare: "2" },
+		phases: [
+			{ start: "00:55" },
+			{ start: "03:55" },
+			{ start: "07:55" },
+			{ start: "12:25" },
+			{ start: "16:55" },
+		]
+	},
+	claw_of_jormag: {
+		name: "Griffe de Jormag",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/griffe-de-jormag.html",
+    background: "#B9D0D5",
+		waypoint: "[&BHoCAAA=]",
+    rewards: { chest: "2", dragonite: "15-25", rare: "1" },
+		phases: [
+			{ start: "00:30" },
+			{ start: "03:30" },
+			{ start: "06:30" },
+			{ start: "09:30" },
+			{ start: "12:30" },
+			{ start: "15:30" },
+			{ start: "18:30" },
+			{ start: "21:30" },
+		]
+	},
+	shadow_behemoth: {
+		name: "Béhémoth des ombres",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/behemoth-des-ombres.html",
+    background: "#B9D0D5",
+		waypoint: "[&BPwAAAA=]",
+    rewards: { dragonite: "3-5", rare: "1" },
+		phases: [
+			{ start: "00:45" },
+			{ start: "02:45" },
+			{ start: "04:45" },
+			{ start: "06:45" },
+			{ start: "08:45" },
+			{ start: "10:45" },
+			{ start: "12:45" },
+			{ start: "14:45" },
+			{ start: "16:45" },
+			{ start: "18:45" },
+			{ start: "20:45" },
+			{ start: "22:45" },
+		]
+	},
+	taidha_covington: {
+		name: "Taidha Covington",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/taidha-covington.html",
+    background: "#B9D0D5",
+		waypoint: "[&BKgBAAA=]",
+    rewards: { dragonite: "3-5", rare: "1" },
+		phases: [
+			{ start: "01:00" },
+			{ start: "04:00" },
+			{ start: "07:00" },
+			{ start: "10:00" },
+			{ start: "13:00" },
+			{ start: "16:00" },
+			{ start: "19:00" },
+			{ start: "22:00" },
+		]
+	},
+	frozen_maw: {
+		name: "Chamane de Svanir",
+    check: true,
+    background: "#B9D0D5",
+		waypoint: "[&BKgBAAA=]",
+    rewards: { dragonite: "3-5", rare: "1" },
+		phases: [
+			{ start: "01:15" },
+			{ start: "03:15" },
+			{ start: "05:15" },
+			{ start: "07:15" },
+			{ start: "09:15" },
+			{ start: "11:15" },
+			{ start: "13:15" },
+			{ start: "15:15" },
+			{ start: "17:15" },
+			{ start: "19:15" },
+			{ start: "21:15" },
+			{ start: "23:15" },
+		]
+	},
+	evolved_jungle_wurm: {
+		name: "Triple terreur",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/triple-terreur/",
+		waypoint: "[&BKoBAAA=]",
+    background: "#EA568F",
+    rewards: { chest: "2", dragonite: "40", rare: "2" },
+		phases: [
+			{ start: "01:55" },
+			{ start: "04:55" },
+			{ start: "08:55" },
+			{ start: "13:25" },
+			{ start: "17:55" },
+			{ start: "20:55" },
+		]
+	},
+	fire_elemental: {
+		name: "Élémentaire de feu",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/elementaire-de-feu-et-ogre-mecanique.html",
+    background: "#B9D0D5",
+		waypoint: "[&BEYAAAA=]",
+    rewards: { chest: "2", dragonite: "3-5", rare: "1" },
+		phases: [
+			{ start: "01:45" },
+			{ start: "03:45" },
+			{ start: "05:45" },
+			{ start: "07:45" },
+			{ start: "09:45" },
+			{ start: "11:45" },
+			{ start: "13:45" },
+			{ start: "15:45" },
+			{ start: "17:45" },
+			{ start: "19:45" },
+			{ start: "21:45" },
+			{ start: "23:45" },
+		]
+	},
+	the_shatterer: {
+		name: "Le Destructeur",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/le-destructeur.html",
+    background: "#B9D0D5",
+		waypoint: "[&BE4DAAA=]",
+    rewards: { dragonite: "15-25", rare: "1" },
+		phases: [
+			{ start: "02:00" },
+			{ start: "05:00" },
+			{ start: "08:00" },
+			{ start: "11:00" },
+			{ start: "14:00" },
+			{ start: "17:00" },
+			{ start: "20:00" },
+			{ start: "23:00" },
+		]
+	},
+	modniir_ulgoth: {
+		name: "Ulgoth le Modniir",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/ulgoth-le-modniir.html",
+    background: "#B9D0D5",
+		waypoint: "[&BLEAAAA=]",
+    rewards: { chest: "2", dragonite: "3-5", rare: "1" },
+		phases: [
+			{ start: "02:30" },
+			{ start: "05:30" },
+			{ start: "08:30" },
+			{ start: "11:30" },
+			{ start: "14:30" },
+			{ start: "17:30" },
+			{ start: "20:30" },
+			{ start: "23:30" },
+		]
+	},
+	golem_mark_ii: {
+		name: "Golem Marque II",
+    check: true,
+    guide: "%lbm%/expeditions/world-boss/golem-marque-ii.html",
+    background: "#B9D0D5",
+		waypoint: "[&BNQCAAA=]",
+    rewards: { chest: "2", dragonite: "15-25", rare: "1" },
+		phases: [
+			{ start: "00:00" },
+			{ start: "03:00" },
+			{ start: "06:00" },
+			{ start: "09:00" },
+			{ start: "12:00" },
+			{ start: "15:00" },
+			{ start: "18:00" },
+			{ start: "21:00" },
+		]
+	},
+	karka_queen: {
+		name: "Reine karka",
+    check: true,
+    background: "#EA568F",
+		waypoint: "[&BNcGAAA=]",
+    guide: "%lbm%/expeditions/world-boss/reine-karka.html",
+    rewards: { chest: "2", dragonite: "30", rare: "2" },
+		phases: [
+			{ start: "02:55" },
+			{ start: "06:55" },
+			{ start: "11:25" },
+			{ start: "15:55" },
+			{ start: "18:55" },
+			{ start: "23:55" },
+		]
+	},
+	/*demo: {
+		name: "Démo",
+    check: true,
+		icon: "",
+		background: "",
+		color: "",
+		rewards: [],
+		waypoint: "",
+		phases: [
+			{ name: "", start: "01:30", color: "" },
+			{ name: "", start: "04:30", color: "" },
+		]
+	},*/
+};
+
+var data = '';
+var source = $("#timers-tpl").html();
+var template = Handlebars.compile(source);
+var html = template(data, {data: {intl: intlData}});
+$('#page .container').html(html);
+
+
+
+  $.each(events, function(key, event){
+
+  	$.each(event.phases, function(i, phase) {
+
+  		var name = (typeof phase.name !== 'undefined') ? '['+event.name+'] '+ phase.name : event.name,
+  			icon = (typeof phase.icon !== 'undefined') ? phase.icon : event.icon,
+  			background = (typeof phase.background !== 'undefined') ? phase.background : event.background,
+  			color = (typeof phase.color !== 'undefined') ? phase.color : event.color,
+  			rewards = event.rewards,
+  			waypoint = (typeof phase.waypoint !== 'undefined') ? phase.waypoint : event.waypoint,
+  			start = phase.start,
+        check = (typeof event.check !== 'undefined') ? event.check : false,
+        guide = (typeof event.guide !== 'undefined') ? '<a href="'+event.guide.replace('%lbm%', 'http://lebusmagique.fr/pages')+'" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i> Guide</a>' : '',
+        background = (typeof phase.background !== 'undefined') ? ' style="background-color:'+phase.background+';" ' : ((typeof event.background !== 'undefined') ? ' style="background-color:'+event.background+';" ' : '');
+
+  		if(typeof name !== 'undefined' && typeof start !== 'undefined') {
+  			list.push( { id: key, name: name, background: background, color: color, rewards: rewards, waypoint: waypoint, start: start, check: check, guide: guide, background: background } );
+  		}
+
+  	});
+
+  });
+
+  list = list.sort(function (a, b) {
+      return a.start.localeCompare( b.start );
+  });
+
+  $.each(list, function(key, event) {
+  	//console.log(event);
+    // console.log(event.rewards);
+    var rewards = '';
+    if(typeof event.rewards !== 'undefined') {
+      var rewards = [];
+      $.each(event.rewards, function(reward, count) {
+        rewards.push('<span class="reward '+reward+'">'+count+'</span>');
+      });
+
+      rewards = rewards.join('');
+    }
+
+  	$('#events').append('<div class="event '+event.id+'" data-id="'+event.id+'" data-time="'+event.start.replace(':', '')+'" id="event-'+key+'"'+event.background+'><span class="countdown"></span><span class="start">'+event.start+'</span><span class="name">'+ ((event.check) ? '<a href="#">' : '') + event.name + ((event.check) ? '</a>' : '') +'</span><span class="rewards">'+rewards+'</span><span class="guide">'+event.guide+'</span><span class="waypoint">'+((typeof event.waypoint !== 'undefined') ? '<button onclick="copyToClipboard(\''+event.waypoint+'\');">Point de passage</button>' : '') +'</span></div>');
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+  highlightRow();
+  for (var i = 0; i < list.length; i++){
+		countdown(i);
+	}
+  // $.getJSON(lbm_api_url+'/?data=news', function(data) {
+
+  // });
+};
+
+$(document).on('click','.event .name a', function(e){
+    e.preventDefault();
+    var id = $(this).parent().parent().data('id');
+    if($('.event[data-id="'+id+'"]').hasClass('checked')) {
+      $('.event[data-id="'+id+'"]').removeClass('checked');
+    } else {
+      $('.event[data-id="'+id+'"]').addClass('checked');
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function loadConfig() {
 

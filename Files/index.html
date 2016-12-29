@@ -30,6 +30,7 @@
 						<li><a href="#" class="last-news" data-page="last-news"></a></li>
 						<li><a href="#" class="last-pages" data-page="last-pages"></a></li>
 						<li><a href="#" class="pact-agents" data-page="pact-agents"></a></li>
+						<li><a href="#" class="timers" data-page="timers"></a></li>
 					</ul>
 				</li>
 				<li><a href="#" class="daily">Quoti.</a>
@@ -169,6 +170,11 @@
 					<dd><button onclick="copyToClipboard('{{name}} : {{chat_code}}')"><i class="fa fa-clipboard" aria-hidden="true"></i> {{waypoint}}</button></dd>
 				</dl>
 				{{/each}}
+			</script>
+
+			<script id="timers-tpl" type="text/x-handlebars-template">
+				<h2>Timers World boss & HoT</h2>
+				<div id="events"></div>
 			</script>
 
 			<script id="config-tpl" type="text/x-handlebars-template">
