@@ -75,6 +75,12 @@ var tips = {
     "link_url": "%yt%/DKHDVj2PSf8",
     "link_title": "Grottes du spéléologue"
   },
+  1899: {
+    "mask": "Rendez-vous à l'est du Point de Passage des champs de Cornabonde %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
+    "btn": "[&BOMAAAA=]",
+    "link_url": "%yt%/_156QqM3L9U",
+    "link_title": "La Crique du bretteur"
+  },
   1902: {
     "mask": "Rendez-vous à l'est du Point de Passage de Fablegriffe %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
     "btn": "[&BMcDAAA=]",
@@ -208,6 +214,11 @@ var tips = {
     "link_url": "%lbm%/mises-a-jour-passees/les-contrees-sauvages-d-argent/les-contrees-sauvages-d-argent-guide.html",
     "link_title": "Contrées sauvages d'Argent"
   },
+  1960: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Hinterlands harathis",
+    "link_url": "%wiki%/Hinterlands_harathis#.C3.89v.C3.A8nements"
+  },
   1961: {
     "mask": "Wiki : %link%.",
     "link_title": "Saut de Malchor",
@@ -222,6 +233,11 @@ var tips = {
     "mask": "Wiki : %link%.",
     "link_title": "Plaines d'Ashford",
     "link_url" : "%wiki%/Plaines_d'Ashford#.C3.89v.C3.A8nements"
+  },
+  1968: {
+    "mask": "Récoltez dans votre instance personnelle à la Loge du chasseur (Norn). Consultez notre %link%.",
+    "link_title": "guide de l'instance personnelle",
+    "link_url": "%lbm%/les-guides-du-passager/farm/l-instance-personnelle.html"
   },
   1969: {
     "mask": "Récoltez la veine de fer riche juste au dessous du Point de passage des Champs de la potence %btn% ou dans votre instance personnelle à la Terrasse du Rêveur (Sylvari) ou au Labo de développement appliqué (Asura).<br />Consultez notre %link%.",
