@@ -20,8 +20,9 @@
 
 ## Changelog
 
-### v0.1-alpha.59
+### v0.1-alpha.60
 
+* Simplification de l'info sur la RA des fractales
 * Raccourcir la liste des fractales quotidiennes
 * Correction d'un bug sur le suivi des quoti après un reset
 * Ajout des quantités dans la description des succès

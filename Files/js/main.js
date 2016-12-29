@@ -486,7 +486,7 @@ function achievements_done() {
 
 (function($){
   $(window).on("load",function(){
-    add_class_has_scrollbar();
+    //add_class_has_scrollbar();
     setOpacity();
 
     var current_menu = getConfig('menu');
