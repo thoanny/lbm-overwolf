@@ -20,8 +20,9 @@
 
 ## Changelog
 
-### v0.1-alpha.62
+### v0.1-alpha.63
 
+* Ajout de conseils pour les succès du 31/12/16
 * Propotype des timers
 
 ### v0.1-alpha.61
