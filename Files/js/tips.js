@@ -809,4 +809,29 @@ var tips = {
     "link_title": "Chaos des neiges",
     "link_url": "%lbm%/mises-a-jour-passees/hivernel-2014/activite-chaos-des-neiges.html"
   },
+  craft67015: {
+    "mask": "%link%",
+    "link_title": "Objet de dos : Mawdrey et Mawdrey II",
+    "link_url": "%lbm%/mises-a-jour-passees/col-aride/objet-de-dos-maudrey-et-maudrey-ii.html"
+  },
+  craft66923: {
+    "mask": "%link%",
+    "link_title": "Objet de dos : Mawdrey et Mawdrey II",
+    "link_url": "%lbm%/mises-a-jour-passees/col-aride/objet-de-dos-maudrey-et-maudrey-ii.html"
+  },
+  craft66917: {
+    "mask": "%link%",
+    "link_title": "Objet de dos : Mawdrey et Mawdrey II",
+    "link_url": "%lbm%/mises-a-jour-passees/col-aride/objet-de-dos-maudrey-et-maudrey-ii.html"
+  },
+  craft66993: {
+    "mask": "%link%",
+    "link_title": "Objet de dos : Mawdrey et Mawdrey II",
+    "link_url": "%lbm%/mises-a-jour-passees/col-aride/objet-de-dos-maudrey-et-maudrey-ii.html"
+  },
+  craft66913: {
+    "mask": "%link%",
+    "link_title": "Objet de dos : Mawdrey et Mawdrey II",
+    "link_url": "%lbm%/mises-a-jour-passees/col-aride/objet-de-dos-maudrey-et-maudrey-ii.html"
+  },
 };

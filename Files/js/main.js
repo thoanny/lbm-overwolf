@@ -134,6 +134,8 @@ function loadPage(page) {
     loadAchievementsCategory(149, 'frontier'); var refresh = setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'daily-fractals') {
     loadAchievementsCategory(88, 'fractals'); var refresh = setInterval(function(){ loadPage(page); }, d3);
+  } else if(page == 'daily-crafts') {
+    loadDailyCrafts(); var refresh = setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'pact-agents') {
     loadPactAgents(); var refresh = setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'config') {
@@ -336,6 +338,137 @@ function loadAchievementsCategory(catid, catname) {
 
   });
 
+};
+
+function loadDailyCrafts() {
+  var crafts = [67015, 46745, 46740, 46742, 46744, 67377, 66923, 66917, 66993, 66913];
+  var data = {craft: [], src: []};
+
+  $.getJSON(gw2_api_url+'/items?lang=fr&ids='+crafts.join(), function(d) {
+    // console.log(d);
+    data['src'] = d;
+    var tip = null;
+    $.each(d, function(k, item) {
+      if(tips['craft'+item.id]) {
+        var mask = tips['craft'+item.id].mask,
+            btn = tips['craft'+item.id].btn;
+        if(typeof(tips['craft'+item.id].link_url) !== 'undefined') {
+          var link_url = tips['craft'+item.id].link_url.replace('%lbm%', 'http://www.lebusmagique.fr/pages').replace('%yt%', 'https://youtu.be').replace('%wiki%', 'https://wiki-fr.guildwars2.com/wiki');
+        }
+        var link_title = tips['craft'+item.id].link_title,
+        tip = mask.replace("%btn%", "<button onclick=\"copyToClipboard('"+btn+"')\"><i class=\"fa fa-clipboard\" aria-hidden=\"true\"></i> "+btn+"</button>").replace("%link%", "<a href=\""+link_url+"\" target=\"_blank\">"+link_title+"</a>");
+      }
+      data['craft'][k] = {id: 'craft'+item.id, name: item.name, description: item.description, icon: item.icon, rarity: item.rarity, tip: tip};
+    });
+
+    console.log(data);
+
+    // var data = {craft: data};
+
+    var source   = $("#daily-crafts-tpl").html();
+    var template = Handlebars.compile(source);
+    var html    = template(data);
+    $('#page .container').html(html);
+    achievements_done();
+  });
+
+  // $.getJSON(gw2_api_url+'/achievements/daily', function(data) {
+  //
+  //   var list = [];
+  //   var names = [],
+  //       requirements = [],
+  //       icons = [],
+  //       achievements = [],
+  //       tiers = [];
+  //
+  //   $.each(data, function(i, j) {
+  //     $.each(j, function(k, l) {
+  //       list.push(l.id);
+  //     });
+  //   });
+  //
+  //   var ids = list.join(',');
+  //   var high_level = getConfig('high_level');
+  //   var account_access = getConfig('account_access');
+  //
+  //   $.getJSON(gw2_api_url+'/achievements?lang=fr&ids='+ids, function(d) {
+  //     $.each(d, function(m, n) {
+  //         names[n.id] = n.name;
+  //         requirements[n.id] = n.requirement;
+  //         icons[n.id] = n.icon;
+  //         tiers[n.id] = n.tiers;
+  //     });
+  //
+  //     $.each(data, function(i, j) {
+  //       $.each(j, function(k, l) {
+  //         var id = data[i][k]['id'];
+  //         data[i][k]['name'] = names[id];
+  //         data[i][k]['icon'] = icons[id];
+  //         data[i][k]['requirement'] = requirements[id];
+  //         var quantity = requirements[id].match(/\s\s+/ig);
+  //         if(quantity) {
+  //           $.each(quantity, function(qk, qv) {
+  //             data[i][k]['requirement'] = data[i][k]['requirement'].replace(/\s\s+/, ' ' + tiers[id][qk]['count'] + ' ');
+  //           });
+  //
+  //         }
+  //         data[i][k]['tip'] = tips[id];
+          // if(tips[id]) {
+          //   var mask = tips[id].mask,
+          //       btn = tips[id].btn;
+          //   if(typeof(tips[id].link_url) !== 'undefined') {
+          //     var link_url = tips[id].link_url.replace('%lbm%', 'http://www.lebusmagique.fr/pages').replace('%yt%', 'https://youtu.be').replace('%wiki%', 'https://wiki-fr.guildwars2.com/wiki');
+          //   }
+          //       var link_title = tips[id].link_title,
+          //       tip = mask.replace("%btn%", "<button onclick=\"copyToClipboard('"+btn+"')\"><i class=\"fa fa-clipboard\" aria-hidden=\"true\"></i> "+btn+"</button>").replace("%link%", "<a href=\""+link_url+"\" target=\"_blank\">"+link_title+"</a>");
+          //
+          //   data[i][k]['tip'] = tip;
+          // }
+  //
+  //         if(high_level) {
+  //           if(high_level >= data[i][k].level.min && high_level <= data[i][k].level.max) {
+  //             data[i][k]['display_level'] = 'level-show';
+  //           } else {
+  //             data[i][k]['display_level'] = 'level-hide';
+  //           }
+  //         }
+  //
+  //         if(account_access) {
+  //           var required_access = data[i][k].required_access;
+  //
+  //           if(required_access.indexOf(account_access) >= 0) {
+  //             data[i][k]['display_access'] = 'access-show';
+  //           } else {
+  //             data[i][k]['display_access'] = 'access-hide';
+  //           }
+  //         }
+  //
+  //       });
+  //     });
+  //
+  //     achievements['achievements'] = data[type];
+  //
+  //
+  //     if(type == 'pve') {
+  //       achievements['title'] = 'Succès JcE quotidien';
+  //     } else if(type == 'pvp') {
+  //       achievements['title'] = 'Succès JcJ quotidien';
+  //     } else if(type == 'wvw') {
+  //       achievements['title'] = 'Succès McM quotidien';
+  //     } else if(type == 'special') {
+  //       achievements['title'] = 'Succès spéciaux quotidien';
+  //     }
+  //
+      // var source   = $("#daily-tpl").html();
+      // var template = Handlebars.compile(source);
+      // var html    = template(achievements);
+      // $('#page .container').html(html);
+  //
+  //     achievements_done();
+  //
+  //   });
+  //
+  // });
 };
 
 function loadPactAgents() {
