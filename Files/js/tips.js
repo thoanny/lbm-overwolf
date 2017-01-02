@@ -13,6 +13,11 @@ var tips = {
     "mask": "Rendez-vous au Point de passage de la Garnison %btn% et montez les escaliers derrière le Soldat séraphin Diedra (c&oelig;ur).",
     "btn": "[&BPEAAAA=]"
   },
+  1873: {
+    "mask": "Voir la vidéo de la SaDo Expedition : %link%.",
+    "link_url": "%yt%/-zLmICXySRA",
+    "link_title": "Cours d'eau oublié"
+  },
   1874: {
     "mask": "Rendez-vous au nord du Point de Passage du Ravin %btn%.<br />Voir la vidéo de la Sado Expedition : %link%.",
     "btn": "[&BLoDAAA=]",
@@ -44,6 +49,11 @@ var tips = {
     "mask": "Voir la vidéo de la SaDo Expedition : %link%.",
     "link_url": "%yt%/nho2rqGVtt8",
     "link_title": "Pas touche au brillant"
+  },
+  1882: {
+    "mask": "Voir la vidéo de la SaDo Expedition : %link%.",
+    "link_url": "%yt%/slUwJYhn7TI",
+    "link_title": "Voisinage malsain"
   },
   1885: {
     "mask": "Rendez-vous au nord du Point de Passage de Terra Carorunda %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
@@ -169,6 +179,11 @@ var tips = {
     "link_title": "Détroit de la dévastation",
     "link_url" : "%wiki%/Détroit_de_la_dévastation#.C3.89v.C3.A8nements"
   },
+  1944: {
+    "mask": "Wiki : %link%.",
+    "link_title": "Détroit des gorges glacées",
+    "link_url" : "%wiki%/Détroit_des_gorges_glacées#.C3.89v.C3.A8nements"
+  },
   1946: {
     "mask": "Wiki : %link%.",
     "link_title": "Les Steppes de la strie flamboyante",
@@ -270,6 +285,10 @@ var tips = {
     "link_title": "instance personnelle",
     "link_url": "%lbm%/les-guides-du-passager/farm/l-instance-personnelle.html",
     "btn": "[&BPoAAAA=]"
+  },
+  1976: {
+    "mask": "Traversez le pont à l'ouest du Point de Passage du rétif %btn%, en direction de plusieurs pousses de cyprès rassemblées autour de la statue de Melandru.",
+    "btn": "[&BPgCAAA=]"
   },
   1980: {
     "mask": "À partir du Point de passage du pont des lianes %btn%, rendez-vous au nord, dans un petit champ de carottes et de laitues.",

@@ -20,6 +20,14 @@
 
 ## Changelog
 
+### v0.1-alpha.66
+
+* Suppression de conseils obsolètes
+* Prototype v2 de fabrications quotidiennes
+* Prototype de fabrications quotidiennes
+* Ajout de conseils pour les succès du 31/12/16
+* Propotype des timers
+
 ### v0.1-alpha.61
 
 * Ajout de conseils pour les succès du 29/12/16

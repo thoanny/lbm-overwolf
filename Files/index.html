@@ -30,6 +30,8 @@
 						<li><a href="#" class="last-news" data-page="last-news"></a></li>
 						<li><a href="#" class="last-pages" data-page="last-pages"></a></li>
 						<li><a href="#" class="pact-agents" data-page="pact-agents"></a></li>
+						<li><a href="#" class="timers" data-page="timers"></a></li>
+						<li><a href="#" class="daily-crafts" data-page="daily-crafts"></a></li>
 					</ul>
 				</li>
 				<li><a href="#" class="daily">Quoti.</a>
@@ -158,6 +160,28 @@
 				{{/each}}
 			</script>
 
+			<script id="daily-crafts-tpl" type="text/x-handlebars-template">
+				<h2>Fabrications quotidiennes</h2>
+				{{#each recipes}}
+					<dl class="achievement achievement-{{id}} craft" data-id="{{id}}" style="background-image:url('{{icon}}');">
+						<dt>
+							<strong>({{id}}) {{name}}</strong>
+						</dt>
+						<dd>
+							{{description}}<br />
+							<a href="https://gw2efficiency.com/crafting/calculator/{{output_item_id}}" target="_blank">Voir sur GW2Efficiency</a>
+							{{#if ingredients}}
+							<ul class="ingredients">
+								{{#each ingredients}}
+									<li><img src="{{icon}}" /> {{name}} &times; {{count}}</li>
+								{{/each}}
+							</ul>
+							{{/if}}
+						</dd>
+					</dl>
+				{{/each}}
+			</script>
+
 			<script id="pact-agents-tpl" type="text/x-handlebars-template">
 				<h2>Agents du Pacte</h2>
 				<p>Pour plus d'informations sur le reseau des agents du Pacte, rendez-vous sur <a href="http://www.lebusmagique.fr/pages/gw2-hearth-of-thorns/maitrises/le-reseau-des-agents-du-pacte.html" target="_blank">notre guide</a>.</p>
@@ -169,6 +193,11 @@
 					<dd><button onclick="copyToClipboard('{{name}} : {{chat_code}}')"><i class="fa fa-clipboard" aria-hidden="true"></i> {{waypoint}}</button></dd>
 				</dl>
 				{{/each}}
+			</script>
+
+			<script id="timers-tpl" type="text/x-handlebars-template">
+				<h2>Timers World boss & HoT</h2>
+				<div id="events"></div>
 			</script>
 
 			<script id="config-tpl" type="text/x-handlebars-template">
