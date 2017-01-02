@@ -111,6 +111,14 @@ dl {
         background-size: 16px 16px;
         min-height: 16px;
         padding-left: 26px; }
+      dl.achievement.craft .ingredients {
+        list-style: none;
+        padding: 0;
+        margin: 0; }
+        dl.achievement.craft .ingredients img {
+          width: 15px;
+          height: 15px;
+          vertical-align: middle; }
 
 dd {
   margin-left: 15px; }

@@ -20,8 +20,9 @@
 
 ## Changelog
 
-### v0.1-alpha.64
+### v0.1-alpha.65
 
+* Prototype v2 de fabrications quotidiennes
 * Prototype de fabrications quotidiennes
 * Ajout de conseils pour les succès du 31/12/16
 * Propotype des timers

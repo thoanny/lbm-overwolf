@@ -162,13 +162,21 @@
 
 			<script id="daily-crafts-tpl" type="text/x-handlebars-template">
 				<h2>Fabrications quotidiennes</h2>
-				{{#each craft}}
+				{{#each recipes}}
 					<dl class="achievement achievement-{{id}} craft" data-id="{{id}}" style="background-image:url('{{icon}}');">
 						<dt>
 							<strong>({{id}}) {{name}}</strong>
 						</dt>
 						<dd>
-							{{#if tip}}<i class="fa fa-info-circle" aria-hidden="true"></i> {{{tip}}}{{else}}{{requirement}}{{/if}}
+							{{description}}<br />
+							<a href="https://gw2efficiency.com/crafting/calculator/{{output_item_id}}" target="_blank">Voir sur GW2Efficiency</a>
+							{{#if ingredients}}
+							<ul class="ingredients">
+								{{#each ingredients}}
+									<li><img src="{{icon}}" /> {{name}} &times; {{count}}</li>
+								{{/each}}
+							</ul>
+							{{/if}}
 						</dd>
 					</dl>
 				{{/each}}
