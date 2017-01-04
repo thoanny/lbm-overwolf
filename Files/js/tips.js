@@ -115,6 +115,12 @@ var tips = {
     "link_url": "%yt%/GmtJuw62GWs",
     "link_title": "Rêverie cauchemardesque"
   },
+  1914: {
+    "mask": "Rendez-vous à l'est du Point de Passage de la Bréche du mur %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
+    "btn": "[&BGEBAAA=]",
+    "link_url": "%yt%/l5xfSLAfvxc",
+    "link_title": "Plateau cramoisi"
+  },
   1919: {
     "mask": "Rendez-vous à l'ouest en direction du panorama, à partir du Point de Passage du Rocher de l'épave %btn%.<br />Voir la vidéo de la SaDo Expedition : %link%.",
     "btn": "[&BOQGAAA=]",

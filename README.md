@@ -20,8 +20,9 @@
 
 ## Changelog
 
-### v0.1-alpha.66
+### v0.1-alpha.67
 
+* Ajout de conseils pour les succès du 04/01/16
 * Suppression de conseils obsolètes
 * Prototype v2 de fabrications quotidiennes
 * Prototype de fabrications quotidiennes
