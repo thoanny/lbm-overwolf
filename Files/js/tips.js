@@ -9,6 +9,10 @@ var tips = {
     "link_title": "pays des merveilles d'Hivernel",
     "link_url": "%lbm%/mises-a-jour-passees/hivernel-2014/puzzle-de-saut-pays-des-merveilles-d-hiver.html"
   },
+  1838: {
+    "mask": "Récoltez des pommes de terre au sud du Point de passage de Fablegriffe %btn%",
+    "btn": "[&BMcDAAA=]"
+  },
   1839: {
     "mask": "Rendez-vous au Point de passage de la Garnison %btn% et montez les escaliers derrière le Soldat séraphin Diedra (c&oelig;ur).",
     "btn": "[&BPEAAAA=]"
@@ -583,6 +587,11 @@ var tips = {
   },
   2944: {
     "mask": "RA : Niv. 58 = 75."
+  },
+  2945: {
+    "mask": "Wiki : %link%",
+    "link_url": "/Orée_d'émeraude#.C3.89v.C3.A8nements_et_m.C3.A9caniques_de_la_zone",
+    "link_title": "Orée d'émeraude"
   },
   2947: {
     "mask": "RA : Niv. 81 = 116 ; 95 = 141."
