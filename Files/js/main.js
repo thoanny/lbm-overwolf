@@ -107,6 +107,7 @@ function loadPage(page) {
   }
 
   $('#page .container').html('<i class="fa fa-spinner fa-pulse fa-fw"></i> Chargement en cours...');
+  console.log(page);
 
   if(page == 'guild-motd') {
     loadMotd(); var refresh = setInterval(function(){ loadPage(page); }, MINUTE_IN_MS*5);
@@ -140,6 +141,8 @@ function loadPage(page) {
     loadPactAgents(); var refresh = setInterval(function(){ loadPage(page); }, d3);
   } else if(page == 'config') {
     loadConfig(); var refresh = 0;
+  } else if(page == 'builds') {
+    loadBuilds(); var refresh = 0;
   } else if(page == 'timers') {
     loadTimers(); var refresh = setInterval(function(){ loadPage(page); }, MINUTE_IN_MS*5);
   }
@@ -1227,6 +1230,83 @@ function loadConfig() {
   if(config_opacity) {
     $('input[value="'+config_opacity+'"]').attr("checked", "checked");
   }
+
+};
+
+function loadBuilds() {
+
+  // Vérifier si l'API key existe
+  // Si non, afficher un message d'erreur
+  // Si oui, continuer :
+  // Charger la liste des personnages
+
+  // $.getJSON(lbm_api_url+'/?data=events', function(data) {
+    var data = [];
+    var source = $("#builds-tpl").html();
+    var template = Handlebars.compile(source);
+    var html = template(data, {data: {intl: intlData}});
+    $('#page .container').html(html);
+  // });
+
+  var api_key = getConfig('api_key');
+
+  if(api_key) {
+    $.getJSON(gw2_api_url+'/characters?access_token='+api_key, function(data) {
+      $.each(data, function(i, char) {
+        $('#buildsimporter #characters').append('<label><input type="radio" value="'+char.replace(' ', '%20')+'" name="character" '+( (i==0) ? 'checked="checked"' : '' )+' /> '+char+'</label>');
+      });
+    });
+  } else {
+    $('#buildsimporter #characters').append('<label style="color:red;">Merci de renseigner une clé API valide.</label>');
+    $('#buildsimporter button').attr('disabled', 'disabled');
+  }
+
+  var builds = getConfig('builds');
+  if(builds) {
+    builds = JSON.parse(builds);
+    $.each(builds, function(k, data){
+      console.log(data);
+      $('#builds').append('<div class="build build-'+k+'">'+data.character+'<ul class="skills"></ul><ul class="specializations"></ul><ul class="equipment"></ul></div>');
+
+      $.each(data.skills, function(ksk, skill){
+        $('#builds .build.build-'+k+' .skills').append('<li><img src="'+skill.icon+'" title="'+skill.name+'" /></li>');
+      });
+
+      $.each(data.specializations, function(ksp, spec){
+        $('#builds .build.build-'+k+' .specializations').append('<li class="spec spec-'+ksp+'"><img src="'+spec.icon+'" title="'+spec.name+'" /><ul></ul></li>');
+
+        $.each(spec.traits, function(kt, trait){
+          $('#builds .build.build-'+k+' .specializations li.spec-'+ksp+' > ul').append('<li class="spec sp-'+kt+'"><img src="'+trait.icon+'" title="'+trait.name+'" /></li>');
+        });
+      });
+
+      $.each(data.equipment, function(ke, eq){
+        $('#builds .build.build-'+k+' .equipment').append('<li><img src="'+eq.icon+'" title="'+eq.name+'" /></li>');
+      });
+
+    });
+    // console.log(builds);
+  }
+
+  $(document).on("submit", "form#buildsimporter", function(){
+    var character = $('#buildsimporter #characters input:checked'),
+        type = $('#buildsimporter #types input:checked');
+
+        $.post( "http://tests.dev/overwolf/?data=builds", { api_key: api_key, character: character.val(), type: type.val() }, function( data ) {
+          console.log('importé!');
+          // console.log(data);
+          // console.log(JSON.stringify(data));
+          var builds = getConfig('builds');
+          if(builds) {
+            setConfig('builds', builds.substring(0, builds.length - 1) + ','+JSON.stringify(data)+']');
+          } else {
+            setConfig('builds', '['+JSON.stringify(data)+']');
+          }
+
+        });
+
+    return false;
+  });
 
 };
 

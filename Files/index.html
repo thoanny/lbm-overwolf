@@ -32,6 +32,7 @@
 						<li><a href="#" class="pact-agents" data-page="pact-agents"></a></li>
 						<li><a href="#" class="timers" data-page="timers"></a></li>
 						<li><a href="#" class="daily-crafts" data-page="daily-crafts"></a></li>
+						<li><a href="#" class="builds" data-page="builds"></a></li>
 					</ul>
 				</li>
 				<li><a href="#" class="daily">Quoti.</a>
@@ -198,6 +199,112 @@
 			<script id="timers-tpl" type="text/x-handlebars-template">
 				<h2>Timers World boss & HoT</h2>
 				<div id="events"></div>
+			</script>
+
+			<script id="builds-tpl" type="text/x-handlebars-template">
+				<style>
+					.build .skills, .build .specializations, .build .equipment {
+						display:block;
+						padding: 0;
+						margin: 0;
+						list-style: none;
+					}
+					.build .skills > li {
+						display: inline-block;;
+					}
+					.build .specializations > li {
+						display: inline-block;
+					}
+					.build .specializations > li ul {
+						display:inline-block;
+						margin: 0;
+						padding: 0;
+					}
+					.build .specializations > li li {
+						display: inline-block;
+					}
+					.build .equipment > li {
+						display: inline-block;
+					}
+				</style>
+				<h2>Builds</h2>
+				<form id="buildsimporter">
+					<div id="characters">
+						<label><strong>Personnage :</strong></label>
+					</div>
+					<div id="types">
+						<label><strong>Type :</strong></label>
+						<label><input type="radio" name="type" value="pve" checked="checked">JcE</label>
+						<label><input type="radio" name="type" value="pvp">JcJ</label>
+						<label><input type="radio" name="type" value="wvw">McM</label>
+					</div>
+					<button type="submit">Importer</button>
+				</form>
+
+				<div id="builds">
+
+					<!-- <div class="build">
+						<ul class="set-weapon-1">
+							<li>Spell 1</li>
+							<li>Spell 2</li>
+							<li>Spell 3</li>
+							<li>Spell 4</li>
+							<li>Spell 5</li>
+						</ul>
+						<ul class="set-weapon-2">
+							<li>Spell 1</li>
+							<li>Spell 2</li>
+							<li>Spell 3</li>
+							<li>Spell 4</li>
+							<li>Spell 5</li>
+						</ul>
+						<ul class="skills">
+							<li class="skill heal">Spell 1</li>
+							<li class="skill utility">Spell 2</li>
+							<li class="skill utility">Spell 3</li>
+							<li class="skill utility">Spell 4</li>
+							<li class="skill elite">Spell 5</li>
+						</ul>
+						<ul class="specialization-1">
+							<li><strong>Name 1</strong></li>
+							<li>Spe 1</li>
+							<li>Spe 2</li>
+							<li>Spe 3</li>
+						</ul>
+						<ul class="specialization-2">
+							<li><strong>Name 2</strong></li>
+							<li>Spe 1</li>
+							<li>Spe 2</li>
+							<li>Spe 3</li>
+						</ul>
+						<ul class="specialization-3">
+							<li><strong>Name 3</strong></li>
+							<li>Spe 1</li>
+							<li>Spe 2</li>
+							<li>Spe 3</li>
+						</ul>
+						<ul class="equipement">
+							<li>Tête</li>
+							<li>Epaules</li>
+							<li>Torse</li>
+							<li>Mains</li>
+							<li>Jambes</li>
+							<li>Pieds</li>
+							<li>Amulette</li>
+							<li>Anneau 1</li>
+							<li>Anneau 2</li>
+							<li>Boucle d'oreille 1</li>
+							<li>Boucle d'oreille 2</li>
+							<li>Dos</li>
+							<li>Set armes 1 (1 à 2 armes)</li>
+							<li>Set armes 2 (1 à 2 armes)</li>
+							<li>Respirateur</li>
+							<li>Set armes 3 (eau)</li>
+							<li>Set armes 4 (eau)</li>
+						</ul>
+					</div> -->
+
+				</div>
 			</script>
 
 			<script id="config-tpl" type="text/x-handlebars-template">
